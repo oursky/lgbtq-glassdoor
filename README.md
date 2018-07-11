@@ -29,3 +29,7 @@ form view
 User
 Company
 Tag
+
+## CMS
+
+https://lgbtq.skygeario.com/cms

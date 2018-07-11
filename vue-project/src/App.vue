@@ -2,9 +2,9 @@
 
 <template>
   <div class="fill-container">
-  <b-navbar toggleable="sm" type="light" variant="faded">
+  <b-navbar toggleable="sm" type="light" variant="faded" class="nav-bar">
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-    <b-navbar-brand href="#">LGBTQ Glassdoor</b-navbar-brand>
+    <b-navbar-brand href="#" class="brand">LGBTQ Glassdoor</b-navbar-brand>
     <b-collapse is-nav id="nav_collapse">
 <!--
       <b-navbar-nav>
@@ -25,7 +25,7 @@
 
     </b-collapse>
   </b-navbar>
-  <landing-page />
+  <router-view></router-view>
   <footer-section />
   <!-- navbar-1.vue -->
 <!--     <b-progress v-show="asyncState" :value="100" variant="secondary" animated :striped="false"></b-progress>
@@ -45,6 +45,7 @@ import skygear from 'skygear'
 import AuthPage from './components/AuthPage'
 import MainPage from './components/MainPage'
 import LandingPage from './components/LandingPage'
+import CompanyListPage from './components/CompanyListPage'
 import FooterSection from './components/Footer'
 
 export default {
@@ -114,7 +115,8 @@ export default {
     AuthPage,
     MainPage,
     LandingPage,
-    FooterSection
+    FooterSection,
+    CompanyListPage
   }
 }
 </script>

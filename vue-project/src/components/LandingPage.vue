@@ -23,14 +23,17 @@
       <b-col cols="8" class="hero-container">
         <h1>LGBTQ Glassdoor</h1>
         <h2>LGBTQ-Friendly Work Directory Hong Kong</h2>
+        <div>
+          <b-link :to="'add'"><div class="cta"><b-img src="../assets/plus-icon.png" alt="add company" class="icon"/>Add company</div></b-link>
+          <b-link :to="'search'"><div class="cta"><b-img src="../assets/search-icon.png" alt="search" class="icon" />Search</div></b-link>
+          <b-link :to="{ name: 'list'}"><div class="cta"><b-img src="../assets/list-icon.png" alt="all listings" class="icon" />All Listing</div></b-link>
+        </div>
       </b-col>
       <b-col  cols="4">
         <b-row>
           <b-col  class="add-company-container">
           <h3>Let's do it together!</h3>
-          <p>Our goal is to crowdsource information on LGBTQ-friendly companies and workspaces for Hong Kong. Anyone can add to the list and it is publicly available to view.
-
-          </p>
+          <p>Our goal is to crowdsource information on LGBTQ-friendly companies and workspaces for Hong Kong. </p><p>Anyone can add to the list and it is publicly available to view.</p>
           </b-col>
         </b-row>
         <b-row>
@@ -46,10 +49,8 @@
             <span class="badge badge-pill badge-dark">Dark</span> -->
 
           </b-col>
-          
         </b-row>
       </b-col>
-        
     </b-row>
   </div>
 </template>

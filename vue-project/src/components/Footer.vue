@@ -1,10 +1,6 @@
 <template>
     <footer class="page-footer">
-      <b-container>
-        <b-row>
-        LGBTQ Glassdoor, 2018 Powered by <a href="https://skygear.io"> Skygear</a>
-      </b-row>
-    </b-container>
+        LGBTQ Glassdoor, 2018 Powered by <a href="https://skygear.io">Skygear</a>
   </footer>
 </template>
 
