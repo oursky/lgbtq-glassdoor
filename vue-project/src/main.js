@@ -10,18 +10,24 @@ import App from './App'
 // import skygear from 'skygear'
 // import AuthPage from './components/AuthPage'
 // import MainPage from './components/MainPage'
- import LandingPage from './components/LandingPage'
+import LandingPage from './components/LandingPage'
 // import FooterSection from './components/Footer'
 
+import CompanyDetailPage from './components/CompanyDetailPage'
 import CompanyListPage from './components/CompanyListPage'
+import AddCompanyPage from './components/AddCompanyPage'
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
 const routes = [
-  { name: "list", path: '/list', component: CompanyListPage },
-  { name: "home", path: '/', component: LandingPage }
+  { name: 'list', path: '/list', component: CompanyListPage },
+  { name: 'tag', path: '/tag/:tag', component: CompanyListPage },
+  { name: 'detail', path: '/detail', component: CompanyDetailPage },
+  { name: 'add', path: '/add', component: AddCompanyPage },
+  { name: 'subscribe', path: '/subscribe', component: AddCompanyPage },
+  { name: 'home', path: '/', component: LandingPage }
 ]
 
 const router = new VueRouter({

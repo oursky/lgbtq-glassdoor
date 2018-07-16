@@ -1,26 +1,7 @@
 <template>
-<!--   <b-container>
-    <b-row align-h="center" align-v="center">
-      <b-col cols="2">
-        <b-img class="p-3" src="../assets/logo.png" fluid alt="hi"/>
-      </b-col>
-      <b-col cols="6">
-        <h1>Skygear x Vue</h1>
-        <p><small>A simple demo connecting to Skygear</small></p>
-        <p class="hihi">Hihi</p>
-      </b-col>
-    </b-row>
-
-    <b-row align-h="center">
-      <b-col cols="6">
-        <sign-in-form v-if="wantSignIn" @swap-form="swapForm" @sign-in="$emit('sign-in')" @async-start="$emit('async-start')" @async-end="$emit('async-end')"/>
-        <sign-up-form v-else @swap-form="swapForm" @sign-in="$emit('sign-in')" @async-start="$emit('async-start')" @async-end="$emit('async-end')"/>
-      </b-col>
-    </b-row> -->
-
   <div class="landing full">
     <b-row class="full">
-      <b-col cols="8" class="hero-container">
+      <b-col cols="8" class="hero-container text-md-left text-center">
         <h1>LGBTQ Glassdoor</h1>
         <h2>LGBTQ-Friendly Work Directory Hong Kong</h2>
         <div>
@@ -39,9 +20,9 @@
         <b-row>
           <b-col  class="tags-container">
             <h4>View company by tags</h4>
-            <span class="badge badge-pill badge-primary">LGB colleagues</span>
-            <span class="badge badge-pill badge-secondary">Software Engineering</span>
-            <span class="badge badge-pill badge-success">Gender neutral washroom</span>
+            <b-link :to="{name:'tag', params: { tag: 'LGB Colleagues' }}"><span class="badge badge-pill badge-primary">LGB colleagues</span></b-link>
+            <b-link :to="{name:'tag', params: { tag: 'Software Engineering' }}"><span class="badge badge-pill badge-secondary">Software Engineering</span></b-link>
+            <b-link :to="{name:'tag', params: { tag: 'Gender neutral washroom' }}"><span class="badge badge-pill badge-success">Gender neutral washroom</span></b-link>
 <!--             <span class="badge badge-pill badge-danger">Danger</span>
             <span class="badge badge-pill badge-warning">Warning</span>
             <span class="badge badge-pill badge-info">Info</span>

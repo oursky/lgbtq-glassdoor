@@ -18,6 +18,7 @@ localize
 
 i18n
 company list view
+company detail view
 filter view
 Tag view
 card view

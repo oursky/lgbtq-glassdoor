@@ -11,7 +11,6 @@
         <results-chart @async-start="$emit('async-start')" @async-end="$emit('async-end')"/>
       </b-col>
     </b-row>
-
   </b-container>
 </template>
 
