@@ -1,6 +1,6 @@
 <template>
   <div>
-  <b-form @submit="submit" @reset="clearFormData">
+  <b-form @submit="submit" @reset="clearFormData" ref="addCompanyForm">
   <b-container class="add-container">
     <b-row>
       <b-col>
@@ -44,21 +44,21 @@
 
           <b-row class="my-1">
             <b-col sm="3"><label :for="newUserInfo.company">Company *</label></b-col>
-            <b-col sm="9"><b-form-input :id="newUserInfo.company" v-model="newUserInfo.company" type="text"></b-form-input></b-col>
+            <b-col sm="9"><b-form-input :id="newUserInfo.company" v-model="newUserInfo.company" type="text" :required="step === '1'"></b-form-input></b-col>
           </b-row>
 
           <b-row class="my-1">
-            <b-col sm="3"><label :for="newUserInfo.role">Role</label></b-col>
-            <b-col sm="9"><b-form-input :id="newUserInfo.role" v-model="newUserInfo.role" type="text"></b-form-input></b-col>
+            <b-col sm="3"><label :for="newUserInfo.role">Role *</label></b-col>
+            <b-col sm="9"><b-form-input :id="newUserInfo.role" v-model="newUserInfo.role" type="text" :required="step === '1'"></b-form-input></b-col>
           </b-row>
 
           <b-row class="my-1">
-            <b-col sm="3"><label :for="newUserInfo.email">E-mail</label></b-col>
-            <b-col sm="9"><b-form-input :id="newUserInfo.email" v-model="newUserInfo.email" type="email"></b-form-input></b-col>
+            <b-col sm="3"><label :for="newUserInfo.email">E-mail *</label></b-col>
+            <b-col sm="9"><b-form-input :id="newUserInfo.email" v-model="newUserInfo.email" type="email" :required="step === '1'"></b-form-input></b-col>
           </b-row>
 
           <b-row class="my-1">
-            <b-col sm="3"><label :for="newUserInfo.identify">How do you identify?</label></b-col>
+            <b-col sm="3"><label :for="newUserInfo.identify" :required="step === '1'">How do you identify? *</label></b-col>
             <b-col sm="9">
               <b-form-select multiple :select-size="4" v-model="newUserInfo.identify" :options="identifyOptions" class="mb-3" placeholder="Select your identity">
               </b-form-select>
@@ -66,7 +66,7 @@
           </b-row>
 
           <b-row class="my-1">
-            <b-col sm="3"><label :for="newUserInfo.pronoun">Pronoun Preference</label></b-col>
+            <b-col sm="3"><label :for="newUserInfo.pronoun" :required="step === '1'">Pronoun Preference *</label></b-col>
             <b-col sm="9">
               <b-form-select multiple :select-size="4" v-model="newUserInfo.pronoun" :options="pronounOptions" class="mb-3">
               </b-form-select>
@@ -84,8 +84,8 @@
           <p>Your company does not need to have formal policies and instead we encourage individuals to make recommendations based on their personal, positive experiences.</p>
 
           <b-row class="my-1">
-            <b-col sm="6"><label :for="newCompany.name">Company</label></b-col>
-            <b-col sm="6"><b-form-input :id="newCompany.name" v-model="newCompany.name" type="text"></b-form-input></b-col>
+            <b-col sm="6"><label :for="newCompany.name" required>Company *</label></b-col>
+            <b-col sm="6"><b-form-input :id="newCompany.name" v-model="newCompany.name" type="text" placeholder="Name of the company" :required="step === '2'"></b-form-input></b-col>
           </b-row>
 
           <b-row class="my-1">
@@ -101,11 +101,10 @@
           </b-row>
 
           <b-row class="my-1">
-            <b-col sm="6"><label :for="newCompany.size">Company Size</label></b-col>
+            <b-col sm="6"><label :for="newCompany.companySize">Company Size</label></b-col>
             <b-col sm="6">
-              <b-form-select v-model="newCompany.size" :options="sizeOptions" class="mb-3" :id="newCompany.size">
+              <b-form-select v-model="newCompany.companySize" :options="sizeOptions" class="mb-3" :id="newCompany.companySize">
                 <template slot="first">
-                  <!-- this slot appears above the options from 'options' prop -->
                   <option :value="null" disabled>-- Please select an option --</option>
                 </template>
               </b-form-select>
@@ -113,33 +112,57 @@
           </b-row>
 
           <b-row class="my-1">
-            <b-col sm="6"><label :for="newCompany.what">What makes this organization LGBTQ-friendly?</label></b-col>
-            <b-col sm="6"><b-form-input :id="newCompany.what" type="text"></b-form-input></b-col>
+            <b-col sm="12">
+              <h4>What makes this organization LGBTQ-friendly?</h4>
+            </b-col>
           </b-row>
 
           <b-row class="my-1">
-            <b-col sm="6"><label :for="newCompany.visibility">Visibility</label></b-col>
-            <b-col sm="6"><b-form-input :id="newCompany.visibility" type="text"></b-form-input></b-col>
+            <b-col sm="6"><label :for="newCompany.visibility" required>Visibility *</label></b-col>
+            <b-col sm="6">
+              <b-form-select multiple :select-size="4" v-model="newCompany.visibility" :options="visibilityOptions" class="mb-3" placeholder="Select options" :required="step === '2'">
+              </b-form-select>
+            </b-col>
           </b-row>
 
           <b-row class="my-1">
-            <b-col sm="6"><label :for="newCompany.ndp">Non-Discrimination Policies</label></b-col>
-            <b-col sm="6"><b-form-input :id="newCompany.ndp" type="text"></b-form-input></b-col>
+            <b-col sm="6"><label :for="newCompany.policies">Non-Discrimination Policies</label></b-col>
+            <b-col sm="6">
+              <b-form-select multiple :select-size="4" v-model="newCompany.policies" :options="policiesOptions" class="mb-3" placeholder="Select options">
+              </b-form-select>
+            </b-col>
           </b-row>
 
           <b-row class="my-1">
-            <b-col sm="6"><label :for="newCompany.community">Community</label></b-col>
-            <b-col sm="6"><b-form-input :id="newCompany.community" type="text"></b-form-input></b-col>
+            <b-col sm="6"><label :for="newCompany.benefits">Does your company have support & benefits?</label></b-col>
+            <b-col sm="6">
+              <b-form-select multiple :select-size="4" v-model="newCompany.benefits" :options="benefitsOptions" class="mb-3" placeholder="Select options">
+              </b-form-select>
+            </b-col>
           </b-row>
 
           <b-row class="my-1">
-            <b-col sm="6"><label :for="newCompany.space">Space</label></b-col>
-            <b-col sm="6"><b-form-input :id="newCompany.space" type="text"></b-form-input></b-col>
+            <b-col sm="6"><label :for="newCompany.space">Does your company have inclusive spaces?</label></b-col>
+            <b-col sm="6">
+              <b-form-select multiple :select-size="4" v-model="newCompany.space" :options="spacesOptions" class="mb-3" placeholder="Select options">
+              </b-form-select>
+            </b-col>
           </b-row>
 
           <b-row class="my-1">
-            <b-col sm="6"><label :for="newCompany.sponsorship">Public Sponsorship</label></b-col>
-            <b-col sm="6"><b-form-input :id="newCompany.sponsorship" type="text"></b-form-input></b-col>
+            <b-col sm="6"><label :for="newCompany.community">Does your company have an inclusive culture / LGBTQ community?</label></b-col>
+            <b-col sm="6">
+              <b-form-select multiple :select-size="4" v-model="newCompany.community" :options="communityOptions" class="mb-3" placeholder="Select options">
+              </b-form-select>
+            </b-col>
+          </b-row>
+
+          <b-row class="my-1">
+            <b-col sm="6"><label :for="newCompany.sponsorship">Does the company have public initiatives?</label></b-col>
+            <b-col sm="6">
+              <b-form-select multiple :select-size="4" v-model="newCompany.sponsorship" :options="sponsorshipOptions" class="mb-3" placeholder="Select options">
+              </b-form-select>
+            </b-col>
           </b-row>
 
           <div class="button-wrapper"><b-button @click="step1" class="prev">Prev</b-button> <b-button @click="step3">Next</b-button></div>
@@ -147,8 +170,11 @@
         <div v-show="step === '3'">
           <h4>Company Information</h4>
           <b-row class="my-1">
-          <b-col sm="3"><label :for="newCompany.thoughts">Final thoughts</label></b-col>
-            <b-col sm="9">
+          <b-col sm="12"><label :for="newCompany.thoughts">Final thoughts</label>
+            <p>Is there something we've missed that you love? Share it here! Your comments will be anonymous on the company directory.</p>
+
+          </b-col>
+            <b-col sm="12">
               <b-form-textarea :id="newCompany.thoughts"
                          v-model="newCompany.thoughts"
                          placeholder="Tell the world more about this company."
@@ -158,12 +184,16 @@
             </b-col>
 
           </b-row>
-          <div class="button-wrapper"><b-button @click="step2" class="prev">Prev</b-button> <b-button @click="submit">Next</b-button></div>
+          <div class="button-wrapper"><b-button @click="step2" class="prev">Prev</b-button> <b-button type="submit">Submit</b-button></div>
         </div>
 
         <div v-show="step === 'success'" class="success">
           <h1>👍</h1>
-          <h4>You are awesome! Thanks for your submission!</h4>
+          <h4>You are awesome!<br> Thanks for your Contribution by submitting {{this.newCompany.name}}.</h4>
+
+          <p>Your personal information will <b>NOT</b> be released.Only your LGBTQ-related answers will be public. We don't have a login yet, but you can recommend as many companies as you like!</p>
+
+          <p>Cheers!</p>
 
           <div class="button-wrapper">
             <b-button :to="{name:'list'}">View all listings</b-button>
@@ -182,6 +212,7 @@
 
 <script>
 import Company from '../models/company'
+import Contributor from '../models/contributor'
 
 export default {
   components: {},
@@ -189,7 +220,7 @@ export default {
     return {
       step: 'disclaimer',
       newCompany: new Company(),
-      newUserInfo: { identify: [], pronoun: [], firstName: '', lastName: '', company: '', email: '', role: '' },
+      newUserInfo: new Contributor(),
       identifyOptions: [
         { value: 'lesbian', text: 'Lesbian' },
         { value: 'gay', text: 'Gay' },
@@ -365,6 +396,47 @@ export default {
         { value: '51-100', text: '51-100' },
         { value: '101-200', text: '101-200' },
         { value: '201-500', text: '201-500' }
+      ],
+      visibilityOptions: [
+        { value: 'LGB colleagues', text: 'LGB colleagues' },
+        { value: 'Trans / genderqueer colleagues', text: 'Trans / Genderqueer colleagues' },
+        { value: 'Allies', text: 'Strong and vocal allies' },
+        { value: 'Others', text: 'Other (please fill in at the bottom of this questionaire)' }
+      ],
+      benefitsOptions: [
+        { value: 'Same-sex benefits', text: 'Same-sex benefits' },
+        { value: 'Rainbow families', text: 'Rainbow family support' },
+        { value: 'Trans benefits', text: 'Trans benefits / transition support' },
+        { value: 'Informal Benefits', text: 'Nothing official, but LGBTQ benefits provided for individual cases.' },
+        { value: 'Other', text: 'Other (please fill in at the bottom of this questionaire)' }
+      ],
+      policiesOptions: [
+        { value: 'Generic non-discrimination', text: 'Generic non-discrimination' },
+        { value: 'Same-sex policies', text: 'Same-sex policies' },
+        { value: 'Trans policies', text: 'Trans policies' },
+        { value: 'Informal policies', text: 'No policies, but leadership actively helps for individual cases.' },
+        { value: 'Unenforced policies', text: 'Has same-sex/trans policies, but they are not enforced.' },
+        { value: 'Others', text: 'Other (please fill in at the bottom of this questionaire)' }
+      ],
+      spacesOptions: [
+        { value: 'Trans washrooms', text: 'Trans washrooms' },
+        { value: 'Gender neutral washrooms', text: 'Gender neutral washrooms' },
+        { value: 'Others', text: 'Other (please fill in at the bottom of this questionaire)' }
+      ],
+      communityOptions: [
+        { value: 'Allies', text: 'There are allies to turn to for help or raise issues with.' },
+        { value: 'Inclusive culture', text: 'Generally an inclusive company.' },
+        { value: 'Comfortable calling out', text: 'I feel comfortable calling out discrimination.' },
+        { value: 'LGBTQ network', text: 'Internal LGBTQ Network' },
+        { value: 'D&I events', text: 'Internal Diversity & Inclusion Events' },
+        { value: 'Others', text: 'Other (please fill in at the bottom of this questionaire)' }
+      ],
+      sponsorshipOptions: [
+        { value: 'Public events', text: 'Hosts public events / LGBTQ initiatives' },
+        { value: 'Event sponsorships', text: 'Sponsors LGBTQ events' },
+        { value: 'NGO sponsorships', text: 'Sponsors LGBTQ NGOs' },
+        { value: 'Advocacy', text: 'Company does public advocacy' },
+        { value: 'Others', text: 'Other (please fill in at the bottom of this questionaire)' }
       ]
     }
   },
@@ -376,22 +448,36 @@ export default {
       console.log(this.newUserInfo)
     },
     step2: function () {
-      this.step = '2'
-      console.log(this.newCompany)
-      console.log(this.newUserInfo)
-    },
-    step3: function () {
-      this.step = '3'
-      console.log(this.newCompany)
-      console.log(this.newUserInfo)
-    },
-    submit: function () {
-      if (confirm(`Thank you! Are you sure to submit ${this.newCompany.name} to the LGBTQ-friendly directory?`) === true) {
-        this.step = 'success'
+      if (this.validate()) {
+        this.step = '2'
       }
 
       console.log(this.newCompany)
       console.log(this.newUserInfo)
+    },
+    step3: function () {
+      if (this.validate()) {
+        this.step = '3'
+      }
+
+      console.log(this.newCompany)
+      console.log(this.newUserInfo)
+    },
+    submit: function () {
+      console.log(this.newCompany)
+      console.log(this.newUserInfo)
+
+      if (this.validate()) {
+        if (confirm(`Thank you! Are you sure to submit ${this.newCompany.name} to the LGBTQ-friendly directory?`) === true) {
+          this.step = 'success'
+        }
+        this.newUserInfo.save().then((user) => {
+          this.newCompany.referenceAuthor(user)
+          this.newCompany.save()
+        }, (error) => {
+          console.error(error)
+        })
+      }
     },
     restart: function () {
       if (confirm('Are you sure to clear all input and restart?') === true) {
@@ -400,6 +486,17 @@ export default {
     },
     clearFormData: function () {
 
+    },
+    validate: function () {
+      let addCompanyForm = this.$refs.addCompanyForm
+      if (addCompanyForm.checkValidity()) {
+        return true
+      } else {
+        if (addCompanyForm.reportValidity) {
+          addCompanyForm.reportValidity()
+        }
+        return false
+      }
     }
   }
 }

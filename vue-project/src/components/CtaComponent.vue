@@ -5,7 +5,8 @@
             text-variant="white"
             class="text-center cta-card">
         <p class="card-text"> Want to build a digital project? <br>Talk to us.</p>
-        <b-button :to="{name:'subscribe'}" variant="primary" @click="hidePopup">Drop us a line</b-button>
+        <b-button :to="{name:'subscribe'}" variant="primary" @click="hidePopup">Drop us a line</b-button><br>
+        <b-link @click="hidePopup">Dismiss</b-link>
     </b-card>
 </template>
 

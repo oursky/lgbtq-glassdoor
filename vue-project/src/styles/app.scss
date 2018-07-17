@@ -143,9 +143,7 @@ nav {
 .add-container {
     margin-top: 60px;
     border: 1px #444444 solid;
-    padding: 0;
-    padding-top: 20px;
-
+    padding: 20px;
 
     .form-content {
         margin: 24px auto;
@@ -215,7 +213,9 @@ nav {
     }
 
     .success {
-        text-align: center;
+        h1, h4 {
+            text-align: center;
+        }
     }
 }
 

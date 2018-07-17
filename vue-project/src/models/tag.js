@@ -1,9 +1,9 @@
 import skygear from 'skygear'
 
 class Tag {
-  static defaultCompanies = [
-    { name: 'MakerBay Limited', industry: 'Co-working spaces' },
-    { name: 'Oursky', industry: 'Software Engineering' },
+  static defaultTags = [
+    { name: 'MakerBay Limited'},
+    { name: 'Oursky'},
     { name: 'G.D.P.' },
     { name: 'GDotTV' },
     { name: 'Walk in Hong Kong' },
@@ -28,7 +28,7 @@ class Tag {
   constructor () {
   }
 
-  static fetchAllCompanies () {
+  static fetchAllTags () {
     const SkygearCompany = skygear.Record.extend('tag')
     const query = new skygear.Query(SkygearCompany)
     skygear.publicDB.query(query).then((companies) => {
