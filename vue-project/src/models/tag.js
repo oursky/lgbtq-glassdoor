@@ -25,6 +25,43 @@ class Tag {
     { name: 'Pink Season' }
   ]
 
+
+  static allTags = [
+  'LGB colleagues',
+  'Trans / genderqueer colleagues',
+  'Allies',
+  'Others',
+
+  'Same-sex benefits',
+  'Rainbow families',
+  'Trans benefits',
+  'Informal Benefits',
+  'Others',
+
+  'Generic non-discrimination',
+  'Same-sex policies',
+  'Trans policies',
+  'Informal policies',
+  'Unenforced policies',
+  'Others',
+
+  'Trans washrooms',
+  'Gender neutral washrooms',
+  'Others',
+
+  'Allies',
+  'Inclusive culture',
+  'Inclusive culture',
+  'LGBTQ network',
+  'D&I events',
+  'Others',
+
+  'Public events',
+  'Event sponsorships',
+  'NGO sponsorships',
+  'Advocacy',
+  'Others']a
+
   constructor () {
   }
 

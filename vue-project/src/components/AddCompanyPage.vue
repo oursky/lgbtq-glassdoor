@@ -60,7 +60,11 @@
           <b-row class="my-1">
             <b-col sm="3"><label :for="newUserInfo.identify" :required="step === '1'">How do you identify? *</label></b-col>
             <b-col sm="9">
-              <b-form-select multiple :select-size="4" v-model="newUserInfo.identify" :options="identifyOptions" class="mb-3" placeholder="Select your identity">
+              <b-form-select multiple :select-size="10" v-model="newUserInfo.identify" :options="identifyOptions" class="mb-3" placeholder="Select your identity">
+                <template slot="first">
+                  <!-- this slot appears above the options from 'options' prop -->
+                  <option :value="null" disabled>Please select all that apply: </option>
+                </template>
               </b-form-select>
             </b-col>
           </b-row>
@@ -69,6 +73,10 @@
             <b-col sm="3"><label :for="newUserInfo.pronoun" :required="step === '1'">Pronoun Preference *</label></b-col>
             <b-col sm="9">
               <b-form-select multiple :select-size="4" v-model="newUserInfo.pronoun" :options="pronounOptions" class="mb-3">
+                <template slot="first">
+                  <!-- this slot appears above the options from 'options' prop -->
+                  <option :value="null" disabled>Please select all that apply: </option>
+                </template>
               </b-form-select>
             </b-col>
           </b-row>
@@ -120,7 +128,11 @@
           <b-row class="my-1">
             <b-col sm="6"><label :for="newCompany.visibility" required>Visibility *</label></b-col>
             <b-col sm="6">
-              <b-form-select multiple :select-size="4" v-model="newCompany.visibility" :options="visibilityOptions" class="mb-3" placeholder="Select options" :required="step === '2'">
+              <b-form-select multiple :select-size="8" v-model="newCompany.visibility" :options="visibilityOptions" class="mb-3" placeholder="Select options" :required="step === '2'">
+                <template slot="first">
+                  <!-- this slot appears above the options from 'options' prop -->
+                  <option :value="null" disabled>Please select all that apply: </option>
+                </template>
               </b-form-select>
             </b-col>
           </b-row>
@@ -128,7 +140,11 @@
           <b-row class="my-1">
             <b-col sm="6"><label :for="newCompany.policies">Non-Discrimination Policies</label></b-col>
             <b-col sm="6">
-              <b-form-select multiple :select-size="4" v-model="newCompany.policies" :options="policiesOptions" class="mb-3" placeholder="Select options">
+              <b-form-select multiple :select-size="8" v-model="newCompany.policies" :options="policiesOptions" class="mb-3" placeholder="Select options">
+                <template slot="first">
+                  <!-- this slot appears above the options from 'options' prop -->
+                  <option :value="null" disabled>Please select all that apply: </option>
+                </template>
               </b-form-select>
             </b-col>
           </b-row>
@@ -136,7 +152,11 @@
           <b-row class="my-1">
             <b-col sm="6"><label :for="newCompany.benefits">Does your company have support & benefits?</label></b-col>
             <b-col sm="6">
-              <b-form-select multiple :select-size="4" v-model="newCompany.benefits" :options="benefitsOptions" class="mb-3" placeholder="Select options">
+              <b-form-select multiple :select-size="8" v-model="newCompany.benefits" :options="benefitsOptions" class="mb-3" placeholder="Select options">
+                <template slot="first">
+                  <!-- this slot appears above the options from 'options' prop -->
+                  <option :value="null" disabled>Please select all that apply: </option>
+                </template>
               </b-form-select>
             </b-col>
           </b-row>
@@ -145,6 +165,10 @@
             <b-col sm="6"><label :for="newCompany.space">Does your company have inclusive spaces?</label></b-col>
             <b-col sm="6">
               <b-form-select multiple :select-size="4" v-model="newCompany.space" :options="spacesOptions" class="mb-3" placeholder="Select options">
+                <template slot="first">
+                  <!-- this slot appears above the options from 'options' prop -->
+                  <option :value="null" disabled>Please select all that apply: </option>
+                </template>
               </b-form-select>
             </b-col>
           </b-row>
@@ -152,7 +176,11 @@
           <b-row class="my-1">
             <b-col sm="6"><label :for="newCompany.community">Does your company have an inclusive culture / LGBTQ community?</label></b-col>
             <b-col sm="6">
-              <b-form-select multiple :select-size="4" v-model="newCompany.community" :options="communityOptions" class="mb-3" placeholder="Select options">
+              <b-form-select multiple :select-size="8" v-model="newCompany.community" :options="communityOptions" class="mb-3" placeholder="Select options">
+                <template slot="first">
+                  <!-- this slot appears above the options from 'options' prop -->
+                  <option :value="null" disabled>Please select all that apply: </option>
+                </template>
               </b-form-select>
             </b-col>
           </b-row>
@@ -160,7 +188,11 @@
           <b-row class="my-1">
             <b-col sm="6"><label :for="newCompany.sponsorship">Does the company have public initiatives?</label></b-col>
             <b-col sm="6">
-              <b-form-select multiple :select-size="4" v-model="newCompany.sponsorship" :options="sponsorshipOptions" class="mb-3" placeholder="Select options">
+              <b-form-select multiple :select-size="8" v-model="newCompany.sponsorship" :options="sponsorshipOptions" class="mb-3" placeholder="Select options">
+                <template slot="first">
+                  <!-- this slot appears above the options from 'options' prop -->
+                  <option :value="null" disabled>Please select all that apply: </option>
+                </template>
               </b-form-select>
             </b-col>
           </b-row>
