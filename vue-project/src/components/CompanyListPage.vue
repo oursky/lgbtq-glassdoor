@@ -87,6 +87,12 @@
               </b-link>
             </template>
         </b-card-group>
+        <div v-if="this.matchedCompanies.length == 0" class="empty-message">
+          <p>No mataching entries. 👀</p>
+          <p>Please help adding the companies to this directory!</p>
+          <br>
+          <b-button :to="{name: 'add'}" variant="outline-secondary">Add a company</b-button>
+        </div>
       </b-col>
     </b-row>
 
