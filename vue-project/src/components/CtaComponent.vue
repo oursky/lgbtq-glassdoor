@@ -1,11 +1,11 @@
 <template>
     <b-card :hidden="hidden"
             bg-variant="secondary"
-            header="💁‍♂️ <b>Hope you liked this site!</b> "
+            header="💁‍♂️ <b>Welcome!</b> "
             text-variant="white"
             class="text-center cta-card">
-        <p class="card-text"> Want to build a digital project? <br>Talk to us.</p>
-        <b-button :to="{name:'subscribe'}" variant="primary" @click="hidePopup">Drop us a line</b-button><br>
+        <p class="card-text"> If like this directory, can you please <br>help spread this project? Thanks! </p>
+        <b-button :to="{name:'subscribe'}" variant="primary" @click="hidePopup">Share</b-button><br>
         <b-link @click="hidePopup">Dismiss</b-link>
     </b-card>
 </template>
