@@ -86,7 +86,8 @@ export default {
     return {
       asyncState: false,
       skygear: skygear,
-      currentLang: 'en'
+      currentLang: 'en',
+      showDismissibleAlert: false
     }
   },
   computed: {

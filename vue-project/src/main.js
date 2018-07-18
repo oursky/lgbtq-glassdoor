@@ -22,8 +22,9 @@ Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
 const routes = [
-  { name: 'list', path: '/list', component: CompanyListPage },
-  { name: 'search', path: '/search', component: CompanyListPage, props: { search: true } },
+  { name: 'search', path: '/search', component: CompanyListPage, props: { search: true, searchText: '' }},
+  { name: 'searchWithText', path: '/search/:searchText', component: CompanyListPage, props: { search: true }},
+  { name: 'list', path: '/list', component: CompanyListPage, props: {searchText: '' }},
   { name: 'tag', path: '/tag/:tag', component: CompanyListPage },
   { name: 'detail', path: '/detail/:companyName', component: CompanyDetailPage, props: true },
   { name: 'add', path: '/add', component: AddCompanyPage },

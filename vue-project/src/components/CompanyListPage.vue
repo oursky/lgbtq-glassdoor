@@ -2,7 +2,10 @@
   <b-container class="full" fluid>
     <b-row>
       <b-col cols="12" class="search-bar" :v-show="search">
-        🔍 Search Function Work in Progress
+        <b-form-input size="sm" class="mr-sm-2 search" type="text" placeholder="🔍 Search by any keyword" v-model="searchText" v-on:input="searchHandler" id="search" ref="search"/>
+          <b-tooltip target="search" placement="bottom">
+            🔮 Search for a company!
+          </b-tooltip>
       </b-col>
     </b-row>
     <b-row class="company-list-view">
@@ -47,7 +50,7 @@
       <b-col cols="12" sm="8" md="9" xl="10" class="text-sm-left text-center">
         <h4>🌈 All listings</h4>
         <b-card-group deck>
-            <template v-for="company in this.companies">
+            <template v-for="company in this.matchedCompanies">
               <b-link :to="'/detail/'+company.name" href='#' v-bind:key="company.url">
               <b-card :title="company.name"
                       class="company-card"
@@ -95,11 +98,12 @@
 import Company from '../models/company'
 
 export default {
-  props: ['search'],
+  props: ['search', 'searchText'],
   components: {},
   data () {
     return {
       companies: [],
+      matchedCompanies: [],
       currentFilters: []
     }
   },
@@ -109,7 +113,7 @@ export default {
     this.loadRemoteCompanies()
 
     if (this.search) {
-      this.showSearch()
+      this.$refs.search.focus()
     }
   },
   methods: {
@@ -118,12 +122,22 @@ export default {
     },
     loadCachedList: function () {
       this.companies = this.companies.concat(Company.getDefaultCompanies())
+      this.searchHandler()
     },
     loadRemoteCompanies: function () {
       Company.fetchAllCompanies().then((companies) => {
         this.companies = this.companies.concat(Array.from(companies))
+        this.searchHandler()
       }, (error) => {
         console.error(error)
+      })
+    },
+    searchHandler: function () {
+      window.history.pushState(null, '', '#/search/' + this.searchText)
+      this.matchedCompanies = this.companies.filter(company => {
+        let query = this.searchText
+        let result = company.name.match(new RegExp('[^,]*' + query + '[^,]*', 'ig'))
+        return result
       })
     }
   }
