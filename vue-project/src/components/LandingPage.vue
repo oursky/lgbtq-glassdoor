@@ -21,16 +21,11 @@
           </b-col>
         </b-row>
         <b-row>
-          <b-col  class="tags-container">
+          <b-col class="tags-container">
             <h4>View company by tags</h4>
-            <b-link :to="{name:'tag', params: { tag: 'LGB Colleagues' }}"><span class="badge badge-pill badge-primary">LGB colleagues</span></b-link>
-            <b-link :to="{name:'tag', params: { tag: 'Software Engineering' }}"><span class="badge badge-pill badge-secondary">Software Engineering</span></b-link>
-            <b-link :to="{name:'tag', params: { tag: 'Gender neutral washroom' }}"><span class="badge badge-pill badge-success">Gender neutral washroom</span></b-link>
-<!--             <span class="badge badge-pill badge-danger">Danger</span>
-            <span class="badge badge-pill badge-warning">Warning</span>
-            <span class="badge badge-pill badge-info">Info</span>
-            <span class="badge badge-pill badge-light">Light</span>
-            <span class="badge badge-pill badge-dark">Dark</span> -->
+            <div v-for="(category, catName) in this.allTags" v-bind:key="category">
+              <b-link v-for="tag in category" v-bind:key="tag" :to="{name:'tag', params: { tag: tag }}"><span class="badge badge-pill badge-primary" :class="'badge-'+catName">{{tag}}</span></b-link>
+            </div>
 
           </b-col>
         </b-row>
@@ -41,11 +36,23 @@
 
 <script>
 
+import Tag from '../models/tag'
+
 export default {
   data () {
-    return {}
+    return {
+      allTags: {}
+    }
   },
-  methods: {},
+  mounted: function () {
+    this.loadAllTags()
+  },
+  methods: {
+    loadAllTags: function () {
+      this.allTags = Tag.fetchAllTags()
+      console.log(this.allTags)
+    }
+  },
   components: {}
 }
 </script>

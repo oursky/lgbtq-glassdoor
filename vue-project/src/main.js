@@ -7,6 +7,11 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueRouter from 'vue-router'
 import App from './App'
 
+import Autocomplete from 'v-autocomplete'
+
+// You need a specific loader for CSS files like https://github.com/webpack/css-loader
+import 'v-autocomplete/dist/v-autocomplete.css'
+
 // import skygear from 'skygear'
 // import AuthPage from './components/AuthPage'
 // import MainPage from './components/MainPage'
@@ -19,13 +24,14 @@ import AddCompanyPage from './components/AddCompanyPage'
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
+Vue.use(Autocomplete)
 Vue.config.productionTip = false
 
 const routes = [
   { name: 'search', path: '/search', component: CompanyListPage, props: { search: true, searchText: '' } },
   { name: 'searchWithText', path: '/search/:searchText', component: CompanyListPage, props: { search: true } },
   { name: 'list', path: '/list', component: CompanyListPage, props: { searchText: '' } },
-  { name: 'tag', path: '/tag/:tag', component: CompanyListPage },
+  { name: 'tag', path: '/tag/:tag', component: CompanyListPage, props: { searchText: 'tag:' } },
   { name: 'detail', path: '/detail/:companyName', component: CompanyDetailPage, props: true },
   { name: 'add', path: '/add', component: AddCompanyPage },
   { name: 'subscribe', path: '/subscribe', component: AddCompanyPage },

@@ -1,8 +1,8 @@
 <template>
     <b-card :hidden="hidden"
-            bg-variant="secondary"
+            bg-variant="light"
             header="💁‍♂️ <b>Welcome!</b> "
-            text-variant="white"
+            text-variant="black"
             class="text-center cta-card">
         <p class="card-text"> If like this directory, can you please <br>help spread this project? Thanks! </p>
         <b-button :to="{name:'subscribe'}" variant="primary" @click="hidePopup">Share</b-button><br>

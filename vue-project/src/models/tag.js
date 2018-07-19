@@ -1,4 +1,4 @@
-import skygear from 'skygear'
+// import skygear from 'skygear'
 
 class Tag {
   static defaultTags = {
@@ -7,29 +7,28 @@ class Tag {
       'Trans / genderqueer colleagues',
       'Allies',
       'Others'
-      ],
+    ],
     benefits: [
       'Same-sex benefits',
       'Rainbow families',
       'Trans benefits',
       'Informal Benefits',
       'Others'
-      ],
-
-    policies:[
+    ],
+    policies: [
       'Generic non-discrimination',
       'Same-sex policies',
       'Trans policies',
       'Informal policies',
       'Unenforced policies',
       'Others'
-      ],
+    ],
 
     space: [
       'Trans washrooms',
       'Gender neutral washrooms',
       'Others'
-      ],
+    ],
 
     community: [
       'Allies',
@@ -38,19 +37,16 @@ class Tag {
       'LGBTQ network',
       'D&I events',
       'Others'
-      ],
-
+    ],
     sponsorship: [
       'Public events',
       'Event sponsorships',
       'NGO sponsorships',
-      'Advocacy'
+      'Advocacy',
       'Others'
-      ]
+    ]
   }
 
-  constructor () {
-  }
   static fetchAllTags () {
     // const SkygearCompany = skygear.Record.extend('tag')
     // const query = new skygear.Query(SkygearCompany)
@@ -59,7 +55,7 @@ class Tag {
     // }, (error) => {
     //   console.error(error)
     // })
-    return Tag.defaultCompanies
+    return this.defaultTags
   }
 }
 
