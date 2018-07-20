@@ -49,6 +49,8 @@ class Company {
     return new Promise((resolve, reject) => {
       const SkygearCompany = skygear.Record.extend('company')
       const query = new skygear.Query(SkygearCompany)
+      query.limit = 999
+      query.equalTo('live', true)
       skygear.publicDB.query(query).then((companies) => {
         console.log('all companies')
         console.log(companies)

@@ -24,7 +24,8 @@
           <b-col class="tags-container">
             <h4>View company by tags</h4>
             <div v-for="(category, catName) in this.allTags" v-bind:key="category">
-              <b-link v-for="tag in category" v-bind:key="tag" :to="{name:'tag', params: { tag: tag }}"><span class="badge badge-pill badge-primary" :class="'badge-'+catName">{{tag}}</span></b-link>
+              <b-link v-for="tag in category" v-bind:key="tag" :to="{path:'tag/'+tag}"><span class="badge badge-pill badge-primary" :class="'badge-'+catName">{{tag}}</span></b-link>
+              <br><br>
             </div>
 
           </b-col>

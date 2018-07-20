@@ -176,7 +176,8 @@ class FormOptions {
     { value: '21-50', text: '21-50' },
     { value: '51-100', text: '51-100' },
     { value: '101-200', text: '101-200' },
-    { value: '201-500', text: '201-500' }
+    { value: '201-500', text: '201-500' },
+    { value: '500+', text: '500+' }
   ]
 
   static visibilityOptions = [
@@ -186,7 +187,7 @@ class FormOptions {
     { value: 'Others', text: 'Other (please fill in at the bottom of this questionaire)' }
   ]
 
-  static benfitsOptions = [
+  static benefitsOptions = [
     { value: 'Same-sex benefits', text: 'Same-sex benefits' },
     { value: 'Rainbow families', text: 'Rainbow family support' },
     { value: 'Trans benefits', text: 'Trans benefits / transition support' },
