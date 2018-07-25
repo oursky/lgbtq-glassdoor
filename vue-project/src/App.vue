@@ -31,7 +31,7 @@
             dismissible
             fade
             :show="showDismissibleAlert">
-      🚧 Hang on. Chinese translation in progress.
+      🚧 Chinese translation in progress.
     </b-alert>
   <router-view></router-view>
 
@@ -110,9 +110,11 @@ export default {
   methods: {
     switchToEn () {
       this.currentLang = 'en'
+      this.$lang.setLang('en')
     },
     switchToZh () {
       this.currentLang = 'zh'
+      this.$lang.setLang('zh-cn')
       this.showDismissibleAlert = true
     },
     onAsyncStart () {

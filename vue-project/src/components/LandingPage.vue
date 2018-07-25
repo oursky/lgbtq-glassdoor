@@ -3,28 +3,28 @@
     <b-row class="full auto">
       <b-col cols="12" md="8" class="hero-container text-md-left text-center">
         <h1>LGBTQ Glassdoor</h1>
-        <h2>Discover your work tribe</h2>
+        <h2>{{$lang.landing.tagline}}</h2>
         <p>
-          LGBTQ Glassdoor aims to help LGBTQ individuals share and find supportive work environments. LGBTQ individuals & allies can add inclusive companies even if they may not yet have official policies.
+          {{$lang.landing.splash_text}}
         </p>
         <div>
-          <b-link :to="'add'"><div class="cta"><b-img src="../assets/plus-icon.png" alt="add company" class="icon"/>Add company</div></b-link>
-          <b-link :to="'search'"><div class="cta"><b-img src="../assets/search-icon.png" alt="search" class="icon" />Search</div></b-link>
-          <b-link :to="'list'"><div class="cta"><b-img src="../assets/list-icon.png" alt="all listings" class="icon" />All Listings</div></b-link>
+          <b-link :to="'add'"><div class="cta"><b-img src="../assets/plus-icon.png" alt="add company" class="icon"/>{{$lang.landing.add_company}}</div></b-link>
+          <b-link :to="'search'"><div class="cta"><b-img src="../assets/search-icon.png" alt="search" class="icon" />{{$lang.landing.search}}</div></b-link>
+          <b-link :to="'list'"><div class="cta"><b-img src="../assets/list-icon.png" alt="all listings" class="icon" />{{$lang.landing.all_listings}}</div></b-link>
         </div>
       </b-col>
       <b-col cols="12" md="4">
         <b-row>
           <b-col  class="add-company-container">
-          <h3>Let's do it together!</h3>
-          <p>Our goal is to crowdsource information on LGBTQ-friendly companies and workspaces for Hong Kong. </p><p>Anyone can add to the list and it is publicly available to view.</p>
+          <h3>{{$lang.landing.lets_do_it_together}}</h3>
+          <p>{{$lang.landing.lets_do_it_together_text}}</p>
           </b-col>
         </b-row>
         <b-row>
           <b-col class="tags-container">
-            <h4>View company by tags</h4>
-            <div v-for="(category, catName) in this.allTags" v-bind:key="category">
-              <b-link v-for="tag in category" v-bind:key="tag" :to="{path:'tag/'+tag}"><span class="badge badge-pill badge-primary" :class="'badge-'+catName">{{tag}}</span></b-link>
+            <h4>{{$lang.landing.view_company_text}}</h4>
+            <div v-for="(category, catName) in this.allTags" v-bind:key="catName">
+              <b-link v-for="tag in category" v-bind:key="tag" :to="{path:'tag/'+catName+'/'+tag}"><span class="badge badge-pill badge-primary" :class="'badge-'+catName">{{tag}}</span></b-link>
               <br><br>
             </div>
 
