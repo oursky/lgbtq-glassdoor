@@ -67,7 +67,12 @@ skygear.config({
   console.log('skygear container is now ready for making API calls.')
   console.log(skygear.auth.currentUser)
   if (!skygear.auth.currentUser) {
-    this.signup()
+    skygear.auth.signupAnonymously().then((user) => {
+      console.log('Signing up success')
+      console.log(user)
+    }, (error) => {
+      console.error(error)
+    })
   }
 }, (error) => {
   console.error(error)
@@ -76,6 +81,11 @@ skygear.config({
 skygear.auth.onUserChanged(function (user) {
   if (user) {
     console.log('user logged in or signed up')
+    // eslint-disable-next-line
+    if (gtag) {
+      // eslint-disable-next-line
+      gtag('set', {'user_id': user.id}) // Set the user ID using signed-in user_id.
+    }
   } else {
     console.log('user logged out or the access token expired')
   }
@@ -96,7 +106,6 @@ export default {
     }
   },
   mounted: function () {
-
   },
   methods: {
     switchToEn () {
@@ -105,14 +114,6 @@ export default {
     switchToZh () {
       this.currentLang = 'zh'
       this.showDismissibleAlert = true
-    },
-    signup () {
-      skygear.auth.signupAnonymously().then((user) => {
-        console.log('Signing up success')
-        console.log(user)
-      }, (error) => {
-        console.error(error)
-      })
     },
     onAsyncStart () {
       this.asyncState = true
