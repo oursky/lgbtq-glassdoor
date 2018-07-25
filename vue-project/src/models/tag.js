@@ -4,7 +4,7 @@ class Tag {
   static defaultTags = {
     visibility: [
       'LGB colleagues',
-      'Trans / genderqueer colleagues',
+      'Trans, genderqueer colleagues',
       'Allies',
       'Others'
     ],
@@ -33,7 +33,7 @@ class Tag {
     community: [
       'Allies',
       'Inclusive culture',
-      'Inclusive culture',
+      'Comfortable calling out',
       'LGBTQ network',
       'D&I events',
       'Others'

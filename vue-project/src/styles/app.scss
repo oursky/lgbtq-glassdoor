@@ -66,6 +66,7 @@ nav {
 
 .landing {
     .hero-container {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAHCAYAAAA1WQxeAAAA1klEQVQYVx3MsUsCURzA8e/v9967a8jBqHTQCNrCBIegIaG25v6Itrb+EodoaRCiyVFsEITGGqzZKaKpqTzxcefdvcj9w0d6Ty/BWYsxQoxijYAIipCWOXI7ngarSmwUNGAROrMZ9QPPSNvI/eQtqCqbsSUg5HlBwTrB/Wf95/c1qMSO4c0V34XnJ/Vc9wZYB3LYaIR5llGJIpo722TlEjGOJPH8eo/s79bDIl1Qq27R7Zzx+fUBq4TTi0seH+6Q8/ZRaEYrnG5w3DphMH2lXCYYdfjaHn/cEUZ42L+TDwAAAABJRU5ErkJggg==);
         background-image: url('../assets/landing-hero.jpeg');
         background-size: cover;
         background-position: center;
@@ -161,6 +162,7 @@ nav {
             font-weight: 200;
             padding: 6px 10px;
             margin-bottom: 4px;
+            margin-right: 4px;
             cursor: pointer;
         }
     }
@@ -220,6 +222,19 @@ nav {
                 };
             }
         }
+
+        hr {
+            margin-top: 8px;
+            margin-bottom: 2px;
+        }
+
+        .selectedFilter {
+            font-size: 11px;
+            color: #999;
+            padding: 4px 8px;
+            margin-top: 8px;
+            border: 1px solid #999;
+        }
     }
 
     .card-deck {
@@ -230,6 +245,7 @@ nav {
         min-width: 300px;
         max-width: 300px;
         margin-bottom: 20px;
+        height: calc(100% - 14px);
 
         color: #444;
         border-radius: 0px;
@@ -297,7 +313,7 @@ nav {
 }
 
 .add-container {
-    animation: 0.8s ease-in-out 0s 1 slideInFromBottom;
+    animation: 0.6s ease-in-out 0s 1 slideInFromBottom;
     margin-top: 60px;
     border: 1px #444444 solid;
     padding: 20px;
