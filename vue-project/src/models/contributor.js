@@ -1,7 +1,7 @@
 import skygear from 'skygear'
 
 class Contributor {
-  construcrtor () {
+  constructor () {
     this.firstName = ''
     this.lastName = ''
     this.company = ''
@@ -14,9 +14,6 @@ class Contributor {
   save () {
     return new Promise((resolve, reject) => {
       const ContributorRecord = skygear.Record.extend('Contributor')
-      let jsonObject = this.toJSON()
-
-      console.log(jsonObject)
 
       let json = this.toJSON()
       json.authUser = skygear.auth.currentUser.id

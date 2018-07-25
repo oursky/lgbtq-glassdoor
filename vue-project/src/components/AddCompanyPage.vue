@@ -285,6 +285,7 @@ export default {
         }
         this.newUserInfo.save().then((user) => {
           this.newCompany.referenceAuthor(user)
+          this.newCompany.live = true // default will show on the list
           this.newCompany.save()
         }, (error) => {
           console.error(error)
