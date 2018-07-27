@@ -7,6 +7,8 @@ class Company {
   constructor (options = {}) {
     this.name = ''
     this.companySize = ''
+    this.website = ''
+    this.linkedin = ''
     this.visibility = []
     this.industry = ''
     this.policies = []
@@ -67,8 +69,8 @@ class Company {
   }
 
   toJSON () {
-    let { name, companySize, visibility, industry, policies, benefits, community, space, sponsorship, thoughts, submittedBy, live } = this
-    return { name, companySize, visibility, industry, policies, benefits, community, space, sponsorship, thoughts, submittedBy, live }
+    let { name, companySize, website, linkedin, visibility, industry, policies, benefits, community, space, sponsorship, thoughts, submittedBy, live } = this
+    return { name, companySize, website, linkedin, visibility, industry, policies, benefits, community, space, sponsorship, thoughts, submittedBy, live }
   }
 }
 

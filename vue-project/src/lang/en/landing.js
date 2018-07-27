@@ -1,6 +1,6 @@
-//landing.js
+// landing.js
 module.exports = {
-  tagline : 'Discover your work tribe',
+  tagline: 'Discover your work tribe',
   splash_text: 'LGBTQ Glassdoor aims to help LGBTQ individuals share and find supportive work environments. LGBTQ individuals & allies can add inclusive companies even if they may not yet have official policies.',
   view_company_text: 'View Company by Tags',
   lets_do_it_together: 'Let\'s do it together!',

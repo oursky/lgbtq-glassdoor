@@ -23,16 +23,9 @@
 
       <b-navbar-nav class="lang-items ml-auto" right>
           <b-nav-item href="#" @click="switchToEn" class="lang-choice" v-bind:class="currentLang === 'en' ? 'selected' : ''">EN</b-nav-item>
-          <b-nav-item href="#" @click="switchToZh" class="lang-choice" v-bind:class="currentLang === 'zh' ? 'selected' : ''">繁</b-nav-item>
+          <b-nav-item href="#" @click="switchToZh" class="lang-choice" v-bind:class="currentLang === 'zh-cn' ? 'selected' : ''">繁</b-nav-item>
       </b-navbar-nav>
   </b-navbar>
-      <b-alert variant="secondary"
-            class="chinese-warning"
-            dismissible
-            fade
-            :show="showDismissibleAlert">
-      🚧 Chinese translation in progress.
-    </b-alert>
   <router-view></router-view>
 
   <footer-section />
@@ -91,13 +84,14 @@ skygear.auth.onUserChanged(function (user) {
   }
 })
 
+const LANG_STORAGE_KEY = 'language_choice'
+
 export default {
   data () {
     return {
       asyncState: false,
       skygear: skygear,
-      currentLang: 'en',
-      showDismissibleAlert: false
+      currentLang: 'en'
     }
   },
   computed: {
@@ -106,16 +100,26 @@ export default {
     }
   },
   mounted: function () {
+    this.currentLang = this.loadCachedLang()
+    this.switchToLanguage(this.currentLang)
   },
   methods: {
+    loadCachedLang () {
+      return window.localStorage.getItem(LANG_STORAGE_KEY) || 'en'
+    },
+    saveCachedLang (lang) {
+      window.localStorage.setItem(LANG_STORAGE_KEY, lang)
+    },
     switchToEn () {
-      this.currentLang = 'en'
-      this.$lang.setLang('en')
+      this.switchToLanguage('en')
     },
     switchToZh () {
-      this.currentLang = 'zh'
-      this.$lang.setLang('zh-cn')
-      this.showDismissibleAlert = true
+      this.switchToLanguage('zh-cn')
+    },
+    switchToLanguage (lang) {
+      this.currentLang = lang
+      this.saveCachedLang(lang)
+      this.$lang.setLang(lang)
     },
     onAsyncStart () {
       this.asyncState = true

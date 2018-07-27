@@ -12,10 +12,6 @@ import Autocomplete from 'v-autocomplete'
 // You need a specific loader for CSS files like https://github.com/webpack/css-loader
 import 'v-autocomplete/dist/v-autocomplete.css'
 
-//Notice that you need to specify the lang folder, in this case './lang'
-const Lang = require('vuejs-localization')
-Lang.requireAll(require.context('./lang', true, /\.js$/));
-
 // import skygear from 'skygear'
 // import AuthPage from './components/AuthPage'
 // import MainPage from './components/MainPage'
@@ -25,6 +21,10 @@ import LandingPage from './components/LandingPage'
 import CompanyDetailPage from './components/CompanyDetailPage'
 import CompanyListPage from './components/CompanyListPage'
 import AddCompanyPage from './components/AddCompanyPage'
+
+// Notice that you need to specify the lang folder, in this case './lang'
+const Lang = require('vuejs-localization')
+Lang.requireAll(require.context('./lang', true, /\.js$/))
 
 Vue.use(Lang)
 Vue.use(VueRouter)
@@ -46,9 +46,6 @@ const routes = [
 const router = new VueRouter({
   routes // short for `routes: routes`
 })
-
-// const app = new Vue({
-// }).$mount('#app')
 
 /* eslint-disable no-new */
 new Vue({

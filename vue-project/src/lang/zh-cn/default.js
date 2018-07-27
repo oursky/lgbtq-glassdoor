@@ -1,3 +1,3 @@
-//default.js
+// default.js
 module.exports = {
 }
