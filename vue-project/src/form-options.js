@@ -3,7 +3,7 @@ class FormOptions {
     { value: 'lesbian', text: 'Lesbian' },
     { value: 'gay', text: 'Gay' },
     { value: 'bisexual', text: 'Bisexual' },
-    { value: 'tran', text: 'Tran' },
+    { value: 'trans', text: 'Trans' },
     { value: 'genderqueer', text: 'Genderqueer' },
     { value: 'queer', text: 'Queer' },
     { value: 'ally', text: 'Ally' },
@@ -182,7 +182,7 @@ class FormOptions {
 
   static visibilityOptions = [
     { value: 'LGB colleagues', text: 'LGB colleagues' },
-    { value: 'Trans / genderqueer colleagues', text: 'Trans / Genderqueer colleagues' },
+    { value: 'Trans, genderqueer colleagues', text: 'Trans / Genderqueer colleagues' },
     { value: 'Allies', text: 'Strong and vocal allies' },
     { value: 'Others', text: 'Other (please fill in at the bottom of this questionaire)' }
   ]
