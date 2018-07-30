@@ -14,5 +14,7 @@ module.exports = {
   sponsorship: '贊助公開活動與倡議',
   space: '工作環境',
   benefits: '福利和支援',
-  community: '多元包容文化/社群'
+  community: '多元包容文化/社群',
+  disclaimer_title: '🗂 聲明',
+  disclaimer_text: 'LGBTQ Glassdoor 致力建立一個為LGBTQ人士在香港尋找包容工作環境的透明平台。所有顯示的資料均是源於用戶提交，只反映了個人觀點，並不一定是提交者的雇主或所屬組織。'
 }

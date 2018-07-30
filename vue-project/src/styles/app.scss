@@ -203,6 +203,19 @@ nav {
         };
     }
 
+    .disclaimer-container {
+        margin-top: 20px;
+        border: solid 1px #eee;
+        h5 {
+            font-size: 15px;
+            font-weight: 600;
+        }
+        p {
+            font-size: 12px;
+            font-style: italic; 
+        }
+    }
+
     .list-menu {
         border-right: 1px solid #dfdfdf;
         .list-group-item {

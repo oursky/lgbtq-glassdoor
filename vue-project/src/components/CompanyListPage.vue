@@ -135,6 +135,12 @@
           </b-list-group-item>
         </b-list-group>
         <b-button class="clear-button" variant="link" @click="clear">{{$lang.list.clear}}</b-button>
+
+        <b-list-group class="disclaimer-container">
+          <b-list-group-item><h5>{{$lang.list.disclaimer_title}}</h5>
+          <p>{{$lang.list.disclaimer_text}}</p></b-list-group-item>
+        </b-list-group>
+
       </b-col>
       <b-col cols="12" sm="8" md="9" xl="10" class="text-sm-left text-center">
         <h4>🌈 {{$lang.list.all_listings}}</h4>
