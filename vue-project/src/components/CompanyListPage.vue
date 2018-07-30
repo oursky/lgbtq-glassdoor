@@ -4,7 +4,7 @@
       <b-col cols="12" class="search-bar" :v-show="search">
         <b-form-input size="sm" class="mr-sm-2 search" type="text" :placeholder="searchHint" v-model="searchText" v-on:input="searchHandler" id="search" ref="search"/>
           <b-tooltip target="search" placement="bottom">
-            🔮 Search for a company!
+            {{$lang.list.search_hint}}
           </b-tooltip>
       </b-col>
     </b-row>
@@ -146,13 +146,16 @@
         <h4>🌈 {{$lang.list.all_listings}}</h4>
         <b-card-group deck>
             <template v-for="company in this.filteredCompanies">
-              <b-link :to="'/detail/'+company.name" href='#' v-bind:key="company.url">
+              <b-link :to="'detail/'+company.name" v-bind:key="company.id">
               <b-card :title="company.name"
                       class="company-card"
                       v-bind:key="company.name"
                       >
                   <p>{{company.industry}}</p>
                   <p>👥 {{company.companySize || '-'}}</p>
+
+                  <p><a :href="company.website" target="_blank" v-if="company.website" @click="openURL(company.website)">🌐 {{$lang.list.website}}</a></p>
+                  <p><a :href="company.linkedin" target="_blank" v-if="company.linkedin" @click="openURL(company.linkedin)">🔗 {{$lang.list.linkedin}}</a></p>
                   <!-- Tags -->
                   <template v-for="visibilityTag in company.visibility">
                     <b-link :to="{name:'tag', params: { cat: 'visibility' ,tag: visibilityTag }}" v-bind:key="company.name+'visibilityTag'+visibilityTag"><span class="badge badge-pill badge-secondary">{{visibilityTag}}</span></b-link>
@@ -177,6 +180,7 @@
                   <template v-for="sponsorshipTag in company.sponsorship">
                     <b-link :to="{name:'tag', params: { cat: 'sponsorship', tag: sponsorshipTag }}" v-bind:key="company.name+'sponsorshipTag'+sponsorshipTag"><span class="badge badge-pill badge-primary">{{sponsorshipTag}}</span></b-link>
                   </template>
+
               </b-card>
               </b-link>
             </template>
@@ -214,7 +218,6 @@ export default {
       return this.$lang.list.search_text
     },
     filteredCompanies: function (currentFilters) {
-      // return this.getFilteredCompanies()
       let result = this.matchedCompanies.filter(company => {
         for (let key in this.currentFilters) {
           let companyTag = company[key]
@@ -250,7 +253,6 @@ export default {
   },
   mounted: function () {
     // load Companies
-    this.loadCachedList()
     this.loadRemoteCompanies()
 
     if (this.search) {
@@ -265,41 +267,15 @@ export default {
     }
   },
   methods: {
-    getFilteredCompanies: function () {
-      // let result = this.matchedCompanies.filter(company => {
-      //   for (let key in this.currentFilters) {
-      //     let companyTag = company[key]
-      //     let tagsRequired = this.currentFilters[key]
-
-      //     if (!tagsRequired || tagsRequired.length === 0) { continue } // skip if no tag is required
-      //     if (!companyTag) {
-      //       return false // if there is tag requirement but no tag in company, it fails
-      //     }
-
-      //     for (let tagKey in tagsRequired) {
-      //       if (!companyTag.includes(tagsRequired[tagKey])) {
-      //         return false // Fail one tag requirement = fail
-      //       } else {
-      //       }
-      //     }
-      //   }
-      //   return true
-      // })
-      // return result
-    },
     addFilter: function (cat, tag) {
       this.currentFilters[cat] = [tag]
     },
     clear: function () {
       this.currentFilters = {}
     },
-    loadCachedList: function () {
-      this.companies = this.companies.concat(Company.getDefaultCompanies())
-      // this.searchHandler()
-    },
     loadRemoteCompanies: function () {
       Company.fetchAllCompanies().then((companies) => {
-        this.companies = this.companies.concat(Array.from(companies))
+        this.companies = Array.from(companies)
         // this.searchHandler()
       }, (error) => {
         console.error(error)
@@ -312,6 +288,9 @@ export default {
         return result
       })
       window.history.pushState(null, '', '#/search/' + this.searchText)
+    },
+    openURL: function (url) {
+      window.open(url)
     }
   }
 }
