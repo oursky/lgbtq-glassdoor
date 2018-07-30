@@ -31,19 +31,23 @@ class Company {
       const query = new skygear.Query(SkygearCompany)
       query.limit = 999
       query.equalTo('live', true)
-      skygear.publicDB.query(query).then((companies) => {
-        console.log(companies)
+
+      const successCallback = (companies, cached = false) => {
+        if (cached) {
+          console.log('The result is a cached one')
+        }
         this.allCompanies = this.allCompanies.concat(Array.from(companies))
-        console.log(this.allCompanies)
         resolve(companies)
-      }, (error) => {
+      }
+
+      skygear.publicDB.query(query, successCallback).then(successCallback, (error) => {
         reject(error)
       })
     })
   }
 
   static getCompany (companyName) {
-    console.log(this.allCompanies)
+
     const result = this.allCompanies.filter(company => company.name === companyName)
     return result
   }
