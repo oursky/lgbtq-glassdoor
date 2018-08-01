@@ -5,7 +5,7 @@ module.exports = {
   filter_by: 'Filter by',
   search_text: '🔍 Search by any keyword',
   search_hint: '🔮 Search for a company!',
-  no_match: 'No mataching entries... yet. 👀',
+  no_match: 'No matching entries... yet. 👀',
   no_match_text: 'Please help adding supporting organizations to this directory!',
   clear: 'clear',
   industry: 'Industry',
