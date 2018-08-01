@@ -1,7 +1,21 @@
 # LGBTQ Glassdoor
 
-LGBTQglassdoor.com
+## LGBTQglassdoor.com
 
+LGBTQ Glassdoor aims to help LGBTQ individuals share and find supportive work environments. LGBTQ individuals & allies can add inclusive companies even if they may not yet have official policies.
+
+
+### Run Development
+* `cd vue-project`
+* `npm install`
+* `npm start`
+
+### Build
+* `cd vue-project`
+* `npm install`
+* `npm run build`
+
+The exported build will be at `/dist`, which can be deployed using skygear cli.
 
 ## Pages:
 * Landing
@@ -13,24 +27,15 @@ LGBTQglassdoor.com
 * Add - Step 4
 * Add - Confirm added
 
-
-localize
-
-i18n
-company list view
-company detail view
-filter view
-Tag view
-card view
-search view
-form view
-
-
 ## Table Schema
-User
-Company
-Tag
+* Contributor
+* company
 
 ## CMS
 
-https://lgbtq.skygeario.com/cms
+* [CMS at Skygear](https://lgbtq.skygeario.com/cms)
+
+## Localization
+
+* Using [vue-localization](https://github.com/valterlorran/vuejs-localization)
+* Please update language text under `/lang`
