@@ -1,173 +1,187 @@
 class FormOptions {
-  static identifyOptions = [
-    { value: 'lesbian', text: 'Lesbian' },
-    { value: 'gay', text: 'Gay' },
-    { value: 'bisexual', text: 'Bisexual' },
-    { value: 'trans', text: 'Trans' },
-    { value: 'genderqueer', text: 'Genderqueer' },
-    { value: 'queer', text: 'Queer' },
-    { value: 'ally', text: 'Ally' },
-    { value: 'other', text: 'Other' }
-  ]
+  constructor($lang) {
+    this.$lang = $lang;
+  }
 
-  static pronounOptions = [
-    { value: 'she', text: 'She / Her' },
-    { value: 'he', text: 'He / Him' },
-    { value: 'they', text: 'They / Them' }
-  ]
+  get identifyOptions() {
+    let lang = this.$lang.formOptions;
+    return [
+        { value: 'lesbian', text: lang.lesbian },
+        { value: 'gay', text: lang.gay },
+        { value: 'bisexual', text: lang.bisexual },
+        { value: 'trans', text: lang.trans },
+        { value: 'genderqueer', text: lang.genderqueer },
+        { value: 'queer', text: lang.queer },
+        { value: 'ally', text: lang.ally },
+        { value: 'other', text: lang.other }
+    ]
+  }
 
-  static industryOptions = [
-    { value: 'Accounting', text: 'Accounting' },
-    { value: 'Airlines/Aviation', text: 'Airlines/Aviation' },
-    { value: 'Alternative Dispute Resolution', text: 'Alternative Dispute Resolution' },
-    { value: 'Alternative Medicine', text: 'Alternative Medicine' },
-    { value: 'Animation', text: 'Animation' },
-    { value: 'Architecture/Planning', text: 'Architecture/Planning' },
-    { value: 'Arts/Crafts', text: 'Arts/Crafts' },
-    { value: 'Automotive', text: 'Automotive' },
-    { value: 'Aviation/Aerospace', text: 'Aviation/Aerospace' },
-    { value: 'Banking/Mortgage', text: 'Banking/Mortgage' },
-    { value: 'Biotechnology/Greentech', text: 'Biotechnology/Greentech' },
-    { value: 'Broadcast Media', text: 'Broadcast Media' },
-    { value: 'Building Materials', text: 'Building Materials' },
-    { value: 'Business Supplies/Equipment', text: 'Business Supplies/Equipment' },
-    { value: 'Capital Markets/Hedge Fund/Private Equity', text: 'Capital Markets/Hedge Fund/Private Equity' },
-    { value: 'Chemicals', text: 'Chemicals' },
-    { value: 'Civic/Social Organization', text: 'Civic/Social Organization' },
-    { value: 'Civil Engineering', text: 'Civil Engineering' },
-    { value: 'Commercial Real Estate', text: 'Commercial Real Estate' },
-    { value: 'Computer Games', text: 'Computer Games' },
-    { value: 'Computer Hardware', text: 'Computer Hardware' },
-    { value: 'Computer Networking', text: 'Computer Networking' },
-    { value: 'Computer Software Engineering', text: 'Computer Software Engineering' },
-    { value: 'Computer Network Security', text: 'Computer Network Security' },
-    { value: 'Construction', text: 'Construction' },
-    { value: 'Consumer Electronics', text: 'Consumer Electronics' },
-    { value: 'Consumer Goods', text: 'Consumer Goods' },
-    { value: 'Consumer Services', text: 'Consumer Services' },
-    { value: 'Cosmetics', text: 'Cosmetics' },
-    { value: 'Co-working spaces / Event Spaces', text: 'Co-working spaces / Event Spaces' },
-    { value: 'Dairy', text: 'Dairy' },
-    { value: 'Defense/Space', text: 'Defense/Space' },
-    { value: 'Design', text: 'Design' },
-    { value: 'E-Learning', text: 'E-Learning' },
-    { value: 'Education', text: 'Education' },
-    { value: 'Electrical/Electronic Manufacturing', text: 'Electrical/Electronic Manufacturing' },
-    { value: 'Entertainment/Movie Production', text: 'Entertainment/Movie Production' },
-    { value: 'Environmental Services', text: 'Environmental Services' },
-    { value: 'Events Services', text: 'Events Services' },
-    { value: 'Executive Office', text: 'Executive Office' },
-    { value: 'Facilities Services', text: 'Facilities Services' },
-    { value: 'Farming', text: 'Farming' },
-    { value: 'Fashion/Apparel', text: 'Fashion/Apparel' },
-    { value: 'Financial Services', text: 'Financial Services' },
-    { value: 'Fine Art', text: 'Fine Art' },
-    { value: 'Fishery', text: 'Fishery' },
-    { value: 'Food Production', text: 'Food Production' },
-    { value: 'Food/Beverages', text: 'Food/Beverages' },
-    { value: 'Fundraising', text: 'Fundraising' },
-    { value: 'Furniture', text: 'Furniture' },
-    { value: 'Gambling/Casinos', text: 'Gambling/Casinos' },
-    { value: 'Glass/Ceramics/Concrete', text: 'Glass/Ceramics/Concrete' },
-    { value: 'Government Administration', text: 'Government Administration' },
-    { value: 'Government Relations', text: 'Government Relations' },
-    { value: 'Graphic Design/Web Design', text: 'Graphic Design/Web Design' },
-    { value: 'Health/Fitness', text: 'Health/Fitness' },
-    { value: 'Higher Education/Acadamia', text: 'Higher Education/Acadamia' },
-    { value: 'Hospital/Health Care', text: 'Hospital/Health Care' },
-    { value: 'Hospitality', text: 'Hospitality' },
-    { value: 'Human Resources/HR', text: 'Human Resources/HR' },
-    { value: 'Import/Export', text: 'Import/Export' },
-    { value: 'Individual/Family Services', text: 'Individual/Family Services' },
-    { value: 'Industrial Automation', text: 'Industrial Automation' },
-    { value: 'Information Services', text: 'Information Services' },
-    { value: 'Information Technology/IT', text: 'Information Technology/IT' },
-    { value: 'Insurance', text: 'Insurance' },
-    { value: 'International Affairs', text: 'International Affairs' },
-    { value: 'International Trade/Development', text: 'International Trade/Development' },
-    { value: 'Internet', text: 'Internet' },
-    { value: 'Investment Banking/Venture', text: 'Investment Banking/Venture' },
-    { value: 'Investment Management/Hedge Fund/Private Equity', text: 'Investment Management/Hedge Fund/Private Equity' },
-    { value: 'Judiciary', text: 'Judiciary' },
-    { value: 'Law Enforcement', text: 'Law Enforcement' },
-    { value: 'Law Practice/Law Firms', text: 'Law Practice/Law Firms' },
-    { value: 'Legal Services', text: 'Legal Services' },
-    { value: 'Legislative Office', text: 'Legislative Office' },
-    { value: 'Leisure/Travel', text: 'Leisure/Travel' },
-    { value: 'Library', text: 'Library' },
-    { value: 'Logistics/Procurement', text: 'Logistics/Procurement' },
-    { value: 'Luxury Goods/Jewelry', text: 'Luxury Goods/Jewelry' },
-    { value: 'Machinery', text: 'Machinery' },
-    { value: 'Management Consulting', text: 'Management Consulting' },
-    { value: 'Maritime', text: 'Maritime' },
-    { value: 'Market Research', text: 'Market Research' },
-    { value: 'Marketing/Advertising/Sales', text: 'Marketing/Advertising/Sales' },
-    { value: 'Mechanical or Industrial Engineering', text: 'Mechanical or Industrial Engineering' },
-    { value: 'Media Production', text: 'Media Production' },
-    { value: 'Medical Equipment', text: 'Medical Equipment' },
-    { value: 'Medical Practice', text: 'Medical Practice' },
-    { value: 'Mental Health Care', text: 'Mental Health Care' },
-    { value: 'Military Industry', text: 'Military Industry' },
-    { value: 'Mining/Metals', text: 'Mining/Metals' },
-    { value: 'Motion Pictures/Film', text: 'Motion Pictures/Film' },
-    { value: 'Museums/Institutions', text: 'Museums/Institutions' },
-    { value: 'Music', text: 'Music' },
-    { value: 'Nanotechnology', text: 'Nanotechnology' },
-    { value: 'Newspapers/Journalism', text: 'Newspapers/Journalism' },
-    { value: 'Non-Profit/Volunteering', text: 'Non-Profit/Volunteering' },
-    { value: 'Oil/Energy/Solar/Greentech', text: 'Oil/Energy/Solar/Greentech' },
-    { value: 'Online Publishing', text: 'Online Publishing' },
-    { value: 'Other Industry', text: 'Other Industry' },
-    { value: 'Outsourcing/Offshoring', text: 'Outsourcing/Offshoring' },
-    { value: 'Package/Freight Delivery', text: 'Package/Freight Delivery' },
-    { value: 'Packaging/Containers', text: 'Packaging/Containers' },
-    { value: 'Paper/Forest Products', text: 'Paper/Forest Products' },
-    { value: 'Performing Arts', text: 'Performing Arts' },
-    { value: 'Pharmaceuticals', text: 'Pharmaceuticals' },
-    { value: 'Philanthropy', text: 'Philanthropy' },
-    { value: 'Photography', text: 'Photography' },
-    { value: 'Plastics', text: 'Plastics' },
-    { value: 'Political Organization', text: 'Political Organization' },
-    { value: 'Primary/Secondary Education', text: 'Primary/Secondary Education' },
-    { value: 'Printing', text: 'Printing' },
-    { value: 'Professional Training', text: 'Professional Training' },
-    { value: 'Program Development', text: 'Program Development' },
-    { value: 'Public Relations/PR', text: 'Public Relations/PR' },
-    { value: 'Public Safety', text: 'Public Safety' },
-    { value: 'Publishing Industry', text: 'Publishing Industry' },
-    { value: 'Railroad Manufacture', text: 'Railroad Manufacture' },
-    { value: 'Ranching', text: 'Ranching' },
-    { value: 'Real Estate/Mortgage', text: 'Real Estate/Mortgage' },
-    { value: 'Recreational Facilities/Services', text: 'Recreational Facilities/Services' },
-    { value: 'Religious Institutions', text: 'Religious Institutions' },
-    { value: 'Renewables/Environment', text: 'Renewables/Environment' },
-    { value: 'Research Industry', text: 'Research Industry' },
-    { value: 'Restaurants', text: 'Restaurants' },
-    { value: 'Retail Industry', text: 'Retail Industry' },
-    { value: 'Security/Investigations', text: 'Security/Investigations' },
-    { value: 'Semiconductors', text: 'Semiconductors' },
-    { value: 'Shipbuilding', text: 'Shipbuilding' },
-    { value: 'Sporting Goods', text: 'Sporting Goods' },
-    { value: 'Sports', text: 'Sports' },
-    { value: 'Social Enterprise', text: 'Social Enterprise' },
-    { value: 'Staffing/Recruiting', text: 'Staffing/Recruiting' },
-    { value: 'Supermarkets', text: 'Supermarkets' },
-    { value: 'Telecommunications', text: 'Telecommunications' },
-    { value: 'Textiles', text: 'Textiles' },
-    { value: 'Think Tanks', text: 'Think Tanks' },
-    { value: 'Tobacco', text: 'Tobacco' },
-    { value: 'Translation/Localization', text: 'Translation/Localization' },
-    { value: 'Transportation', text: 'Transportation' },
-    { value: 'Travel/Tourism', text: 'Travel/Tourism' },
-    { value: 'Utilities', text: 'Utilities' },
-    { value: 'Venture Capital/VC', text: 'Venture Capital/VC' },
-    { value: 'Veterinary', text: 'Veterinary' },
-    { value: 'Warehousing', text: 'Warehousing' },
-    { value: 'Wholesale', text: 'Wholesale' },
-    { value: 'Wine/Spirits', text: 'Wine/Spirits' },
-    { value: 'Wireless', text: 'Wireless' },
-    { value: 'Writing/Editing', text: 'Writing/Editing' }
-  ]
+  get pronounOptions() {
+    let lang = this.$lang.formOptions;
+    return [
+        { value: 'she', text: lang.she },
+        { value: 'he', text: lang.he },
+        { value: 'they', text: lang.they }
+    ]
+  }
+  
+
+  get industryOptions() {
+    let lang = this.$lang.formOptions;
+    return [
+        { value: 'Accounting', text: lang.accounting },
+        { value: 'Airlines/Aviation', text: lang.airlines },
+        { value: 'Alternative Dispute Resolution', text: lang.alternativeDisputeResolution },
+        { value: 'Alternative Medicine', text: lang.alternativeMedicine },
+        { value: 'Animation', text: lang.animation },
+        { value: 'Architecture/Planning', text: lang.architecture },
+        { value: 'Arts/Crafts', text: lang.arts },
+        { value: 'Automotive', text: lang.automotive },
+        { value: 'Aviation/Aerospace', text: lang.aviation },
+        { value: 'Banking/Mortgage', text: lang.banking },
+        { value: 'Biotechnology/Greentech', text: lang.biotechnology },
+        { value: 'Broadcast Media', text: lang.broadcastMedia },
+        { value: 'Building Materials', text: lang.buildingMaterials },
+        { value: 'Business Supplies/Equipment', text: lang.businessSupplies },
+        { value: 'Capital Markets/Hedge Fund/Private Equity', text: lang.capitalMarkets },
+        { value: 'Chemicals', text: lang.chemicals },
+        { value: 'Civic/Social Organization', text: lang.civic },
+        { value: 'Civil Engineering', text: lang.civilEngineering },
+        { value: 'Commercial Real Estate', text: lang.commercialRealEstate },
+        { value: 'Computer Games', text: lang.computerGames },
+        { value: 'Computer Hardware', text: lang.computerHardware },
+        { value: 'Computer Networking', text: lang.computerNetworking },
+        { value: 'Computer Software Engineering', text: lang.computerSoftwareEngineering },
+        { value: 'Computer Network Security', text: lang.computerNetworkSecurity },
+        { value: 'Construction', text: lang.construction },
+        { value: 'Consumer Electronics', text: lang.consumerElectronics },
+        { value: 'Consumer Goods', text: lang.consumerGoods },
+        { value: 'Consumer Services', text: lang.consumerServices },
+        { value: 'Cosmetics', text: lang.cosmetics },
+        { value: 'Co-working spaces / Event Spaces', text: lang.coworkingSpaces },
+        { value: 'Dairy', text: lang.dairy },
+        { value: 'Defense/Space', text: lang.defense },
+        { value: 'Design', text: lang.design },
+        { value: 'E-Learning', text: lang.eLearning },
+        { value: 'Education', text: lang.education },
+        { value: 'Electrical/Electronic Manufacturing', text: lang.electrical },
+        { value: 'Entertainment/Movie Production', text: lang.entertainment },
+        { value: 'Environmental Services', text: lang.environmentalServices },
+        { value: 'Events Services', text: lang.eventsServices },
+        { value: 'Executive Office', text: lang.executiveOffice },
+        { value: 'Facilities Services', text: lang.facilitiesServices },
+        { value: 'Farming', text: lang.farming },
+        { value: 'Fashion/Apparel', text: lang.fashion },
+        { value: 'Financial Services', text: lang.financialServices },
+        { value: 'Fine Art', text: lang.fineArt },
+        { value: 'Fishery', text: lang.fishery },
+        { value: 'Food Production', text: lang.foodProduction },
+        { value: 'Food/Beverages', text: lang.foodNBeverages },
+        { value: 'Fundraising', text: lang.fundraising },
+        { value: 'Furniture', text: lang.furniture },
+        { value: 'Gambling/Casinos', text: lang.gambling },
+        { value: 'Glass/Ceramics/Concrete', text: lang.glass_ceramics_Concrete },
+        { value: 'Government Administration', text: lang.governmentAdministration },
+        { value: 'Government Relations', text: lang.governmentRelations },
+        { value: 'Graphic Design/Web Design', text: lang.graphicDesign_WebDesign },
+        { value: 'Health/Fitness', text: lang.health },
+        { value: 'Higher Education/Acadamia', text: lang.higherEducation },
+        { value: 'Hospital/Health Care', text: lang.hospital },
+        { value: 'Hospitality', text: lang.hospitality },
+        { value: 'Human Resources/HR', text: lang.humanResources },
+        { value: 'Import/Export', text: lang.import_Export },
+        { value: 'Individual/Family Services', text: lang.individual },
+        { value: 'Industrial Automation', text: lang.industrialAutomation },
+        { value: 'Information Services', text: lang.informationServices },
+        { value: 'Information Technology/IT', text: lang.informationTechnology},
+        { value: 'Insurance', text: lang.insurance },
+        { value: 'International Affairs', text: lang.internationalAffairs },
+        { value: 'International Trade/Development', text: lang.internationalTrade },
+        { value: 'Internet', text: lang.internet },
+        { value: 'Investment Banking/Venture', text: lang.investmentBanking },
+        { value: 'Investment Management/Hedge Fund/Private Equity', text: lang.investmentManagement },
+        { value: 'Judiciary', text: lang.judiciary },
+        { value: 'Law Enforcement', text: lang.lawEnforcement },
+        { value: 'Law Practice/Law Firms', text: lang.lawPractice },
+        { value: 'Legal Services', text: lang.legalServices },
+        { value: 'Legislative Office', text: lang.legislativeOffice },
+        { value: 'Leisure/Travel', text: lang.leisureNTravel },
+        { value: 'Library', text: lang.library },
+        { value: 'Logistics/Procurement', text: lang.logisticsNProcurement },
+        { value: 'Luxury Goods/Jewelry', text: lang.luxuryGoodsNJewelry },
+        { value: 'Machinery', text: lang.machinery },
+        { value: 'Management Consulting', text: lang.managementConsulting },
+        { value: 'Maritime', text: lang.maritime },
+        { value: 'Market Research', text: lang.marketResearch },
+        { value: 'Marketing/Advertising/Sales', text: lang.marketing },
+        { value: 'Mechanical or Industrial Engineering', text: lang.mechanical },
+        { value: 'Media Production', text: lang.mediaProduction },
+        { value: 'Medical Equipment', text: lang.medicalEquipment },
+        { value: 'Medical Practice', text: lang.medicalPractice },
+        { value: 'Mental Health Care', text: lang.mentalHealthCare },
+        { value: 'Military Industry', text: lang.militaryIndustry },
+        { value: 'Mining/Metals', text: lang.miningNMetals },
+        { value: 'Motion Pictures/Film', text: lang.motionPictures },
+        { value: 'Museums/Institutions', text: lang.museumsNInstitutions },
+        { value: 'Music', text: lang.music },
+        { value: 'Nanotechnology', text: lang.nanotechnology },
+        { value: 'Newspapers/Journalism', text: lang.newspapersNJournalism },
+        { value: 'Non-Profit/Volunteering', text: lang.nonProfit },
+        { value: 'Oil/Energy/Solar/Greentech', text: lang.oilNEnergy },
+        { value: 'Online Publishing', text: lang.onlinePublishing },
+        { value: 'Other Industry', text: lang.otherIndustry },
+        { value: 'Outsourcing/Offshoring', text: lang.outsourcing },
+        { value: 'Package/Freight Delivery', text: lang.packageNFreightDelivery },
+        { value: 'Packaging/Containers', text: lang.packaging },
+        { value: 'Paper/Forest Products', text: lang.paper },
+        { value: 'Performing Arts', text: lang.performingArts },
+        { value: 'Pharmaceuticals', text: lang.pharmaceuticals },
+        { value: 'Philanthropy', text: lang.philanthropy },
+        { value: 'Photography', text: lang.photography },
+        { value: 'Plastics', text: lang.plastics },
+        { value: 'Political Organization', text: lang.politicalOrganization },
+        { value: 'Primary/Secondary Education', text: lang.schoolEducation },
+        { value: 'Printing', text: lang.printing },
+        { value: 'Professional Training', text: lang.professionalTraining },
+        { value: 'Program Development', text: lang.programDevelopment },
+        { value: 'Public Relations/PR', text: lang.publicRelations },
+        { value: 'Public Safety', text: lang.publicSafety },
+        { value: 'Publishing Industry', text: lang.publishingIndustry },
+        { value: 'Railroad Manufacture', text: lang.railroadManufacture },
+        { value: 'Ranching', text: lang.ranching },
+        { value: 'Real Estate/Mortgage', text: lang.realEstate },
+        { value: 'Recreational Facilities/Services', text: lang.recreationalFacilities },
+        { value: 'Religious Institutions', text: lang.religiousInstitutions },
+        { value: 'Renewables/Environment', text: lang.renewables },
+        { value: 'Research Industry', text: lang.researchIndustry },
+        { value: 'Restaurants', text: lang.restaurants },
+        { value: 'Retail Industry', text: lang.retailIndustry },
+        { value: 'Security/Investigations', text: lang.security },
+        { value: 'Semiconductors', text: lang.semiconductors },
+        { value: 'Shipbuilding', text: lang.shipbuilding },
+        { value: 'Sporting Goods', text: lang.sportingGoods },
+        { value: 'Sports', text: lang.sports },
+        { value: 'Social Enterprise', text: lang.socialEnterprise },
+        { value: 'Staffing/Recruiting', text: lang.staffing },
+        { value: 'Supermarkets', text: lang.supermarkets },
+        { value: 'Telecommunications', text: lang.telecommunications },
+        { value: 'Textiles', text: lang.textiles },
+        { value: 'Think Tanks', text: lang.thinkTanks },
+        { value: 'Tobacco', text: lang.tobacco },
+        { value: 'Translation/Localization', text: lang.translation },
+        { value: 'Transportation', text: lang.transportation },
+        { value: 'Travel/Tourism', text: lang.tourism },
+        { value: 'Utilities', text: lang.utilities },
+        { value: 'Venture Capital/VC', text: lang.ventureCapital },
+        { value: 'Veterinary', text: lang.veterinary },
+        { value: 'Warehousing', text: lang.warehousing },
+        { value: 'Wholesale', text: lang.wholesale },
+        { value: 'Wine/Spirits', text: lang.wine },
+        { value: 'Wireless', text: lang.wireless },
+        { value: 'Writing/Editing', text: lang.writing }
+    ]
+  } 
 
   static sizeOptions = [
     { value: '0-5', text: '0-5' },
@@ -180,52 +194,64 @@ class FormOptions {
     { value: '500+', text: '500+' }
   ]
 
-  static visibilityOptions = [
-    { value: 'LGB colleagues', text: 'LGB colleagues' },
-    { value: 'Trans, genderqueer colleagues', text: 'Trans / Genderqueer colleagues' },
-    { value: 'Allies', text: 'Strong and vocal allies' },
-    { value: 'Others', text: 'Other (please fill in at the bottom of this questionaire)' }
-  ]
+  get visibilityOptions() {
+    let lang = this.$lang.formOptions;
+    return [
+        { value: 'LGB colleagues', text: lang.lgbColleagues },
+        { value: 'Trans, genderqueer colleagues', text: lang.transGenderqueerColleagues },
+        { value: 'Allies', text: lang.strongAndVocalAllies },
+    ]
+  }
 
-  static benefitsOptions = [
-    { value: 'Same-sex benefits', text: 'Same-sex benefits' },
-    { value: 'Rainbow families', text: 'Rainbow family support' },
-    { value: 'Trans benefits', text: 'Trans benefits / transition support' },
-    { value: 'Informal Benefits', text: 'Nothing official, but LGBTQ benefits provided for individual cases.' },
-    { value: 'Other', text: 'Other (please fill in at the bottom of this questionaire)' }
-  ]
 
-  static policiesOptions = [
-    { value: 'Generic non-discrimination', text: 'Generic non-discrimination' },
-    { value: 'Same-sex policies', text: 'Same-sex policies' },
-    { value: 'Trans policies', text: 'Trans policies' },
-    { value: 'Informal policies', text: 'No policies, but leadership actively helps for individual cases.' },
-    { value: 'Unenforced policies', text: 'Has same-sex/trans policies, but they are not enforced.' },
-    { value: 'Others', text: 'Other (please fill in at the bottom of this questionaire)' }
-  ]
+  get benefitsOptions() {
+    let lang = this.$lang.formOptions;
+    return [
+        { value: 'Same-sex benefits', text: lang.sameSexBenefits },
+        { value: 'Rainbow families', text: lang.rainbowFamilySupport },
+        { value: 'Trans benefits', text: lang.transBenefits_transitionSupport },
+        { value: 'Informal Benefits', text: lang.informalBenefits },
+    ]
+  }
 
-  static spaceOptions = [
-    { value: 'Trans washrooms', text: 'Trans washrooms' },
-    { value: 'Gender neutral washrooms', text: 'Gender neutral washrooms' },
-    { value: 'Others', text: 'Other (please fill in at the bottom of this questionaire)' }
-  ]
+  get policiesOptions() {
+    let lang = this.$lang.formOptions;
+    return [
+        { value: 'Generic non-discrimination', text: lang.generic_nonDiscrimination },
+        { value: 'Same-sex policies', text: lang.sameSexPolicies },
+        { value: 'Trans policies', text: lang.transPolicies },
+        { value: 'Informal policies', text: lang.informalPolicies },
+        { value: 'Unenforced policies', text: lang.unenforcedPolicies },
+    ]
+  } 
 
-  static communityOptions = [
-    { value: 'Allies', text: 'There are allies to turn to for help or raise issues with.' },
-    { value: 'Inclusive culture', text: 'Generally an inclusive company.' },
-    { value: 'Comfortable calling out', text: 'I feel comfortable calling out discrimination.' },
-    { value: 'LGBTQ network', text: 'Internal LGBTQ Network' },
-    { value: 'D&I events', text: 'Internal Diversity & Inclusion Events' },
-    { value: 'Others', text: 'Other (please fill in at the bottom of this questionaire)' }
-  ]
+  get spaceOptions() {
+    let lang = this.$lang.formOptions;
+    return [
+        { value: 'Trans washrooms', text: lang.transWashrooms },
+    ]
+  } 
 
-  static sponsorshipOptions = [
-    { value: 'Public events', text: 'Hosts public events / LGBTQ initiatives' },
-    { value: 'Event sponsorships', text: 'Sponsors LGBTQ events' },
-    { value: 'NGO sponsorships', text: 'Sponsors LGBTQ NGOs' },
-    { value: 'Advocacy', text: 'Company does public advocacy' },
-    { value: 'Others', text: 'Other (please fill in at the bottom of this questionaire)' }
-  ]
+  get communityOptions(){
+    let lang = this.$lang.formOptions;
+    return [
+        { value: 'Allies', text: lang.allies },
+        { value: 'Inclusive culture', text: lang.inclusiveCulture },
+        { value: 'Comfortable calling out', text: lang.comfortableCallingOut },
+        { value: 'LGBTQ network', text: lang.lgbtqNetwork },
+        { value: 'D&I events', text: lang.dNIEvents },
+    ]
+  } 
+
+  get sponsorshipOptions() {
+    let lang = this.$lang.formOptions;
+    return [
+        { value: 'Public events', text: lang.publicEvents },
+        { value: 'Event sponsorships', text: lang.eventSponsorships },
+        { value: 'NGO sponsorships', text: lang.ngoSponsorships },
+        { value: 'Advocacy', text: lang.advocacy },
+    ]
+  } 
 }
 
 export default FormOptions

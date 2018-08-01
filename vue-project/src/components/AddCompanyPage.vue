@@ -249,21 +249,63 @@ import Contributor from '../models/contributor'
 export default {
   components: {},
   data () {
+    console.log('when I run', this.$lang);
     return {
       step: 'disclaimer',
       newCompany: new Company(),
       newUserInfo: new Contributor(),
-      identifyOptions: FormOptions.identifyOptions,
-      pronounOptions: FormOptions.pronounOptions,
-      industryOptions: FormOptions.industryOptions,
       sizeOptions: FormOptions.sizeOptions,
-      visibilityOptions: FormOptions.visibilityOptions,
-      benefitsOptions: FormOptions.benefitsOptions,
-      policiesOptions: FormOptions.policiesOptions,
-      spaceOptions: FormOptions.spaceOptions,
-      communityOptions: FormOptions.communityOptions,
-      sponsorshipOptions: FormOptions.sponsorshipOptions
     }
+  },
+  computed: {
+
+    identifyOptions() {
+      const translatedForm = new FormOptions(this.$lang);
+      return translatedForm.identifyOptions;
+    },
+
+    pronounOptions() {
+      const translatedForm = new FormOptions(this.$lang);
+      return translatedForm.pronounOptions;
+    },
+
+    industryOptions() {
+      const translatedForm = new FormOptions(this.$lang);
+      return translatedForm.industryOptions;
+    },
+
+    visibilityOptions() {
+      const translatedForm = new FormOptions(this.$lang);
+      return translatedForm.visibilityOptions;
+    },
+
+    benefitsOptions() {
+      const translatedForm = new FormOptions(this.$lang);
+      return translatedForm.benefitsOptions;
+    },
+
+    policiesOptions() {
+      const translatedForm = new FormOptions(this.$lang);
+      return translatedForm.policiesOptions;
+    },
+
+    spaceOptions() {
+      const translatedForm = new FormOptions(this.$lang);
+      return translatedForm.spaceOptions;      
+    },
+
+    communityOptions() {
+      const translatedForm = new FormOptions(this.$lang);
+      return translatedForm.communityOptions;     
+    },
+
+    sponsorshipOptions() {
+      const translatedForm = new FormOptions(this.$lang);
+      return translatedForm.sponsorshipOptions;        
+    }
+
+
+
   },
   mounted: function () {},
   methods: {
