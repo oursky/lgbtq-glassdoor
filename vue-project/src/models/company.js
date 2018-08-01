@@ -47,7 +47,6 @@ class Company {
   }
 
   static getCompany (companyName) {
-
     const result = this.allCompanies.filter(company => company.name === companyName)
     return result
   }

@@ -24,7 +24,10 @@
           <b-col class="tags-container">
             <h4>{{$lang.landing.view_company_text}}</h4>
             <div v-for="(category, catName) in this.allTags" v-bind:key="catName">
-              <b-link v-for="tag in category" v-bind:key="tag" :to="{path:'tag/'+catName+'/'+tag}"><span class="badge badge-pill badge-primary" :class="'badge-'+catName">{{tag}}</span></b-link>
+              <b-link v-for="(tag, tagValue) in category" v-bind:key="tagValue" :to="{path:'tag/'+catName+'/'+tagValue}"><span class="badge badge-pill badge-primary" :class="'badge-'+catName">
+                <span v-if="$lang.getLang() === 'en'">{{tag.en}}</span>
+                <span v-if="$lang.getLang() === 'zh-cn'">{{tag.zh}}</span>
+              </span></b-link>
               <br><br>
             </div>
 
@@ -42,17 +45,12 @@ import Tag from '../models/tag'
 export default {
   data () {
     return {
-      allTags: {}
+      allTags: Tag.fetchAllTags()
     }
   },
   mounted: function () {
-    this.loadAllTags()
   },
   methods: {
-    loadAllTags: function () {
-      this.allTags = Tag.fetchAllTags()
-      console.log(this.allTags)
-    }
   },
   components: {}
 }
