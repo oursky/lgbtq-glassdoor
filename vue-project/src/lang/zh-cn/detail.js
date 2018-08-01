@@ -7,5 +7,5 @@ module.exports = {
   sunmitted_on: '張貼時間',
   posted_on: '提交時間',
   website: '公司網站',
-  linkedin: '公司 Linkedin',
+  linkedin: '公司 Linkedin'
 }

@@ -93,12 +93,12 @@
 
           <b-row class="my-1">
             <b-col sm="6"><label :for="newCompany.website" required>{{$lang.add.website}} *</label></b-col>
-            <b-col sm="6"><b-form-input :id="newCompany.website" v-model="newCompany.website" type="text" :placeholder="$lang.add.website_hint" :required="step === '2'"></b-form-input></b-col>
+            <b-col sm="6"><b-form-input :id="newCompany.website" v-model="newCompany.website" type="text" :placeholder="$lang.add.website_hint"></b-form-input></b-col>
           </b-row>
 
           <b-row class="my-1">
             <b-col sm="6"><label :for="newCompany.linkedin" required>{{$lang.add.linkedin}} *</label></b-col>
-            <b-col sm="6"><b-form-input :id="newCompany.linkedin" v-model="newCompany.linkedin" type="text" :placeholder="$lang.add.linkedin_hint" :required="step === '2'"></b-form-input></b-col>
+            <b-col sm="6"><b-form-input :id="newCompany.linkedin" v-model="newCompany.linkedin" type="text" :placeholder="$lang.add.linkedin_hint"></b-form-input></b-col>
           </b-row>
           <b-row class="my-1">
             <b-col sm="6"><label :for="newCompany.name" required>{{$lang.add.company_name}} *</label></b-col>
