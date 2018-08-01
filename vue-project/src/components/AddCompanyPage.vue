@@ -246,49 +246,57 @@ export default {
       step: 'disclaimer',
       newCompany: new Company(),
       newUserInfo: new Contributor(),
-      identifyOptions: FormOptions.identifyOptions,
-      pronounOptions: FormOptions.pronounOptions,
-      industryOptions: FormOptions.industryOptions,
-      sizeOptions: FormOptions.sizeOptions,
-      visibilityOptions: FormOptions.visibilityOptions,
-      benefitsOptions: FormOptions.benefitsOptions,
-      policiesOptions: FormOptions.policiesOptions,
-      spaceOptions: FormOptions.spaceOptions,
-      communityOptions: FormOptions.communityOptions,
-      sponsorshipOptions: FormOptions.sponsorshipOptions
+      sizeOptions: FormOptions.sizeOptions
     }
   },
+
   computed: {
-    identifyOptionsByLang: function ($lang, identifyOptions) {
-      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.identifyOptions)
+
+    identifyOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.identifyOptions
     },
-    pronounOptionsByLang: function ($lang, pronounOptions) {
-      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.pronounOptions)
+
+    pronounOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.pronounOptions
     },
-    industryOptionsByLang: function ($lang, industryOptions) {
-      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.industryOptions)
+
+    industryOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.industryOptions
     },
-    sizeOptionsByLang: function ($lang, sizeOptions) {
-      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.sizeOptions)
+
+    visibilityOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.visibilityOptions
     },
-    visibilityOptionsByLang: function ($lang, visibilityOptions) {
-      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.visibilityOptions)
+
+    benefitsOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.benefitsOptions
     },
-    benefitsOptionsByLang: function ($lang, benefitsOptions) {
-      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.benefitsOptions)
+
+    policiesOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.policiesOptions
     },
-    policiesOptionsByLang: function ($lang, policiesOptions) {
-      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.policiesOptions)
+
+    spaceOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.spaceOptions
     },
-    spaceOptionsByLang: function ($lang, spaceOptions) {
-      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.spaceOptions)
+
+    communityOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.communityOptions
     },
-    communityOptionsByLang: function ($lang, communityOptions) {
-      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.communityOptions)
-    },
-    sponsorshipOptionsByLang: function ($lang, sponsorshipOptions) {
-      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.sponsorshipOptions)
+
+    sponsorshipOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.sponsorshipOptions
     }
+
   },
   mounted: function () {},
   methods: {
