@@ -285,7 +285,7 @@ export default {
       this.currentFilters[cat] = [tag]
     },
     clear: function () {
-      this.currentFilters = {}
+      this.currentFilters = []
     },
     loadRemoteCompanies: function () {
       Company.fetchAllCompanies().then((companies) => {
