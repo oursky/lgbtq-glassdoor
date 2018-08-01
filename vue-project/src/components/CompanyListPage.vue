@@ -18,7 +18,7 @@
             <b-button class="add-filter-button" variant="link" id="industryPopOver">+</b-button>
             <hr>
             <div v-for="selectedFilter in currentFilters.industry" v-bind:key="selectedFilter" class="selectedFilter">{{selectedFilter}}</div>
-            <b-popover target="industryPopOver" title="Industry" triggers="focus">
+            <b-popover target="industryPopOver" title="Industry" triggers="click blur">
               <b-form-checkbox-group id="industry" name="industry" v-model="currentFilters.industry">
               <div v-for="industry in FormOptions.industryOptions" v-bind:key="industry.value">
                 <b-form-checkbox :value="industry.value">
@@ -33,7 +33,7 @@
             <b-button class="add-filter-button" variant="link" id="visibilityPopOver">+</b-button>
             <hr>
             <div v-for="selectedFilter in currentFilters.visibility" v-bind:key="selectedFilter" class="selectedFilter">{{selectedFilter}}</div>
-            <b-popover target="visibilityPopOver" title="Visibility" triggers="focus">
+            <b-popover target="visibilityPopOver" title="Visibility" triggers="click blur">
               <b-form-checkbox-group id="visibility" name="visibility" v-model="currentFilters.visibility">
                 <div v-for="visibility in FormOptions.visibilityOptions" v-bind:key="visibility.value">
                   <b-form-checkbox :value="visibility.value">
@@ -48,7 +48,7 @@
             <b-button class="add-filter-button" variant="link" id="policiesPopOver">+</b-button>
             <hr>
             <div v-for="selectedFilter in currentFilters.policies" v-bind:key="selectedFilter" class="selectedFilter">{{selectedFilter}}</div>
-            <b-popover target="policiesPopOver" title="Non-Discrimination Policy" triggers="focus">
+            <b-popover target="policiesPopOver" title="Non-Discrimination Policy" triggers="click blur">
               <b-form-checkbox-group id="policies" name="policies" v-model="currentFilters.policies">
                 <div v-for="policies in FormOptions.policiesOptions" v-bind:key="policies.value">
                   <b-form-checkbox :value="policies.value">
@@ -63,7 +63,7 @@
             <b-button class="add-filter-button" variant="link" id="sizePopOver">+</b-button>
             <hr>
             <div v-for="selectedFilter in currentFilters.companySize" v-bind:key="selectedFilter" class="selectedFilter">{{selectedFilter}}</div>
-            <b-popover target="sizePopOver" title="Campany Size" triggers="focus">
+            <b-popover target="sizePopOver" title="Campany Size" triggers="click blur">
               <b-form-checkbox-group id="companySize" name="companySize" v-model="currentFilters.companySize">
                 <div v-for="companySize in FormOptions.sizeOptions" v-bind:key="companySize.value">
                   <b-form-checkbox :value="companySize.value">
@@ -78,7 +78,7 @@
             <b-button class="add-filter-button" variant="link" id="sponsorshipPopOver">+</b-button>
             <hr>
             <div v-for="selectedFilter in currentFilters.sponsorship" v-bind:key="selectedFilter" class="selectedFilter">{{selectedFilter}}</div>
-            <b-popover target="sponsorshipPopOver" title="Public Sponsorship" triggers="focus">
+            <b-popover target="sponsorshipPopOver" title="Public Sponsorship" triggers="click blur">
               <b-form-checkbox-group id="sponsorship" name="sponsorship" v-model="currentFilters.sponsorship">
                 <div v-for="sponsorship in FormOptions.sponsorshipOptions" v-bind:key="sponsorship.value">
                   <b-form-checkbox :value="sponsorship.value">
@@ -93,7 +93,7 @@
             <b-button class="add-filter-button" variant="link" id="spacePopOver">+</b-button>
             <hr>
             <div v-for="selectedFilter in currentFilters.space" v-bind:key="selectedFilter" class="selectedFilter">{{selectedFilter}}</div>
-            <b-popover target="spacePopOver" title="Space" triggers="focus">
+            <b-popover target="spacePopOver" title="Space" triggers="click blur">
               <b-form-checkbox-group id="space" name="space" v-model="currentFilters.space">
                 <div v-for="space in FormOptions.spaceOptions" v-bind:key="space.value">
                   <b-form-checkbox :value="space.value">
@@ -108,7 +108,7 @@
             <b-button class="add-filter-button" variant="link" id="benefitsPopOver">+</b-button>
             <hr>
             <div v-for="selectedFilter in currentFilters.benefits" v-bind:key="selectedFilter" class="selectedFilter">{{selectedFilter}}</div>
-            <b-popover target="benefitsPopOver" title="Support & Benefits" triggers="focus">
+            <b-popover target="benefitsPopOver" title="Support & Benefits" triggers="click blur">
               <b-form-checkbox-group id="benefits" name="benefits" v-model="currentFilters.benefits">
                 <div v-for="benefits in FormOptions.benefitsOptions" v-bind:key="benefits.value">
                   <b-form-checkbox :value="benefits.value">
@@ -123,7 +123,7 @@
             <b-button class="add-filter-button" variant="link" id="communityPopOver">+</b-button>
             <hr>
             <div v-for="selectedFilter in currentFilters.community" v-bind:key="selectedFilter" class="selectedFilter">{{selectedFilter}}</div>
-            <b-popover target="communityPopOver" title="Community" triggers="focus">
+            <b-popover target="communityPopOver" title="Community" triggers="click blur">
               <b-form-checkbox-group id="community" name="community" v-model="currentFilters.community">
                 <div v-for="community in FormOptions.communityOptions" v-bind:key="community.value">
                   <b-form-checkbox :value="community.value">
