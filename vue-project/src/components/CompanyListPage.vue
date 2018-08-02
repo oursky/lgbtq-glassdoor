@@ -289,7 +289,7 @@ export default {
     },
     loadRemoteCompanies: function () {
       Company.fetchAllCompanies().then((companies) => {
-        this.companies = Array.from(companies)
+        this.companies = companies
         // this.searchHandler()
       }, (error) => {
         console.error(error)

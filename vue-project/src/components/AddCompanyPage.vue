@@ -60,7 +60,7 @@
             <b-col sm="3"><label :for="newUserInfo.identify" :required="step === '1'">{{$lang.add.how_do_you_identify}} *</label></b-col>
             <b-col sm="9">
               <b-form-group :label="$lang.add.select_all_apply">
-                <b-form-checkbox-group name="newUserInfo.identify" stacked v-model="newUserInfo.identify" :options="identifyOptions">
+                <b-form-checkbox-group name="newUserInfo.identify" stacked v-model="newUserInfo.identify" :options="identifyOptionsByLang">
                 </b-form-checkbox-group>
               </b-form-group>
             </b-col>
@@ -70,7 +70,7 @@
             <b-col sm="3"><label :for="newUserInfo.pronoun" :required="step === '1'">{{$lang.add.pronoun}} *</label></b-col>
             <b-col sm="9">
               <b-form-group :label="$lang.add.select_all_apply">
-                <b-form-checkbox-group name="newUserInfo.pronoun" v-model="newUserInfo.pronoun" :options="pronounOptions">
+                <b-form-checkbox-group name="newUserInfo.pronoun" v-model="newUserInfo.pronoun" :options="pronounOptionsByLang">
                 </b-form-checkbox-group>
               </b-form-group>
             </b-col>
@@ -101,7 +101,7 @@
           <b-row class="my-1">
             <b-col sm="6"><label :for="newCompany.industry">{{$lang.add.industry}}</label></b-col>
             <b-col sm="6">
-              <b-form-select v-model="newCompany.industry" :options="industryOptions" class="mb-3" :id="newCompany.industry">
+              <b-form-select v-model="newCompany.industry" :options="industryOptionsByLang" class="mb-3" :id="newCompany.industry">
                 <template slot="first">
                   <!-- this slot appears above the options from 'options' prop -->
                   <option :value="null" disabled>-- {{$lang.add.select_an_option}} --</option>
@@ -113,7 +113,7 @@
           <b-row class="my-1">
             <b-col sm="6"><label :for="newCompany.companySize">{{$lang.add.company_size}}</label></b-col>
             <b-col sm="6">
-              <b-form-select v-model="newCompany.companySize" :options="sizeOptions" class="mb-3" :id="newCompany.companySize">
+              <b-form-select v-model="newCompany.companySize" :options="sizeOptionsByLang" class="mb-3" :id="newCompany.companySize">
                 <template slot="first">
                   <option :value="null" disabled>-- {{$lang.add.select_an_option}} --</option>
                 </template>
@@ -132,7 +132,7 @@
             <b-col sm="6"><label :for="newCompany.visibility" required>{{$lang.add.visibility_text}} *</label></b-col>
             <b-col sm="6">
               <b-form-group :label="$lang.add.select_all_apply">
-                <b-form-checkbox-group name="newCompany.visibility" stacked v-model="newCompany.visibility" :options="visibilityOptions">
+                <b-form-checkbox-group name="newCompany.visibility" stacked v-model="newCompany.visibility" :options="visibilityOptionsByLang">
                 </b-form-checkbox-group>
               </b-form-group>
             </b-col>
@@ -142,7 +142,7 @@
             <b-col sm="6"><label :for="newCompany.policies">{{$lang.add.policies_text}}</label></b-col>
             <b-col sm="6">
               <b-form-group :label="$lang.add.select_all_apply">
-                <b-form-checkbox-group name="newCompany.policies" stacked v-model="newCompany.policies" :options="policiesOptions">
+                <b-form-checkbox-group name="newCompany.policies" stacked v-model="newCompany.policies" :options="policiesOptionsByLang">
                 </b-form-checkbox-group>
               </b-form-group>
             </b-col>
@@ -152,7 +152,7 @@
             <b-col sm="6"><label :for="newCompany.benefits">{{$lang.add.benefits_text}}</label></b-col>
             <b-col sm="6">
               <b-form-group :label="$lang.add.select_all_apply">
-                <b-form-checkbox-group name="newCompany.benefits" stacked v-model="newCompany.benefits" :options="benefitsOptions">
+                <b-form-checkbox-group name="newCompany.benefits" stacked v-model="newCompany.benefits" :options="benefitsOptionsByLang">
                 </b-form-checkbox-group>
               </b-form-group>
             </b-col>
@@ -162,7 +162,7 @@
             <b-col sm="6"><label :for="newCompany.space">{{$lang.add.spaces_text}}</label></b-col>
             <b-col sm="6">
               <b-form-group :label="$lang.add.select_all_apply">
-                <b-form-checkbox-group name="newCompany.space" stacked v-model="newCompany.space" :options="spaceOptions">
+                <b-form-checkbox-group name="newCompany.space" stacked v-model="newCompany.space" :options="spaceOptionsByLang">
                 </b-form-checkbox-group>
               </b-form-group>
             </b-col>
@@ -172,7 +172,7 @@
             <b-col sm="6"><label :for="newCompany.community">{{$lang.add.community_text}}</label></b-col>
             <b-col sm="6">
               <b-form-group :label="$lang.add.select_all_apply">
-                <b-form-checkbox-group name="newCompany.community" stacked v-model="newCompany.community" :options="communityOptions">
+                <b-form-checkbox-group name="newCompany.community" stacked v-model="newCompany.community" :options="communityOptionsByLang">
                 </b-form-checkbox-group>
               </b-form-group>
             </b-col>
@@ -182,7 +182,7 @@
             <b-col sm="6"><label :for="newCompany.sponsorship">{{$lang.add.sponsorship_text}}</label></b-col>
             <b-col sm="6">
               <b-form-group :label="$lang.add.select_all_apply">
-                <b-form-checkbox-group name="newCompany.sponsorship" stacked v-model="newCompany.sponsorship" :options="sponsorshipOptions">
+                <b-form-checkbox-group name="newCompany.sponsorship" stacked v-model="newCompany.sponsorship" :options="sponsorshipOptionsByLang">
                 </b-form-checkbox-group>
               </b-form-group>
             </b-col>
@@ -258,6 +258,38 @@ export default {
       sponsorshipOptions: FormOptions.sponsorshipOptions
     }
   },
+  computed: {
+    identifyOptionsByLang: function ($lang, identifyOptions) {
+      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.identifyOptions)
+    },
+    pronounOptionsByLang: function ($lang, pronounOptions) {
+      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.pronounOptions)
+    },
+    industryOptionsByLang: function ($lang, industryOptions) {
+      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.industryOptions)
+    },
+    sizeOptionsByLang: function ($lang, sizeOptions) {
+      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.sizeOptions)
+    },
+    visibilityOptionsByLang: function ($lang, visibilityOptions) {
+      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.visibilityOptions)
+    },
+    benefitsOptionsByLang: function ($lang, benefitsOptions) {
+      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.benefitsOptions)
+    },
+    policiesOptionsByLang: function ($lang, policiesOptions) {
+      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.policiesOptions)
+    },
+    spaceOptionsByLang: function ($lang, spaceOptions) {
+      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.spaceOptions)
+    },
+    communityOptionsByLang: function ($lang, communityOptions) {
+      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.communityOptions)
+    },
+    sponsorshipOptionsByLang: function ($lang, sponsorshipOptions) {
+      return FormOptions.formOptionsByLang(this.$lang.getLang(), this.sponsorshipOptions)
+    }
+  },
   mounted: function () {},
   methods: {
     step1: function () {
@@ -269,7 +301,6 @@ export default {
       if (this.validate()) {
         this.step = '2'
       }
-
       console.log(this.newCompany)
       console.log(this.newUserInfo)
     },
@@ -277,7 +308,6 @@ export default {
       if (this.validate()) {
         this.step = '3'
       }
-
       console.log(this.newCompany)
       console.log(this.newUserInfo)
     },
@@ -305,7 +335,8 @@ export default {
       }
     },
     clearFormData: function () {
-
+      this.newCompany = new Company()
+      this.newUserInfo = new Contributor()
     },
     validate: function () {
       let addCompanyForm = this.$refs.addCompanyForm

@@ -170,14 +170,14 @@ class FormOptions {
   ]
 
   static sizeOptions = [
-    { value: '0-5', text: '0-5' },
-    { value: '6-10', text: '6-10' },
-    { value: '11-20', text: '11-20' },
-    { value: '21-50', text: '21-50' },
-    { value: '51-100', text: '51-100' },
-    { value: '101-200', text: '101-200' },
-    { value: '201-500', text: '201-500' },
-    { value: '500+', text: '500+' }
+    { value: '0-5', text: '0-5', zh: '0-5' },
+    { value: '6-10', text: '6-10', zh: '6-10' },
+    { value: '11-20', text: '11-20', zh: '11-20' },
+    { value: '21-50', text: '21-50', zh: '21-50' },
+    { value: '51-100', text: '51-100', zh: '51-100' },
+    { value: '101-200', text: '101-200', zh: '101-200' },
+    { value: '201-500', text: '201-500', zh: '201-500' },
+    { value: '500+', text: '500+', zh: '500+' }
   ]
 
   static visibilityOptions = [
@@ -207,18 +207,29 @@ class FormOptions {
 
   static communityOptions = [
     { value: 'Allies', text: 'There are allies to turn to for help or raise issues with.', zh: '有同志盟友' },
-    { value: 'Inclusive_culture', text: 'Generally an inclusive company.', zh: 'Inclusive culture' },
-    { value: 'Comfortable_calling_out', text: 'I feel comfortable calling out discrimination.', zh: 'Inclusive culture' },
-    { value: 'LGBTQ_network', text: 'Internal LGBTQ Network', zh: '公司有社群' },
-    { value: 'D&I_events', text: 'Internal Diversity & Inclusion Events', zh: 'D&I 活動' }
+    { value: 'Inclusive_culture', text: 'Generally an inclusive company.', zh: '一般來說，這是一間多元性別友善的公司' },
+    { value: 'Comfortable_calling_out', text: 'I feel comfortable calling out discrimination.', zh: '我能夠毫無壓力地舉報歧視的個案' },
+    { value: 'LGBTQ_network', text: 'Internal LGBTQ Network', zh: '公司內有LGBTQ社群' },
+    { value: 'D&I_events', text: 'Internal Diversity & Inclusion Events', zh: '公司曾經舉辦提倡多元化和包容性的內部活動' }
   ]
 
   static sponsorshipOptions = [
-    { value: 'Public_events', text: 'Hosts public events / LGBTQ initiatives', zh: '舉辦公開活動' },
-    { value: 'Event_sponsorships', text: 'Sponsors LGBTQ events', zh: '贊助活動' },
-    { value: 'NGO_sponsorships', text: 'Sponsors LGBTQ NGOs', zh: '贊助NGO' },
-    { value: 'Advocacy', text: 'Company does public advocacy', zh: '為LGBTQ社群發聲' }
+    { value: 'Public_events', text: 'Hosts public events / LGBTQ initiatives', zh: '公司曾經舉辦與LGBTQ有關的公開活動與倡議' },
+    { value: 'Event_sponsorships', text: 'Sponsors LGBTQ events', zh: '公司曾經贊助LGBTQ的活動' },
+    { value: 'NGO_sponsorships', text: 'Sponsors LGBTQ NGOs', zh: '公司曾經贊助LGBTQ的非牟利機構' },
+    { value: 'Advocacy', text: 'Company does public advocacy', zh: '公司有公開為LGBTQ社群發聲' }
   ]
+
+  static formOptionsByLang (lang, options) {
+    let result = []
+    if (lang === 'en') {
+      result = options.map((x) => { return { value: x.value, text: x.text } })
+    }
+    if (lang === 'zh-cn') {
+      result = options.map((x) => { return { value: x.value, text: x.zh } })
+    }
+    return result
+  }
 }
 
 export default FormOptions

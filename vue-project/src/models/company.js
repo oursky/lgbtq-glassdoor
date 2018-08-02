@@ -2,7 +2,6 @@ import skygear from 'skygear'
 
 class Company {
   static allCompanies = []
-  static defaultCompanies = []
 
   constructor (options = {}) {
     this.name = ''
@@ -20,11 +19,6 @@ class Company {
     this.submittedBy = null
   }
 
-  static getDefaultCompanies () {
-    this.allCompanies = Company.defaultCompanies
-    return this.allCompanies
-  }
-
   static fetchAllCompanies () {
     return new Promise((resolve, reject) => {
       const SkygearCompany = skygear.Record.extend('company')
@@ -36,8 +30,8 @@ class Company {
         if (cached) {
           console.log('The result is a cached one')
         }
-        this.allCompanies = this.allCompanies.concat(Array.from(companies))
-        resolve(companies)
+        this.allCompanies = Array.from(companies)
+        resolve(this.allCompanies)
       }
 
       skygear.publicDB.query(query, successCallback).then(successCallback, (error) => {
@@ -66,6 +60,7 @@ class Company {
     console.log(company)
     skygear.publicDB.save(company).then((result) => {
       console.log(result)
+      Company.fetchAllCompanies()
     }, (error) => {
       console.error(error)
     })

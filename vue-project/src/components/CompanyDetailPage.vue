@@ -63,7 +63,6 @@ export default {
   },
   mounted: function () {
     // load Company
-    Company.getDefaultCompanies()
     Company.fetchAllCompanies().then((companies) => {
       let companyList = Company.getCompany(this.companyName)
       console.log(this.companyName)
