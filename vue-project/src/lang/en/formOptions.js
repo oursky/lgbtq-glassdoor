@@ -182,5 +182,13 @@ module.exports = {
   publicEvents: 'Hosts public events / LGBTQ initiatives',
   eventSponsorships: 'Sponsors LGBTQ events',
   ngoSponsorships: 'Sponsors LGBTQ NGOs',
-  advocacy: 'Company does public advocacy'
+  advocacy: 'Company does public advocacy',
+  zeroToFive: '0-5',
+  sixToTen: '6-10',
+  tenToTwenty: '10-20',
+  upTofifty: '21-50',
+  upToHundred: '51-100',
+  upToTwoHundreds: '101-200',
+  upToFiveHundreds: '201-500',
+  fiveHundredsAbove: '500+'
 }

@@ -182,5 +182,13 @@ module.exports = {
   publicEvents: '公司曾經舉辦與LGBTQ有關的公開活動與倡議',
   eventSponsorships: '公司曾經贊助LGBTQ的活動',
   ngoSponsorships: '公司曾經贊助LGBTQ的非牟利機構',
-  advocacy: '公司有公開為LGBTQ社群發聲'
+  advocacy: '公司有公開為LGBTQ社群發聲',
+  zeroToFive: '0-5',
+  sixToTen: '6-10',
+  tenToTwenty: '10-20',
+  upTofifty: '21-50',
+  upToHundred: '51-100',
+  upToTwoHundreds: '101-200',
+  upToFiveHundreds: '201-500',
+  fiveHundredsAbove: '500+'
 }

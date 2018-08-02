@@ -182,6 +182,20 @@ class FormOptions {
     ]
   }
 
+  get sizeOptions () {
+    let lang = this.$lang.formOptions
+    return [
+      { value: '0-5', text: lang.zeroToFive },
+      { value: '6-10', text: lang.sixToTen },
+      { value: '11-20', text: lang.tenToTwenty },
+      { value: '21-50', text: lang.upTofifty },
+      { value: '51-100', text: lang.upToHundred },
+      { value: '101-200', text: lang.upToTwoHundreds },
+      { value: '201-500', text: lang.upToFiveHundreds },
+      { value: '500+', text: lang.fiveHundredsAbove }
+    ]
+  }
+
   get visibilityOptions () {
     let lang = this.$lang.formOptions
     return [
