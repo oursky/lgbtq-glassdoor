@@ -20,21 +20,21 @@ class Company {
   }
 
   static fetchAllCompanies () {
+    console.log('fetching....')
     return new Promise((resolve, reject) => {
       const SkygearCompany = skygear.Record.extend('company')
       const query = new skygear.Query(SkygearCompany)
       query.limit = 999
+      query.overallCount = true
       query.equalTo('live', true)
 
-      const successCallback = (companies, cached = false) => {
-        if (cached) {
-          console.log('The result is a cached one')
-        }
+      const successCallback = (companies) => {
+        console.log('The result is a live one')
         this.allCompanies = Array.from(companies)
         resolve(this.allCompanies)
       }
 
-      skygear.publicDB.query(query, successCallback).then(successCallback, (error) => {
+      skygear.publicDB.query(query).then(successCallback, (error) => {
         reject(error)
       })
     })
@@ -59,8 +59,7 @@ class Company {
     let company = new SkygearCompany(jsonObject)
     console.log(company)
     skygear.publicDB.save(company).then((result) => {
-      console.log(result)
-      Company.fetchAllCompanies()
+      Company.allCompanies.push(result)
     }, (error) => {
       console.error(error)
     })

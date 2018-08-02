@@ -220,7 +220,7 @@ export default {
   components: {},
   data () {
     return {
-      companies: [],
+      companies: Company.allCompanies,
       currentFilters: [],
       FormOptions: FormOptions,
       allTags: Tag.fetchAllTags(),
@@ -231,7 +231,7 @@ export default {
     searchHint: function () {
       return this.$lang.list.search_text
     },
-    filteredCompanies: function (currentFilters) {
+    filteredCompanies: function (currentFilters, matchedCompanies) {
       let result = this.matchedCompanies.filter(company => {
         for (let key in this.currentFilters) {
           let companyTag = company[key]
@@ -254,7 +254,7 @@ export default {
       return result
     },
     matchedCompanies: {
-      get: function () {
+      get: function (companies) {
         return this.companies.filter(company => {
           let query = this.searchText
           let result = company.name.match(new RegExp('[^,]*' + query + '[^,]*', 'ig'))
@@ -268,6 +268,7 @@ export default {
   mounted: function () {
     // load Companies
     this.loadRemoteCompanies()
+    // Company.fetchAllCompanies()
 
     if (this.search) {
       this.$refs.search.focus()
@@ -288,8 +289,8 @@ export default {
       this.currentFilters = []
     },
     loadRemoteCompanies: function () {
-      Company.fetchAllCompanies().then((companies) => {
-        this.companies = companies
+      Company.fetchAllCompanies().then((resultCompanies) => {
+        this.companies = resultCompanies
         // this.searchHandler()
       }, (error) => {
         console.error(error)
