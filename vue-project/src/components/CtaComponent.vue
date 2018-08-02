@@ -83,7 +83,7 @@ export default {
       var self = this
       setTimeout(function () {
         self.hidden = false
-      }, 1)
+      }, 10000)
     },
     hidePopup: function () {
       this.hidden = true
