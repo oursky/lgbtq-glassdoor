@@ -11,7 +11,7 @@ module.exports = {
   industry: 'Industry',
   visibility: 'Visibility',
   policy: 'Non-Discrimination Policy',
-  size: 'Campany Size',
+  size: 'Company Size',
   website: 'Company Website',
   linkedin: 'Linkedin',
   sponsorship: 'Public Sponsorship',
