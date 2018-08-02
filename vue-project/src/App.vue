@@ -53,12 +53,7 @@ import CompanyDetailPage from './components/CompanyDetailPage'
 import FooterSection from './components/Footer'
 import CtaComponent from './components/CtaComponent'
 
-skygear.config({
-  'endPoint': 'https://lgbtq.skygeario.com/',
-  'apiKey': '48c5c34bd6b6437685b7d1a09f3978cd'
-}).then(() => {
-  console.log('skygear container is now ready for making API calls.')
-  console.log(skygear.auth.currentUser)
+function skygearSignUp () {
   if (!skygear.auth.currentUser) {
     skygear.auth.signupAnonymously().then((user) => {
       console.log('Signing up success')
@@ -67,6 +62,26 @@ skygear.config({
       console.error(error)
     })
   }
+}
+
+skygear.config({
+  'endPoint': 'https://lgbtq.skygeario.com/',
+  'apiKey': '48c5c34bd6b6437685b7d1a09f3978cd'
+}).then((skygear) => {
+  console.log('skygear container is now ready for making API calls.')
+  console.log(skygear.auth.currentUser)
+
+  // Check if auth is valid
+
+  skygear.auth.whoami().then((me) => {
+    console.log('ok on whoami()')
+  }).catch((error) => {
+    if (error) {
+      skygear.auth.logout().then(() => {
+        skygearSignUp()
+      })
+    }
+  })
 }, (error) => {
   console.error(error)
 })

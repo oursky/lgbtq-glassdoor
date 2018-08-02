@@ -273,8 +273,8 @@ export default {
       this.$refs.search.focus()
     }
 
-    console.log(this.cat)
-    console.log(this.tag)
+    // console.log(this.cat)
+    // console.log(this.tag)
 
     if (this.cat && this.tag) {
       this.addFilter(this.cat, this.tag)
@@ -316,7 +316,7 @@ export default {
           return tagObject.zh
         }
       } catch (e) {
-        console.error(e)
+        // console.error(e)
       }
 
       return ''
