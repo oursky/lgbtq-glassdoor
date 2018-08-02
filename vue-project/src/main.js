@@ -26,6 +26,9 @@ import AddCompanyPage from './components/AddCompanyPage'
 const Lang = require('vuejs-localization')
 Lang.requireAll(require.context('./lang', true, /\.js$/))
 
+const SocialSharing = require('vue-social-sharing')
+
+Vue.use(SocialSharing)
 Vue.use(Lang)
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)

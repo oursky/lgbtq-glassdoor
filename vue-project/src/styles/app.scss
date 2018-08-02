@@ -469,6 +469,16 @@ nav {
     right: 10px;
 }
 
+.share-container {
+  span {
+    cursor: pointer;
+    line-height: 40px;
+    &:hover {
+      color: #999;
+    }
+  }
+}
+
 .bounce-enter-active {
   animation: bounce-in .5s;
 }
