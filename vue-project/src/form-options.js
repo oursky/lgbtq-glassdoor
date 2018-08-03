@@ -1,234 +1,257 @@
 class FormOptions {
-  static identifyOptions = [
-    { value: 'lesbian', text: 'Lesbian', zh: '女同性戀者' },
-    { value: 'gay', text: 'Gay', zh: '男同性戀者' },
-    { value: 'bisexual', text: 'Bisexual', zh: '雙性戀者' },
-    { value: 'trans', text: 'Trans', zh: '跨性別者' },
-    { value: 'genderqueer', text: 'Genderqueer', zh: '性別酷兒' },
-    { value: 'queer', text: 'Queer', zh: '酷兒' },
-    { value: 'ally', text: 'Ally', zh: 'LGBTQ盟友' },
-    { value: 'other', text: 'Other', zh: '其他' }
-  ]
+  constructor ($lang) {
+    this.$lang = $lang
+  }
 
-  static pronounOptions = [
-    { value: 'she', text: 'She / Her', zh: '她' },
-    { value: 'he', text: 'He / Him', zh: '他' },
-    { value: 'they', text: 'They / Them', zh: '他們' }
-  ]
+  get identifyOptions () {
+    let lang = this.$lang.formOptions
+    return [
+      { value: 'lesbian', text: lang.lesbian },
+      { value: 'gay', text: lang.gay },
+      { value: 'bisexual', text: lang.bisexual },
+      { value: 'trans', text: lang.trans },
+      { value: 'genderqueer', text: lang.genderqueer },
+      { value: 'queer', text: lang.queer },
+      { value: 'ally', text: lang.ally },
+      { value: 'other', text: lang.other }
+    ]
+  }
 
-  static industryOptions = [
-    { value: 'Accounting', text: 'Accounting', zh: '會計' },
-    { value: 'Airlines/Aviation', text: 'Airlines/Aviation', zh: '航空/航空' },
-    { value: 'Alternative Dispute Resolution', text: 'Alternative Dispute Resolution', zh: '替代性糾紛解決' },
-    { value: 'Alternative Medicine', text: 'Alternative Medicine', zh: '替代藥物' },
-    { value: 'Animation', text: 'Animation', zh: '動畫' },
-    { value: 'Architecture/Planning', text: 'Architecture/Planning', zh: '建築/規劃' },
-    { value: 'Arts/Crafts', text: 'Arts/Crafts', zh: '工藝品' },
-    { value: 'Automotive', text: 'Automotive', zh: '汽車' },
-    { value: 'Aviation/Aerospace', text: 'Aviation/Aerospace', zh: '航空/航天' },
-    { value: 'Banking/Mortgage', text: 'Banking/Mortgage', zh: '銀行/抵押貸款' },
-    { value: 'Biotechnology/Greentech', text: 'Biotechnology/Greentech ', zh: '生物技術/綠色科技' },
-    { value: 'Broadcast Media', text: 'Broadcast Media', zh: '廣播媒體' },
-    { value: 'Building Materials', text: 'Building Materials', zh: '建築材料' },
-    { value: 'Business Supplies/Equipment', text: 'Business Supplies/Equipment', zh: '商務用品/設備' },
-    { value: 'Capital Markets/Hedge Fund/Private Equity', text: 'Capital Markets/Hedge Fund/Private Equity', zh: '資本市場/對沖基金/私募股權' },
-    { value: 'Chemicals', text: 'Chemicals', zh: '化學製品' },
-    { value: 'Civic/Social Organization', text: 'Civic/Social Organization', zh: '思域/社會組織' },
-    { value: 'Civil Engineering', text: 'Civil Engineering', zh: '土木工程' },
-    { value: 'Commercial Real Estate', text: 'Commercial Real Estate', zh: '商業房地產' },
-    { value: 'Computer Games', text: 'Computer Games', zh: '電腦遊戲' },
-    { value: 'Computer Hardware', text: 'Computer Hardware', zh: '電腦硬件' },
-    { value: 'Computer Networking', text: 'Computer Networking', zh: '計算機網絡' },
-    { value: 'Computer Software Engineering', text: 'Computer Software Engineering', zh: '計算機軟件工程' },
-    { value: 'Computer Network Security', text: 'Computer Network Security', zh: '計算機網絡安全' },
-    { value: 'Construction', text: 'Construction', zh: '施工' },
-    { value: 'Consumer Electronics', text: 'Consumer Electronics', zh: '消費類電子產品' },
-    { value: 'Consumer Goods', text: 'Consumer Goods', zh: '消費品 ' },
-    { value: 'Consumer Services', text: 'Consumer Services', zh: '消費服務' },
-    { value: 'Cosmetics', text: 'Cosmetics', zh: '化妝品 ' },
-    { value: 'Co-working spaces / Event Spaces', text: 'Co-working spaces / Event Spaces', zh: '聯合工作空間/活動空間' },
-    { value: 'Dairy', text: 'Dairy', zh: '乳業' },
-    { value: 'Defense/Space', text: 'Defense/Space', zh: '國防/太空' },
-    { value: 'Design', text: 'Design', zh: '設計' },
-    { value: 'E-Learning', text: 'E-Learning', zh: '電子學習' },
-    { value: 'Education', text: 'Education', zh: '教育' },
-    { value: 'Electrical/Electronic Manufacturing ', text: 'Electrical/Electronic Manufacturing', zh: '電氣/電子製造' },
-    { value: 'Entertainment/Movie Production', text: 'Entertainment/Movie Production', zh: '娛樂/電影製作' },
-    { value: 'Environmental Services', text: 'Environmental Services', zh: '環境服務' },
-    { value: 'Events Services', text: 'Events Services', zh: '活動服務' },
-    { value: 'Executive Office', text: 'Executive Office', zh: '行政辦公室' },
-    { value: 'Facilities Services', text: 'Facilities Services', zh: '設施服務' },
-    { value: 'Farming', text: 'Farming', zh: '農業' },
-    { value: 'Fashion/Apparel', text: 'Fashion/Apparel', zh: '時尚/服裝' },
-    { value: 'Financial Services', text: 'Financial Services', zh: '金融服務' },
-    { value: 'Fine Art', text: 'Fine Art', zh: '美術' },
-    { value: 'Fishery', text: 'Fishery ', zh: '漁業' },
-    { value: 'Food Production', text: 'Food Production', zh: '食品生產' },
-    { value: 'Food/Beverages', text: 'Food/Beverages', zh: '食品/飲料' },
-    { value: 'Fundraising', text: 'Fundraising', zh: '籌款' },
-    { value: 'Furniture', text: 'Furniture', zh: '家具' },
-    { value: 'Gambling/Casinos', text: 'Gambling/Casinos', zh: '賭博/賭場' },
-    { value: 'Glass/Ceramics/Concrete', text: 'Glass/Ceramics/Concrete', zh: '玻璃/陶瓷/混凝土' },
-    { value: 'Government Administration', text: 'Government Administration', zh: '政府管理' },
-    { value: 'Government Relations', text: 'Government Relations', zh: '政府關係' },
-    { value: 'Graphic Design/Web Design', text: 'Graphic Design/Web Design', zh: '平面設計/網頁設計' },
-    { value: 'Health/Fitness', text: 'Health/Fitness', zh: '健康與健身' },
-    { value: 'Higher Education/Acadamia', text: 'Higher Education/Acadamia', zh: '高等教育/ Acadamia' },
-    { value: 'Hospital/Health Care', text: 'Hospital/Health Care', zh: '醫院/保健' },
-    { value: 'Hospitality', text: 'Hospitality', zh: '招待費 ' },
-    { value: 'Human Resources/HR', text: 'Human Resources/HR', zh: '人力資源/ HR' },
-    { value: 'Import/Export', text: 'Import/Export', zh: '進出口' },
-    { value: 'Individual/Family Services', text: 'Individual/Family Services', zh: '個人/家庭服務' },
-    { value: 'Industrial Automation', text: 'Industrial Automation', zh: '工業自動化' },
-    { value: 'Information Services', text: 'Information Services', zh: '信息服務' },
-    { value: 'Information Technology/IT', text: 'Information Technology/IT', zh: '資訊科技/ IT' },
-    { value: 'Insurance', text: 'Insurance', zh: '保險' },
-    { value: 'International Affairs', text: 'International Affairs', zh: '國際事務' },
-    { value: 'International Trade/Development', text: 'International Trade/Development', zh: '國際貿易/發展' },
-    { value: 'Internet', text: 'Internet', zh: '互聯網' },
-    { value: 'Investment Banking/Venture', text: 'Investment Banking/Venture', zh: '投資銀行/風險' },
-    { value: 'Investment Management/Hedge Fund/Private Equity ', text: 'Investment Management/Hedge Fund/Private Equity', zh: '投資管理/對沖基金/私募股權' },
-    { value: 'Judiciary', text: 'Judiciary', zh: '司法' },
-    { value: 'Law Enforcement ', text: 'Law Enforcement', zh: '執法' },
-    { value: 'Law Practice/Law Firms', text: 'Law Practice/Law Firms', zh: '法律實踐/律師事務所' },
-    { value: 'Legal Services', text: 'Legal Services', zh: '法律服務' },
-    { value: 'Legislative Office', text: 'Legislative Office', zh: '立法機關' },
-    { value: 'Leisure/Travel', text: 'Leisure/Travel', zh: '休閒/旅遊' },
-    { value: 'Library', text: 'Library', zh: '圖書館' },
-    { value: 'Logistics/Procurement', text: 'Logistics/Procurement', zh: '物流/採購' },
-    { value: 'Luxury Goods/Jewelry', text: 'Luxury Goods/Jewelry', zh: '奢侈品/珠寶' },
-    { value: 'Machinery', text: 'Machinery', zh: '機械' },
-    { value: 'Management Consulting', text: 'Management Consulting', zh: '管理諮詢' },
-    { value: 'Maritime', text: 'Maritime', zh: '海上' },
-    { value: 'Market Research', text: 'Market Research ', zh: '市場調查' },
-    { value: 'Marketing/Advertising/Sales', text: 'Marketing/Advertising/Sales', zh: '市場/廣告/銷售' },
-    { value: 'Mechanical or Industrial Engineering', text: 'Mechanical or Industrial Engineering', zh: '機械或工業工程 ' },
-    { value: 'Media Production', text: 'Media Production', zh: '媒體製作' },
-    { value: 'Medical Equipment', text: 'Medical Equipment', zh: '醫用器材' },
-    { value: 'Medical Practice', text: 'Medical Practice', zh: '醫療實踐' },
-    { value: 'Mental Health Care', text: 'Mental Health Care', zh: '心理保健' },
-    { value: 'Military Industry', text: 'Military Industry', zh: '軍工' },
-    { value: 'Mining/Metals', text: 'Mining/Metals', zh: '採礦/五金' },
-    { value: 'Motion Pictures/Film', text: 'Motion Pictures/Film', zh: '運動圖片/電影 ' },
-    { value: 'Museums/Institutions', text: 'Museums/Institutions', zh: '博物館/機構' },
-    { value: 'Music', text: 'Music', zh: '音樂' },
-    { value: 'Nanotechnology', text: 'Nanotechnology', zh: '納米技術' },
-    { value: 'Newspapers/Journalism', text: 'Newspapers/Journalism', zh: '報紙/新聞' },
-    { value: 'Non-Profit/Volunteering ', text: 'Non-Profit/Volunteering ', zh: '非營利/志工' },
-    { value: 'Oil/Energy/Solar/Greentech', text: 'Oil/Energy/Solar/Greentech', zh: '石油/能源/太陽能/綠色科技' },
-    { value: 'Online Publishing', text: 'Online Publishing', zh: '在線出版' },
-    { value: 'Other Industry', text: 'Other Industry', zh: '其他行業' },
-    { value: 'Outsourcing/Offshoring', text: 'Outsourcing/Offshoring', zh: '外包/ ' },
-    { value: 'Package/Freight Delivery', text: 'Package/Freight Delivery', zh: '封裝/提貨' },
-    { value: 'Packaging/Containers', text: 'Packaging/Containers', zh: '包裝/容器' },
-    { value: 'Paper/Forest Products', text: 'Paper/Forest Products', zh: '紙/林產品' },
-    { value: 'Performing Arts ', text: 'Performing Arts ', zh: '表演藝術' },
-    { value: 'Pharmaceuticals ', text: 'Pharmaceuticals ', zh: '製藥' },
-    { value: 'Philanthropy', text: 'Philanthropy', zh: '慈善事業' },
-    { value: 'Photography ', text: 'Photography ', zh: '攝影' },
-    { value: 'Plastics', text: 'Plastics', zh: '塑料' },
-    { value: 'Political Organization', text: 'Political Organization', zh: '政治機構' },
-    { value: 'Primary/Secondary Education', text: 'Primary/Secondary Education', zh: '小學/中學教育' },
-    { value: 'Printing', text: 'Printing', zh: '印花' },
-    { value: 'Professional Training', text: 'Professional Training', zh: '專業培訓' },
-    { value: 'Program Development', text: 'Program Development', zh: '程序開發' },
-    { value: 'Public Relations/PR', text: 'Public Relations/PR', zh: '公共關係/公關 ' },
-    { value: 'Public Safety', text: 'Public Safety', zh: '公共安全' },
-    { value: 'Publishing Industry ', text: 'Publishing Industry', zh: '出版業 ' },
-    { value: 'Railroad Manufacture', text: 'Railroad Manufacture', zh: '鐵路建造' },
-    { value: 'Ranching', text: 'Ranching', zh: '牧場' },
-    { value: 'Real Estate/Mortgage', text: 'Real Estate/Mortgage', zh: '房地產/按揭' },
-    { value: 'Recreational Facilities/Services', text: 'Recreational Facilities/Services', zh: '娛樂設施/服務 ' },
-    { value: 'Religious Institutions', text: 'Religious Institutions', zh: '宗教機構' },
-    { value: 'Renewables/Environment', text: 'Renewables/Environment', zh: '可再生能源/環境' },
-    { value: 'Research Industry', text: 'Research Industry', zh: '行業研究' },
-    { value: 'Restaurants', text: 'Restaurants', zh: '餐館' },
-    { value: 'Retail Industry', text: 'Retail Industry', zh: '零售業' },
-    { value: 'Security/Investigations', text: 'Security/Investigations', zh: '安全/調查' },
-    { value: 'Semiconductors', text: 'Semiconductors', zh: '半導體 ' },
-    { value: 'Shipbuilding', text: 'Shipbuilding', zh: '造船' },
-    { value: 'Sporting Goods', text: 'Sporting Goods', zh: '體育用品' },
-    { value: 'Sports', text: 'Sports', zh: '體育' },
-    { value: 'Social Enterprise', text: 'Social Enterprise', zh: '社會企業' },
-    { value: 'Staffing/Recruiting', text: 'Staffing/Recruiting', zh: '人員編制/招聘' },
-    { value: 'Supermarkets', text: 'Supermarkets', zh: '超級市場' },
-    { value: 'Telecommunications', text: 'Telecommunications', zh: '電訊' },
-    { value: 'Textiles', text: 'Textiles', zh: '紡織品' },
-    { value: 'Think Tanks', text: 'Think Tanks ', zh: '智庫' },
-    { value: 'Tobacco', text: 'Tobacco', zh: '煙草' },
-    { value: 'Translation/Localization', text: 'Translation/Localization', zh: '翻譯/本地化' },
-    { value: 'Transportation', text: 'Transportation', zh: '運輸' },
-    { value: 'Travel/Tourism', text: 'Travel/Tourism', zh: '旅行/旅遊' },
-    { value: 'Utilities', text: 'Utilities', zh: '公用事業' },
-    { value: 'Venture Capital/VC', text: 'Venture Capital/VC', zh: '風險投資/ VC' },
-    { value: 'Veterinary', text: 'Veterinary', zh: '獸醫' },
-    { value: 'Warehousing', text: 'Warehousing', zh: '倉儲' },
-    { value: 'Wholesale', text: 'Wholesale', zh: '批發' },
-    { value: 'Wine/Spirits', text: 'Wine/Spirits', zh: '葡萄酒/烈酒' },
-    { value: 'Wireless', text: 'Wireless', zh: '無線' },
-    { value: 'Writing/Editing', text: 'Writing/Editing', zh: '寫作/編輯' }
-  ]
+  get pronounOptions () {
+    let lang = this.$lang.formOptions
+    return [
+      { value: 'she', text: lang.she },
+      { value: 'he', text: lang.he },
+      { value: 'they', text: lang.they }
+    ]
+  }
 
-  static sizeOptions = [
-    { value: '0-5', text: '0-5', zh: '0-5' },
-    { value: '6-10', text: '6-10', zh: '6-10' },
-    { value: '11-20', text: '11-20', zh: '11-20' },
-    { value: '21-50', text: '21-50', zh: '21-50' },
-    { value: '51-100', text: '51-100', zh: '51-100' },
-    { value: '101-200', text: '101-200', zh: '101-200' },
-    { value: '201-500', text: '201-500', zh: '201-500' },
-    { value: '500+', text: '500+', zh: '500+' }
-  ]
+  get industryOptions () {
+    let lang = this.$lang.formOptions
+    return [
+      { value: 'Accounting', text: lang.accounting },
+      { value: 'Airlines/Aviation', text: lang.airlines },
+      { value: 'Alternative Dispute Resolution', text: lang.alternativeDisputeResolution },
+      { value: 'Alternative Medicine', text: lang.alternativeMedicine },
+      { value: 'Animation', text: lang.animation },
+      { value: 'Architecture/Planning', text: lang.architecture },
+      { value: 'Arts/Crafts', text: lang.arts },
+      { value: 'Automotive', text: lang.automotive },
+      { value: 'Aviation/Aerospace', text: lang.aviation },
+      { value: 'Banking/Mortgage', text: lang.banking },
+      { value: 'Biotechnology/Greentech', text: lang.biotechnology },
+      { value: 'Broadcast Media', text: lang.broadcastMedia },
+      { value: 'Building Materials', text: lang.buildingMaterials },
+      { value: 'Business Supplies/Equipment', text: lang.businessSupplies },
+      { value: 'Capital Markets/Hedge Fund/Private Equity', text: lang.capitalMarkets },
+      { value: 'Chemicals', text: lang.chemicals },
+      { value: 'Civic/Social Organization', text: lang.civic },
+      { value: 'Civil Engineering', text: lang.civilEngineering },
+      { value: 'Commercial Real Estate', text: lang.commercialRealEstate },
+      { value: 'Computer Games', text: lang.computerGames },
+      { value: 'Computer Hardware', text: lang.computerHardware },
+      { value: 'Computer Networking', text: lang.computerNetworking },
+      { value: 'Computer Software Engineering', text: lang.computerSoftwareEngineering },
+      { value: 'Computer Network Security', text: lang.computerNetworkSecurity },
+      { value: 'Construction', text: lang.construction },
+      { value: 'Consumer Electronics', text: lang.consumerElectronics },
+      { value: 'Consumer Goods', text: lang.consumerGoods },
+      { value: 'Consumer Services', text: lang.consumerServices },
+      { value: 'Cosmetics', text: lang.cosmetics },
+      { value: 'Co-working spaces / Event Spaces', text: lang.coworkingSpaces },
+      { value: 'Dairy', text: lang.dairy },
+      { value: 'Defense/Space', text: lang.defense },
+      { value: 'Design', text: lang.design },
+      { value: 'E-Learning', text: lang.eLearning },
+      { value: 'Education', text: lang.education },
+      { value: 'Electrical/Electronic Manufacturing', text: lang.electrical },
+      { value: 'Entertainment/Movie Production', text: lang.entertainment },
+      { value: 'Environmental Services', text: lang.environmentalServices },
+      { value: 'Events Services', text: lang.eventsServices },
+      { value: 'Executive Office', text: lang.executiveOffice },
+      { value: 'Facilities Services', text: lang.facilitiesServices },
+      { value: 'Farming', text: lang.farming },
+      { value: 'Fashion/Apparel', text: lang.fashion },
+      { value: 'Financial Services', text: lang.financialServices },
+      { value: 'Fine Art', text: lang.fineArt },
+      { value: 'Fishery', text: lang.fishery },
+      { value: 'Food Production', text: lang.foodProduction },
+      { value: 'Food/Beverages', text: lang.foodNBeverages },
+      { value: 'Fundraising', text: lang.fundraising },
+      { value: 'Furniture', text: lang.furniture },
+      { value: 'Gambling/Casinos', text: lang.gambling },
+      { value: 'Glass/Ceramics/Concrete', text: lang.glass_ceramics_Concrete },
+      { value: 'Government Administration', text: lang.governmentAdministration },
+      { value: 'Government Relations', text: lang.governmentRelations },
+      { value: 'Graphic Design/Web Design', text: lang.graphicDesign_WebDesign },
+      { value: 'Health/Fitness', text: lang.health },
+      { value: 'Higher Education/Acadamia', text: lang.higherEducation },
+      { value: 'Hospital/Health Care', text: lang.hospital },
+      { value: 'Hospitality', text: lang.hospitality },
+      { value: 'Human Resources/HR', text: lang.humanResources },
+      { value: 'Import/Export', text: lang.import_Export },
+      { value: 'Individual/Family Services', text: lang.individual },
+      { value: 'Industrial Automation', text: lang.industrialAutomation },
+      { value: 'Information Services', text: lang.informationServices },
+      { value: 'Information Technology/IT', text: lang.informationTechnology },
+      { value: 'Insurance', text: lang.insurance },
+      { value: 'International Affairs', text: lang.internationalAffairs },
+      { value: 'International Trade/Development', text: lang.internationalTrade },
+      { value: 'Internet', text: lang.internet },
+      { value: 'Investment Banking/Venture', text: lang.investmentBanking },
+      { value: 'Investment Management/Hedge Fund/Private Equity', text: lang.investmentManagement },
+      { value: 'Judiciary', text: lang.judiciary },
+      { value: 'Law Enforcement', text: lang.lawEnforcement },
+      { value: 'Law Practice/Law Firms', text: lang.lawPractice },
+      { value: 'Legal Services', text: lang.legalServices },
+      { value: 'Legislative Office', text: lang.legislativeOffice },
+      { value: 'Leisure/Travel', text: lang.leisureNTravel },
+      { value: 'Library', text: lang.library },
+      { value: 'Logistics/Procurement', text: lang.logisticsNProcurement },
+      { value: 'Luxury Goods/Jewelry', text: lang.luxuryGoodsNJewelry },
+      { value: 'Machinery', text: lang.machinery },
+      { value: 'Management Consulting', text: lang.managementConsulting },
+      { value: 'Maritime', text: lang.maritime },
+      { value: 'Market Research', text: lang.marketResearch },
+      { value: 'Marketing/Advertising/Sales', text: lang.marketing },
+      { value: 'Mechanical or Industrial Engineering', text: lang.mechanical },
+      { value: 'Media Production', text: lang.mediaProduction },
+      { value: 'Medical Equipment', text: lang.medicalEquipment },
+      { value: 'Medical Practice', text: lang.medicalPractice },
+      { value: 'Mental Health Care', text: lang.mentalHealthCare },
+      { value: 'Military Industry', text: lang.militaryIndustry },
+      { value: 'Mining/Metals', text: lang.miningNMetals },
+      { value: 'Motion Pictures/Film', text: lang.motionPictures },
+      { value: 'Museums/Institutions', text: lang.museumsNInstitutions },
+      { value: 'Music', text: lang.music },
+      { value: 'Nanotechnology', text: lang.nanotechnology },
+      { value: 'Newspapers/Journalism', text: lang.newspapersNJournalism },
+      { value: 'Non-Profit/Volunteering', text: lang.nonProfit },
+      { value: 'Oil/Energy/Solar/Greentech', text: lang.oilNEnergy },
+      { value: 'Online Publishing', text: lang.onlinePublishing },
+      { value: 'Other Industry', text: lang.otherIndustry },
+      { value: 'Outsourcing/Offshoring', text: lang.outsourcing },
+      { value: 'Package/Freight Delivery', text: lang.packageNFreightDelivery },
+      { value: 'Packaging/Containers', text: lang.packaging },
+      { value: 'Paper/Forest Products', text: lang.paper },
+      { value: 'Performing Arts', text: lang.performingArts },
+      { value: 'Pharmaceuticals', text: lang.pharmaceuticals },
+      { value: 'Philanthropy', text: lang.philanthropy },
+      { value: 'Photography', text: lang.photography },
+      { value: 'Plastics', text: lang.plastics },
+      { value: 'Political Organization', text: lang.politicalOrganization },
+      { value: 'Primary/Secondary Education', text: lang.schoolEducation },
+      { value: 'Printing', text: lang.printing },
+      { value: 'Professional Training', text: lang.professionalTraining },
+      { value: 'Program Development', text: lang.programDevelopment },
+      { value: 'Public Relations/PR', text: lang.publicRelations },
+      { value: 'Public Safety', text: lang.publicSafety },
+      { value: 'Publishing Industry', text: lang.publishingIndustry },
+      { value: 'Railroad Manufacture', text: lang.railroadManufacture },
+      { value: 'Ranching', text: lang.ranching },
+      { value: 'Real Estate/Mortgage', text: lang.realEstate },
+      { value: 'Recreational Facilities/Services', text: lang.recreationalFacilities },
+      { value: 'Religious Institutions', text: lang.religiousInstitutions },
+      { value: 'Renewables/Environment', text: lang.renewables },
+      { value: 'Research Industry', text: lang.researchIndustry },
+      { value: 'Restaurants', text: lang.restaurants },
+      { value: 'Retail Industry', text: lang.retailIndustry },
+      { value: 'Security/Investigations', text: lang.security },
+      { value: 'Semiconductors', text: lang.semiconductors },
+      { value: 'Shipbuilding', text: lang.shipbuilding },
+      { value: 'Sporting Goods', text: lang.sportingGoods },
+      { value: 'Sports', text: lang.sports },
+      { value: 'Social Enterprise', text: lang.socialEnterprise },
+      { value: 'Staffing/Recruiting', text: lang.staffing },
+      { value: 'Supermarkets', text: lang.supermarkets },
+      { value: 'Telecommunications', text: lang.telecommunications },
+      { value: 'Textiles', text: lang.textiles },
+      { value: 'Think Tanks', text: lang.thinkTanks },
+      { value: 'Tobacco', text: lang.tobacco },
+      { value: 'Translation/Localization', text: lang.translation },
+      { value: 'Transportation', text: lang.transportation },
+      { value: 'Travel/Tourism', text: lang.tourism },
+      { value: 'Utilities', text: lang.utilities },
+      { value: 'Venture Capital/VC', text: lang.ventureCapital },
+      { value: 'Veterinary', text: lang.veterinary },
+      { value: 'Warehousing', text: lang.warehousing },
+      { value: 'Wholesale', text: lang.wholesale },
+      { value: 'Wine/Spirits', text: lang.wine },
+      { value: 'Wireless', text: lang.wireless },
+      { value: 'Writing/Editing', text: lang.writing }
+    ]
+  }
 
-  static visibilityOptions = [
-    { value: 'LGB_colleagues', text: 'LGB colleagues', zh: '同性戀同事' },
-    { value: 'Trans,_genderqueer_colleagues', text: 'Trans / Genderqueer colleagues', zh: '跨性別同事' },
-    { value: 'Allies', text: 'Strong and vocal allies', zh: '支持同志的同事' }
-  ]
+  get sizeOptions () {
+    let lang = this.$lang.formOptions
+    return [
+      { value: '0-5', text: lang.zeroToFive },
+      { value: '6-10', text: lang.sixToTen },
+      { value: '11-20', text: lang.tenToTwenty },
+      { value: '21-50', text: lang.upTofifty },
+      { value: '51-100', text: lang.upToHundred },
+      { value: '101-200', text: lang.upToTwoHundreds },
+      { value: '201-500', text: lang.upToFiveHundreds },
+      { value: '500+', text: lang.fiveHundredsAbove }
+    ]
+  }
 
-  static benefitsOptions = [
-    { value: 'Same-sex_benefits', text: 'Same-sex benefits', zh: '同性戀伴侶褔利' },
-    { value: 'Rainbow_families', text: 'Rainbow family support', zh: '彩虹家庭支援' },
-    { value: 'Trans_benefits', text: 'Trans benefits / transition support', zh: '跨性別人士褔利' },
-    { value: 'Informal_Benefits', text: 'Nothing official, but LGBTQ benefits provided for individual cases.', zh: '非正式的福利' }
-  ]
+  get visibilityOptions () {
+    let lang = this.$lang.formOptions
+    return [
+      { value: 'LGB colleagues', text: lang.lgbColleagues },
+      { value: 'Trans, genderqueer colleagues', text: lang.transGenderqueerColleagues },
+      { value: 'Allies', text: lang.strongAndVocalAllies }
+    ]
+  }
 
-  static policiesOptions = [
-    { value: 'Generic_non-discrimination', text: 'Generic non-discrimination', zh: '反歧視政策' },
-    { value: 'Same-sex_policies', text: 'Same-sex policies', zh: '同志友善政策' },
-    { value: 'Trans_policies', text: 'Trans policies', zh: '跨性別友善政策' },
-    { value: 'Informal_policies', text: 'No policies, but leadership actively helps for individual cases.', zh: '非正式的反歧視援助' },
-    { value: 'Unenforced_policies', text: 'Has same-sex/trans policies, but they are not enforced.', zh: '有反歧視政策但沒有執行' }
-  ]
+  get benefitsOptions () {
+    let lang = this.$lang.formOptions
+    return [
+      { value: 'Same-sex benefits', text: lang.sameSexBenefits },
+      { value: 'Rainbow families', text: lang.rainbowFamilySupport },
+      { value: 'Trans benefits', text: lang.transBenefits_transitionSupport },
+      { value: 'Informal Benefits', text: lang.informalBenefits }
+    ]
+  }
 
-  static spaceOptions = [
-    { value: 'Trans washrooms', text: 'Trans washrooms', zh: '性別友善洗手間' }
-  ]
+  get policiesOptions () {
+    let lang = this.$lang.formOptions
+    return [
+      { value: 'Generic non-discrimination', text: lang.generic_nonDiscrimination },
+      { value: 'Same-sex policies', text: lang.sameSexPolicies },
+      { value: 'Trans policies', text: lang.transPolicies },
+      { value: 'Informal policies', text: lang.informalPolicies },
+      { value: 'Unenforced policies', text: lang.unenforcedPolicies }
+    ]
+  }
 
-  static communityOptions = [
-    { value: 'Allies', text: 'There are allies to turn to for help or raise issues with.', zh: '有同志盟友' },
-    { value: 'Inclusive_culture', text: 'Generally an inclusive company.', zh: '一般來說，這是一間多元性別友善的公司' },
-    { value: 'Comfortable_calling_out', text: 'I feel comfortable calling out discrimination.', zh: '我能夠毫無壓力地舉報歧視的個案' },
-    { value: 'LGBTQ_network', text: 'Internal LGBTQ Network', zh: '公司內有LGBTQ社群' },
-    { value: 'D&I_events', text: 'Internal Diversity & Inclusion Events', zh: '公司曾經舉辦提倡多元化和包容性的內部活動' }
-  ]
+  get spaceOptions () {
+    let lang = this.$lang.formOptions
+    return [
+      { value: 'Trans washrooms', text: lang.transWashrooms }
+    ]
+  }
 
-  static sponsorshipOptions = [
-    { value: 'Public_events', text: 'Hosts public events / LGBTQ initiatives', zh: '公司曾經舉辦與LGBTQ有關的公開活動與倡議' },
-    { value: 'Event_sponsorships', text: 'Sponsors LGBTQ events', zh: '公司曾經贊助LGBTQ的活動' },
-    { value: 'NGO_sponsorships', text: 'Sponsors LGBTQ NGOs', zh: '公司曾經贊助LGBTQ的非牟利機構' },
-    { value: 'Advocacy', text: 'Company does public advocacy', zh: '公司有公開為LGBTQ社群發聲' }
-  ]
+  get communityOptions () {
+    let lang = this.$lang.formOptions
+    return [
+      { value: 'Allies', text: lang.allies },
+      { value: 'Inclusive culture', text: lang.inclusiveCulture },
+      { value: 'Comfortable calling out', text: lang.comfortableCallingOut },
+      { value: 'LGBTQ network', text: lang.lgbtqNetwork },
+      { value: 'D&I events', text: lang.dNIEvents }
+    ]
+  }
 
-  static formOptionsByLang (lang, options) {
-    let result = []
-    if (lang === 'en') {
-      result = options.map((x) => { return { value: x.value, text: x.text } })
-    }
-    if (lang === 'zh-cn') {
-      result = options.map((x) => { return { value: x.value, text: x.zh } })
-    }
-    return result
+  get sponsorshipOptions () {
+    let lang = this.$lang.formOptions
+    return [
+      { value: 'Public events', text: lang.publicEvents },
+      { value: 'Event sponsorships', text: lang.eventSponsorships },
+      { value: 'NGO sponsorships', text: lang.ngoSponsorships },
+      { value: 'Advocacy', text: lang.advocacy }
+    ]
   }
 }
 
