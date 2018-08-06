@@ -250,7 +250,6 @@ export default {
   },
 
   computed: {
-
     identifyOptions () {
       const translatedForm = new FormOptions(this.$lang)
       return translatedForm.identifyOptions
@@ -300,7 +299,6 @@ export default {
       const translatedForm = new FormOptions(this.$lang)
       return translatedForm.sponsorshipOptions
     }
-
   },
   mounted: function () {},
   methods: {

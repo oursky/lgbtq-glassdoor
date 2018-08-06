@@ -199,8 +199,8 @@ class FormOptions {
   get visibilityOptions () {
     let lang = this.$lang.formOptions
     return [
-      { value: 'LGB colleagues', text: lang.lgbColleagues },
-      { value: 'Trans, genderqueer colleagues', text: lang.transGenderqueerColleagues },
+      { value: 'LGB_colleagues', text: lang.lgbColleagues },
+      { value: 'Trans,_genderqueer_colleagues', text: lang.transGenderqueerColleagues },
       { value: 'Allies', text: lang.strongAndVocalAllies }
     ]
   }
@@ -208,28 +208,28 @@ class FormOptions {
   get benefitsOptions () {
     let lang = this.$lang.formOptions
     return [
-      { value: 'Same-sex benefits', text: lang.sameSexBenefits },
-      { value: 'Rainbow families', text: lang.rainbowFamilySupport },
-      { value: 'Trans benefits', text: lang.transBenefits_transitionSupport },
-      { value: 'Informal Benefits', text: lang.informalBenefits }
+      { value: 'Same-sex_benefits', text: lang.sameSexBenefits },
+      { value: 'Rainbow_families', text: lang.rainbowFamilySupport },
+      { value: 'Trans_benefits', text: lang.transBenefits_transitionSupport },
+      { value: 'Informal_Benefits', text: lang.informalBenefits }
     ]
   }
 
   get policiesOptions () {
     let lang = this.$lang.formOptions
     return [
-      { value: 'Generic non-discrimination', text: lang.generic_nonDiscrimination },
-      { value: 'Same-sex policies', text: lang.sameSexPolicies },
-      { value: 'Trans policies', text: lang.transPolicies },
-      { value: 'Informal policies', text: lang.informalPolicies },
-      { value: 'Unenforced policies', text: lang.unenforcedPolicies }
+      { value: 'Generic_non-discrimination', text: lang.generic_nonDiscrimination },
+      { value: 'Same-sex_policies', text: lang.sameSexPolicies },
+      { value: 'Trans_policies', text: lang.transPolicies },
+      { value: 'Informal_policies', text: lang.informalPolicies },
+      { value: 'Unenforced_policies', text: lang.unenforcedPolicies }
     ]
   }
 
   get spaceOptions () {
     let lang = this.$lang.formOptions
     return [
-      { value: 'Trans washrooms', text: lang.transWashrooms }
+      { value: 'Trans_washrooms', text: lang.transWashrooms }
     ]
   }
 
@@ -237,19 +237,19 @@ class FormOptions {
     let lang = this.$lang.formOptions
     return [
       { value: 'Allies', text: lang.allies },
-      { value: 'Inclusive culture', text: lang.inclusiveCulture },
-      { value: 'Comfortable calling out', text: lang.comfortableCallingOut },
-      { value: 'LGBTQ network', text: lang.lgbtqNetwork },
-      { value: 'D&I events', text: lang.dNIEvents }
+      { value: 'Inclusive_culture', text: lang.inclusiveCulture },
+      { value: 'Comfortable_calling_out', text: lang.comfortableCallingOut },
+      { value: 'LGBTQ_network', text: lang.lgbtqNetwork },
+      { value: 'D&I_events', text: lang.dNIEvents }
     ]
   }
 
   get sponsorshipOptions () {
     let lang = this.$lang.formOptions
     return [
-      { value: 'Public events', text: lang.publicEvents },
-      { value: 'Event sponsorships', text: lang.eventSponsorships },
-      { value: 'NGO sponsorships', text: lang.ngoSponsorships },
+      { value: 'Public_events', text: lang.publicEvents },
+      { value: 'Event_sponsorships', text: lang.eventSponsorships },
+      { value: 'NGO_sponsorships', text: lang.ngoSponsorships },
       { value: 'Advocacy', text: lang.advocacy }
     ]
   }

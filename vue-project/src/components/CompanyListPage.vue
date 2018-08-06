@@ -17,12 +17,12 @@
           <b-list-group-item>{{$lang.list.industry}}
             <b-button class="add-filter-button" variant="link" id="industryPopOver">+</b-button>
             <hr>
-            <div v-for="selectedFilter in currentFilters.industry" v-bind:key="selectedFilter" class="selectedFilter">{{selectedFilter}}</div>
+            <div v-for="selectedFilter in currentFilters.industry" v-bind:key="selectedFilter" class="selectedFilter" v-html="toIndustryText(selectedFilter)"></div>
             <b-popover target="industryPopOver" title="Industry" triggers="click blur">
               <b-form-checkbox-group id="industry" name="industry" v-model="currentFilters.industry">
-              <div v-for="industry in FormOptions.industryOptions" v-bind:key="industry.value">
+              <div v-for="industry in industryOptions" v-bind:key="industry.value">
                 <b-form-checkbox :value="industry.value">
-                  {{industry.value}}
+                  {{industry.text}}
                 </b-form-checkbox>
               </div>
               </b-form-checkbox-group>
@@ -32,12 +32,12 @@
             {{$lang.list.visibility}}
             <b-button class="add-filter-button" variant="link" id="visibilityPopOver">+</b-button>
             <hr>
-            <div v-for="selectedFilter in currentFilters.visibility" v-bind:key="selectedFilter" class="selectedFilter">{{selectedFilter}}</div>
+            <div v-for="selectedFilter in currentFilters.visibility" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('visibility', selectedFilter)"></div>
             <b-popover target="visibilityPopOver" title="Visibility" triggers="click blur">
               <b-form-checkbox-group id="visibility" name="visibility" v-model="currentFilters.visibility">
-                <div v-for="visibility in FormOptions.visibilityOptions" v-bind:key="visibility.value">
+                <div v-for="visibility in visibilityOptions" v-bind:key="visibility.value">
                   <b-form-checkbox :value="visibility.value">
-                    {{visibility.value}}
+                    {{visibility.text}}
                   </b-form-checkbox>
                 </div>
               </b-form-checkbox-group>
@@ -47,12 +47,12 @@
             {{$lang.list.policy}}
             <b-button class="add-filter-button" variant="link" id="policiesPopOver">+</b-button>
             <hr>
-            <div v-for="selectedFilter in currentFilters.policies" v-bind:key="selectedFilter" class="selectedFilter">{{selectedFilter}}</div>
+            <div v-for="selectedFilter in currentFilters.policies" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('policies', selectedFilter)"></div>
             <b-popover target="policiesPopOver" title="Non-Discrimination Policy" triggers="click blur">
               <b-form-checkbox-group id="policies" name="policies" v-model="currentFilters.policies">
-                <div v-for="policies in FormOptions.policiesOptions" v-bind:key="policies.value">
+                <div v-for="policies in policiesOptions" v-bind:key="policies.value">
                   <b-form-checkbox :value="policies.value">
-                    {{policies.value}}
+                    {{policies.text}}
                   </b-form-checkbox>
                 </div>
               </b-form-checkbox-group>
@@ -62,12 +62,12 @@
             {{$lang.list.size}}
             <b-button class="add-filter-button" variant="link" id="sizePopOver">+</b-button>
             <hr>
-            <div v-for="selectedFilter in currentFilters.companySize" v-bind:key="selectedFilter" class="selectedFilter">{{selectedFilter}}</div>
+            <div v-for="selectedFilter in currentFilters.companySize" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('companySize', selectedFilter)"></div>
             <b-popover target="sizePopOver" title="Campany Size" triggers="click blur">
               <b-form-checkbox-group id="companySize" name="companySize" v-model="currentFilters.companySize">
-                <div v-for="companySize in FormOptions.sizeOptions" v-bind:key="companySize.value">
+                <div v-for="companySize in sizeOptions" v-bind:key="companySize.value">
                   <b-form-checkbox :value="companySize.value">
-                    {{companySize.value}}
+                    {{companySize.text}}
                   </b-form-checkbox>
                 </div>
             </b-form-checkbox-group>
@@ -77,12 +77,12 @@
             {{$lang.list.sponsorship}}
             <b-button class="add-filter-button" variant="link" id="sponsorshipPopOver">+</b-button>
             <hr>
-            <div v-for="selectedFilter in currentFilters.sponsorship" v-bind:key="selectedFilter" class="selectedFilter">{{selectedFilter}}</div>
+            <div v-for="selectedFilter in currentFilters.sponsorship" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('sponsorship', selectedFilter)"></div>
             <b-popover target="sponsorshipPopOver" title="Public Sponsorship" triggers="click blur">
               <b-form-checkbox-group id="sponsorship" name="sponsorship" v-model="currentFilters.sponsorship">
-                <div v-for="sponsorship in FormOptions.sponsorshipOptions" v-bind:key="sponsorship.value">
+                <div v-for="sponsorship in sponsorshipOptions" v-bind:key="sponsorship.value">
                   <b-form-checkbox :value="sponsorship.value">
-                    {{sponsorship.value}}
+                    {{sponsorship.text}}
                   </b-form-checkbox>
                 </div>
               </b-form-checkbox-group>
@@ -92,12 +92,12 @@
             {{$lang.list.space}}
             <b-button class="add-filter-button" variant="link" id="spacePopOver">+</b-button>
             <hr>
-            <div v-for="selectedFilter in currentFilters.space" v-bind:key="selectedFilter" class="selectedFilter">{{selectedFilter}}</div>
+            <div v-for="selectedFilter in currentFilters.space" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('space', selectedFilter)"></div>
             <b-popover target="spacePopOver" title="Space" triggers="click blur">
               <b-form-checkbox-group id="space" name="space" v-model="currentFilters.space">
-                <div v-for="space in FormOptions.spaceOptions" v-bind:key="space.value">
+                <div v-for="space in spaceOptions" v-bind:key="space.value">
                   <b-form-checkbox :value="space.value">
-                    {{space.value}}
+                    {{space.text}}
                   </b-form-checkbox>
                 </div>
               </b-form-checkbox-group>
@@ -107,12 +107,12 @@
             {{$lang.list.benefits}}
             <b-button class="add-filter-button" variant="link" id="benefitsPopOver">+</b-button>
             <hr>
-            <div v-for="selectedFilter in currentFilters.benefits" v-bind:key="selectedFilter" class="selectedFilter">{{selectedFilter}}</div>
+            <div v-for="selectedFilter in currentFilters.benefits" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('benefits', selectedFilter)"></div>
             <b-popover target="benefitsPopOver" title="Support & Benefits" triggers="click blur">
               <b-form-checkbox-group id="benefits" name="benefits" v-model="currentFilters.benefits">
-                <div v-for="benefits in FormOptions.benefitsOptions" v-bind:key="benefits.value">
+                <div v-for="benefits in benefitsOptions" v-bind:key="benefits.value">
                   <b-form-checkbox :value="benefits.value">
-                    {{benefits.value}}
+                    {{benefits.text}}
                   </b-form-checkbox>
                 </div>
               </b-form-checkbox-group>
@@ -122,12 +122,12 @@
             {{$lang.list.community}}
             <b-button class="add-filter-button" variant="link" id="communityPopOver">+</b-button>
             <hr>
-            <div v-for="selectedFilter in currentFilters.community" v-bind:key="selectedFilter" class="selectedFilter">{{selectedFilter}}</div>
+            <div v-for="selectedFilter in currentFilters.community" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('community', selectedFilter)"></div>
             <b-popover target="communityPopOver" title="Community" triggers="click blur">
               <b-form-checkbox-group id="community" name="community" v-model="currentFilters.community">
-                <div v-for="community in FormOptions.communityOptions" v-bind:key="community.value">
+                <div v-for="community in communityOptions" v-bind:key="community.value">
                   <b-form-checkbox :value="community.value">
-                    {{community.value}}
+                    {{community.text}}
                   </b-form-checkbox>
                 </div>
               </b-form-checkbox-group>
@@ -151,7 +151,7 @@
                       class="company-card"
                       v-bind:key="company.name"
                   >
-                  <p>{{company.industry}}</p>
+                  <p>{{toIndustryText(company.industry)}}</p>
                   <p>👥 {{company.companySize || '-'}}</p>
 
                   <p><a :href="company.website" target="_blank" v-if="company.website" @click="openURL(company.website)">🌐 {{$lang.list.website}}</a></p>
@@ -228,6 +228,55 @@ export default {
     }
   },
   computed: {
+    identifyOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.identifyOptions
+    },
+
+    pronounOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.pronounOptions
+    },
+
+    industryOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.industryOptions
+    },
+
+    sizeOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.sizeOptions
+    },
+
+    visibilityOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.visibilityOptions
+    },
+
+    benefitsOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.benefitsOptions
+    },
+
+    policiesOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.policiesOptions
+    },
+
+    spaceOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.spaceOptions
+    },
+
+    communityOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.communityOptions
+    },
+
+    sponsorshipOptions () {
+      const translatedForm = new FormOptions(this.$lang)
+      return translatedForm.sponsorshipOptions
+    },
     searchHint: function () {
       return this.$lang.list.search_text
     },
@@ -319,8 +368,14 @@ export default {
       } catch (e) {
         // console.error(e)
       }
-
       return ''
+    },
+    toIndustryText: function (tagValue) {
+      let result = this.industryOptions.filter(function (item) {
+        return item.value === tagValue
+      })
+
+      return result.length > 0 ? result[0].text : ''
     },
     openURL: function (url) {
       window.open(url)

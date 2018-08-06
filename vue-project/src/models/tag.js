@@ -27,7 +27,7 @@ class Tag {
       'Allies': { en: 'Allies', zh: '有同志盟友' },
       'Inclusive_culture': { en: 'Inclusive culture', zh: 'Inclusive culture' },
       'Comfortable_calling_out': { en: 'Comfortable calling out', zh: 'Inclusive culture' },
-      'LGBTQ_network': { en: 'LGBTQ network', zh: '公司有社群' },
+      'LGBTQ_network': { en: 'LGBTQ network', zh: '公司有LGBTQ社群' },
       'D&I_events': { en: 'D&I events', zh: 'D&I 活動' }
     },
     sponsorship: {
