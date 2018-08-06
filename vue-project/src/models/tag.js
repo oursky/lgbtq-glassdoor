@@ -35,6 +35,16 @@ class Tag {
       'Event_sponsorships': { en: 'Event sponsorships', zh: '贊助活動' },
       'NGO_sponsorships': { en: 'NGO sponsorships', zh: '贊助NGO' },
       'Advocacy': { en: 'Advocacy', zh: '為LGBTQ社群發聲' }
+    },
+    companySize: {
+      '0-5': { en: '0-5', zh: '0-5' },
+      '6-10': { en: '6-10', zh: '6-10' },
+      '11-20': { en: '11-20', zh: '11-20' },
+      '21-50': { en: '21-50', zh: '21-50' },
+      '51-100': { en: '51-100', zh: '51-100' },
+      '101-200': { en: '101-200', zh: '101-200' },
+      '201-500': { en: '201-500', zh: '201-500' },
+      '500+': { en: '500+', zh: '500+' }
     }
   }
 

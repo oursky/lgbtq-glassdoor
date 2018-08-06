@@ -115,7 +115,7 @@ export default {
       })
 
       return result.length > 0 ? result[0].text : ''
-    },
+    }
   }
 }
 </script>
