@@ -65,7 +65,7 @@
 <script>
 
 import Company from '../models/company'
-import FormOptions from '../form-options'
+import FormOptions from '../models/form-options'
 import Tag from '../models/tag'
 
 export default {

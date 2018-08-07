@@ -235,7 +235,7 @@
 </template>
 
 <script>
-import FormOptions from '../form-options'
+import FormOptions from '../models/form-options'
 import Company from '../models/company'
 import Contributor from '../models/contributor'
 
