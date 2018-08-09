@@ -2,7 +2,7 @@
   <b-container class="full" fluid>
     <b-row>
       <b-col cols="12" class="search-bar" :v-show="search">
-        <b-form-input size="sm" class="mr-sm-2 search" type="text" :placeholder="searchHint" v-model="searchText" v-on:input="searchHandler" id="search" ref="search"/>
+        <b-form-input size="sm" class="mr-sm-2 search" type="text" :placeholder="searchHint" v-model="searchQuery" v-on:input="searchHandler" id="search" ref="search"/>
           <b-tooltip target="search" placement="bottom">
             {{$lang.list.search_hint}}
           </b-tooltip>
@@ -17,9 +17,9 @@
           <b-list-group-item>{{$lang.list.industry}}
             <b-button class="add-filter-button" variant="link" id="industryPopOver">+</b-button>
             <hr>
-            <div v-for="selectedFilter in currentFilters.industry" v-bind:key="selectedFilter" class="selectedFilter" v-html="toIndustryText(selectedFilter)"></div>
+            <div v-for="selectedFilter in industryFilters" v-bind:key="selectedFilter" class="selectedFilter" v-html="toIndustryText(selectedFilter)"></div>
             <b-popover target="industryPopOver" title="Industry" triggers="click blur">
-              <b-form-checkbox-group id="industry" name="industry" v-model="currentFilters.industry">
+              <b-form-checkbox-group id="industry" name="industry" v-model="industryFilters">
               <div v-for="industry in industryOptions" v-bind:key="industry.value">
                 <b-form-checkbox :value="industry.value">
                   {{industry.text}}
@@ -32,9 +32,9 @@
             {{$lang.list.visibility}}
             <b-button class="add-filter-button" variant="link" id="visibilityPopOver">+</b-button>
             <hr>
-            <div v-for="selectedFilter in currentFilters.visibility" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('visibility', selectedFilter)"></div>
+            <div v-for="selectedFilter in visibilityFilters" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('visibility', selectedFilter)"></div>
             <b-popover target="visibilityPopOver" title="Visibility" triggers="click blur">
-              <b-form-checkbox-group id="visibility" name="visibility" v-model="currentFilters.visibility">
+              <b-form-checkbox-group id="visibility" name="visibility" v-model="visibilityFilters">
                 <div v-for="visibility in visibilityOptions" v-bind:key="visibility.value">
                   <b-form-checkbox :value="visibility.value">
                     {{visibility.text}}
@@ -47,9 +47,9 @@
             {{$lang.list.policy}}
             <b-button class="add-filter-button" variant="link" id="policiesPopOver">+</b-button>
             <hr>
-            <div v-for="selectedFilter in currentFilters.policies" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('policies', selectedFilter)"></div>
+            <div v-for="selectedFilter in policiesFilters" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('policies', selectedFilter)"></div>
             <b-popover target="policiesPopOver" title="Non-Discrimination Policy" triggers="click blur">
-              <b-form-checkbox-group id="policies" name="policies" v-model="currentFilters.policies">
+              <b-form-checkbox-group id="policies" name="policies" v-model="policiesFilters">
                 <div v-for="policies in policiesOptions" v-bind:key="policies.value">
                   <b-form-checkbox :value="policies.value">
                     {{policies.text}}
@@ -62,9 +62,9 @@
             {{$lang.list.size}}
             <b-button class="add-filter-button" variant="link" id="sizePopOver">+</b-button>
             <hr>
-            <div v-for="selectedFilter in currentFilters.companySize" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('companySize', selectedFilter)"></div>
+            <div v-for="selectedFilter in companySizeFilters" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('companySize', selectedFilter)"></div>
             <b-popover target="sizePopOver" title="Campany Size" triggers="click blur">
-              <b-form-checkbox-group id="companySize" name="companySize" v-model="currentFilters.companySize">
+              <b-form-checkbox-group id="companySize" name="companySize" v-model="companySizeFilters">
                 <div v-for="companySize in sizeOptions" v-bind:key="companySize.value">
                   <b-form-checkbox :value="companySize.value">
                     {{companySize.text}}
@@ -77,9 +77,9 @@
             {{$lang.list.sponsorship}}
             <b-button class="add-filter-button" variant="link" id="sponsorshipPopOver">+</b-button>
             <hr>
-            <div v-for="selectedFilter in currentFilters.sponsorship" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('sponsorship', selectedFilter)"></div>
+            <div v-for="selectedFilter in sponsorshipFilters" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('sponsorship', selectedFilter)"></div>
             <b-popover target="sponsorshipPopOver" title="Public Sponsorship" triggers="click blur">
-              <b-form-checkbox-group id="sponsorship" name="sponsorship" v-model="currentFilters.sponsorship">
+              <b-form-checkbox-group id="sponsorship" name="sponsorship" v-model="sponsorshipFilters">
                 <div v-for="sponsorship in sponsorshipOptions" v-bind:key="sponsorship.value">
                   <b-form-checkbox :value="sponsorship.value">
                     {{sponsorship.text}}
@@ -92,9 +92,9 @@
             {{$lang.list.space}}
             <b-button class="add-filter-button" variant="link" id="spacePopOver">+</b-button>
             <hr>
-            <div v-for="selectedFilter in currentFilters.space" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('space', selectedFilter)"></div>
+            <div v-for="selectedFilter in spaceFilters" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('space', selectedFilter)"></div>
             <b-popover target="spacePopOver" title="Space" triggers="click blur">
-              <b-form-checkbox-group id="space" name="space" v-model="currentFilters.space">
+              <b-form-checkbox-group id="space" name="space" v-model="spaceFilters">
                 <div v-for="space in spaceOptions" v-bind:key="space.value">
                   <b-form-checkbox :value="space.value">
                     {{space.text}}
@@ -107,9 +107,9 @@
             {{$lang.list.benefits}}
             <b-button class="add-filter-button" variant="link" id="benefitsPopOver">+</b-button>
             <hr>
-            <div v-for="selectedFilter in currentFilters.benefits" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('benefits', selectedFilter)"></div>
+            <div v-for="selectedFilter in benefitsFilters" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('benefits', selectedFilter)"></div>
             <b-popover target="benefitsPopOver" title="Support & Benefits" triggers="click blur">
-              <b-form-checkbox-group id="benefits" name="benefits" v-model="currentFilters.benefits">
+              <b-form-checkbox-group id="benefits" name="benefits" v-model="benefitsFilters">
                 <div v-for="benefits in benefitsOptions" v-bind:key="benefits.value">
                   <b-form-checkbox :value="benefits.value">
                     {{benefits.text}}
@@ -122,9 +122,9 @@
             {{$lang.list.community}}
             <b-button class="add-filter-button" variant="link" id="communityPopOver">+</b-button>
             <hr>
-            <div v-for="selectedFilter in currentFilters.community" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('community', selectedFilter)"></div>
+            <div v-for="selectedFilter in communityFilters" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('community', selectedFilter)"></div>
             <b-popover target="communityPopOver" title="Community" triggers="click blur">
-              <b-form-checkbox-group id="community" name="community" v-model="currentFilters.community">
+              <b-form-checkbox-group id="community" name="community" v-model="communityFilters">
                 <div v-for="community in communityOptions" v-bind:key="community.value">
                   <b-form-checkbox :value="community.value">
                     {{community.text}}
@@ -146,7 +146,7 @@
         <h4>🌈 {{$lang.list.all_listings}}</h4>
         <b-card-group deck>
             <template v-for="company in this.filteredCompanies">
-              <b-link :to="'detail/'+company.name" v-bind:key="company.id">
+              <b-link :to="'/detail/'+company.name" v-bind:key="company.id">
               <b-card :title="company.name"
                       class="company-card"
                       v-bind:key="company.name"
@@ -158,7 +158,7 @@
                   <p><a :href="company.linkedin" target="_blank" v-if="company.linkedin" @click="openURL(company.linkedin)">🔗 {{$lang.list.linkedin}}</a></p>
                   <!-- Tags -->
                   <template v-for="visibilityTag in company.visibility">
-                    <b-link :to="{name:'tag', params: { cat: 'visibility', tag: visibilityTag }}" v-bind:key="company.name+'visibilityTag'+visibilityTag">
+                    <b-link :to="{name:'tag', params: { cat: 'visibility', tag: visibilityTag }}" v-bind:key="company.name+'visibilityTag'+visibilityTag" exact>
                       <span class="badge badge-pill badge-secondary" v-html="tagToText('visibility', visibilityTag)"></span>
                     </b-link>
                   </template>
@@ -205,7 +205,6 @@
         </div>
       </b-col>
     </b-row>
-
   </b-container>
 </template>
 
@@ -216,12 +215,22 @@ import FormOptions from '../models/form-options'
 import Tag from '../models/tag'
 
 export default {
-  props: ['search', 'searchText', 'tag', 'cat'],
+  props: ['search', 'searchText'],
   components: {},
   data () {
     return {
+      cat: this.$route.params.cat,
+      tag: this.$route.params.tag,
+      searchQuery: '',
       companies: Company.allCompanies,
-      currentFilters: [],
+      industryFilters: [],
+      visibilityFilters: [],
+      policiesFilters: [],
+      companySizeFilters: [],
+      sponsorshipFilters: [],
+      spaceFilters: [],
+      benefitsFilters: [],
+      communityFilters: [],
       FormOptions: FormOptions,
       allTags: Tag.fetchAllTags(),
       show: false
@@ -280,11 +289,22 @@ export default {
     searchHint: function () {
       return this.$lang.list.search_text
     },
-    filteredCompanies: function (currentFilters, matchedCompanies) {
+    filteredCompanies: function () {
       let result = this.matchedCompanies.filter(company => {
-        for (let key in this.currentFilters) {
+        let currentFilters = {
+          industry: this.industryFilters,
+          visibility: this.visibilityFilters,
+          policies: this.policiesFilters,
+          companySize: this.companySizeFilters,
+          sponsorship: this.sponsorshipFilters,
+          space: this.spaceFilters,
+          benefits: this.benefitsFilters,
+          community: this.communityFilters
+        }
+
+        for (let key in currentFilters) {
           let companyTag = company[key]
-          let tagsRequired = this.currentFilters[key]
+          let tagsRequired = currentFilters[key]
 
           if (!tagsRequired || tagsRequired.length === 0) { continue } // skip if no tag is required
           if (!companyTag) {
@@ -305,7 +325,7 @@ export default {
     matchedCompanies: {
       get: function (companies) {
         return this.companies.filter(company => {
-          let query = this.searchText
+          let query = this.searchQuery
           let result = company.name.match(new RegExp('[^,]*' + query + '[^,]*', 'ig'))
           return result
         })
@@ -314,44 +334,89 @@ export default {
       }
     }
   },
+  beforeRouteUpdate (to, next) {
+    this.cat = to.params.cat
+    this.tag = to.params.tag
+
+    if (this.cat && this.tag) {
+      this.addFilter(this.cat, this.tag)
+      window.history.pushState(null, '', '#/tag/' + this.cat + '/' + this.tag)
+    }
+  },
   mounted: function () {
     // load Companies
     this.loadRemoteCompanies()
-    // Company.fetchAllCompanies()
+
+    console.log('mounted')
 
     if (this.search) {
       this.$refs.search.focus()
     }
 
-    // console.log(this.cat)
-    // console.log(this.tag)
+    this.searchQuery = this.searchText ? this.searchText : ''
 
     if (this.cat && this.tag) {
+      console.log('add tag')
       this.addFilter(this.cat, this.tag)
     }
   },
   methods: {
     addFilter: function (cat, tag) {
-      this.currentFilters[cat] = [tag]
+      this.clear()
+      switch (cat) {
+        case 'industry':
+          this.industryFilters.push(tag)
+          break
+        case 'visibility':
+          this.visibilityFilters.push(tag)
+          break
+        case 'benefits':
+          this.benefitsFilters.push(tag)
+          break
+        case 'policies':
+          this.policiesFilters.push(tag)
+          break
+        case 'space':
+          this.spaceFilters.push(tag)
+          break
+        case 'community':
+          this.communityFilters.push(tag)
+          break
+        case 'sponsorship':
+          this.sponsorshipFilters.push(tag)
+          break
+        case 'companySize':
+          this.companySizeFilters.push(tag)
+          break
+        default:
+          console.log('no match Category')
+      }
     },
     clear: function () {
-      this.currentFilters = []
+      this.industryFilters = []
+      this.visibilityFilters = []
+      this.policiesFilters = []
+      this.companySizeFilters = []
+      this.sponsorshipFilters = []
+      this.spaceFilters = []
+      this.benefitsFilters = []
+      this.communityFilters = []
     },
     loadRemoteCompanies: function () {
       Company.fetchAllCompanies().then((resultCompanies) => {
         this.companies = resultCompanies
-        // this.searchHandler()
+        this.searchHandler()
       }, (error) => {
         console.error(error)
       })
     },
     searchHandler: function () {
       this.matchedCompanies = this.companies.filter(company => {
-        let query = this.searchText
+        let query = this.searchQuery
         let result = company.name.match(new RegExp('[^,]*' + query + '[^,]*', 'ig'))
         return result
       })
-      window.history.pushState(null, '', '#/search/' + this.searchText)
+      window.history.pushState(null, '', '#/search/' + this.searchQuery)
     },
     tagToText: function (cat, tagValue) {
       try {

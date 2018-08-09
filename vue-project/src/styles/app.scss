@@ -164,6 +164,10 @@ nav {
             margin-bottom: 4px;
             margin-right: 4px;
             cursor: pointer;
+
+            &:hover {
+              box-shadow: inset 0px 0px 100px rgba(255,255,255,0.2);
+            }
         }
     }
 
@@ -281,6 +285,19 @@ nav {
         @media screen and (max-width: 600px) {
             width: 100%;
             max-width: 100%;
+        }
+
+        .badge {
+            font-size: 11px;
+            font-weight: 200;
+            padding: 4px 10px;
+            margin-bottom: 4px;
+            margin-right: 4px;
+            cursor: pointer;
+
+            &:hover {
+              box-shadow: inset 0px 0px 100px rgba(255,255,255,0.2);
+            }
         }
     }
 
@@ -421,6 +438,19 @@ nav {
     }
     .industry {
         color: #444444;
+    }
+
+    .badge {
+        font-size: 11px;
+        font-weight: 200;
+        padding: 4px 10px;
+        margin-bottom: 4px;
+        margin-right: 4px;
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: inset 0px 0px 100px rgba(255,255,255,0.2);
+        }
     }
 
     h4 {

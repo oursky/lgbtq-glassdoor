@@ -74,7 +74,6 @@ skygear.config({
   // Check if auth is valid
 
   skygear.auth.whoami().then((me) => {
-    console.log('ok on whoami()')
   }).catch((error) => {
     if (error) {
       skygear.auth.logout().then(() => {
