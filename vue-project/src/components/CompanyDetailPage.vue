@@ -46,7 +46,7 @@
       </template>
 
       <h4>💬 {{$lang.detail.comments}}</h4>
-      <b-card-group deck v-if="company.thoughts">
+      <b-card-group deck v-if="company.thoughts" class="thoughts-container">
         <b-card class="company-card" v-bind:key="company.name">
           <p><pre>{{company.thoughts}}</pre></p>
           <p><small class="text-muted" v-if="company.createdAt">{{$lang.detail.posted_on}} {{company.createdAt.toLocaleDateString()}}</small></p>
