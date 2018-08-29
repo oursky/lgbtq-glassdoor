@@ -21,6 +21,7 @@ import LandingPage from './components/LandingPage'
 import CompanyDetailPage from './components/CompanyDetailPage'
 import CompanyListPage from './components/CompanyListPage'
 import AddCompanyPage from './components/AddCompanyPage'
+import AboutPage from './components/AboutPage'
 
 // Notice that you need to specify the lang folder, in this case './lang'
 const Lang = require('vuejs-localization')
@@ -105,6 +106,10 @@ const routes = [
   { name: 'subscribe',
     path: '/subscribe',
     component: AddCompanyPage
+  },
+  { name: 'about',
+    path: '/about',
+    component: AboutPage
   },
   { name: 'home',
     path: '/',

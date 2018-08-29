@@ -421,6 +421,11 @@ nav {
             text-align: center;
         }
     }
+
+    .company-matched-hint {
+      font-size: 12px;
+      color: #2ecc71;
+    }
 }
 
 
@@ -478,6 +483,17 @@ nav {
 
 .last-row {
     height: 100px;
+}
+
+
+.about-container {
+    margin-top: 40px;
+
+    h1 {
+        font-size: 24px;
+        margin: 10px auto;
+        font-weight: 600;
+    }
 }
 
 /* Footer */
@@ -1200,5 +1216,17 @@ nav {
 .color-text-flow-hover:hover span:nth-of-type(100) {
   -webkit-animation-delay: 0s;
           animation-delay: 0s;
+}
+
+.v-autocomplete-list {
+  z-index: 200;
+  background: #fff;
+  width: 100%;
+
+  .v-autocomplete-list-item {
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-top: 0;
+  }
 }
 

@@ -1,7 +1,6 @@
 <template>
     <footer class="page-footer">
-        <div>{{$lang.default.footer_text}} <a href="https://skygear.io" target="_blank">Skygear</a></div>
-        <div>Share with love Facebook | Twitter | linked in | Whatsapp</div>
+        <div>{{$lang.default.footer_text}} <a href="https://skygear.io" target="_blank">Skygear</a> | <b-link :to="{name:'about'}">{{$lang.default.footer_about_us}}</b-link></div>
   </footer>
 </template>
 

@@ -53,6 +53,8 @@ import CompanyDetailPage from './components/CompanyDetailPage'
 import FooterSection from './components/Footer'
 import CtaComponent from './components/CtaComponent'
 
+import config from './config'
+
 function skygearSignUp () {
   if (!skygear.auth.currentUser) {
     skygear.auth.signupAnonymously().then((user) => {
@@ -65,8 +67,8 @@ function skygearSignUp () {
 }
 
 skygear.config({
-  'endPoint': 'https://lgbtq.skygeario.com/',
-  'apiKey': '48c5c34bd6b6437685b7d1a09f3978cd'
+  'endPoint': config.SKYGEAR_ENDPOINT,
+  'apiKey': config.SKYGEAR_APIKEY
 }).then((skygear) => {
   console.log('skygear container is now ready for making API calls.')
   console.log(skygear.auth.currentUser)
