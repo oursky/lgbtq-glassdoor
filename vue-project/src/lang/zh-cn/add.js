@@ -7,7 +7,7 @@ module.exports = {
   next: '下一步',
   submit: '提交',
   select_all_apply: '請選擇所有適用的答案:',
-  select_an_option: '請一個選擇適用的答案',
+  select_an_option: '請選擇一個適用的答案',
   add_company: '推薦你的公司',
   disclaimer: '開始前注意事項',
   disclaimer_line_1: 'LGBTQ Glassdoor是一個由香港公司Oursky所製作的開源項目。',
@@ -28,9 +28,10 @@ module.exports = {
   pronoun: '你的謂稱',
   company_information: '公司資料',
   company_information_text_1: '如果你的公司能夠為LGBTQ人士提供一個安全及友善的工作環境，歡迎將你的公司加到這個列表去。不論你的公司有多大有多少人，我們都很有興趣了解你的公司更多！',
-  company_information_text_2: '你的公司不一定要有多元性別友善的官方政策，更重要的是你與這間公司互動時的感受和經歷！',
+  company_information_text_2: '你推薦的公司不一定要有多元性別友善的官方政策，更重要的是你與這間公司互動時的感受和經歷！',
   company_name: '公司名字',
-  company_name_hint: '公司名字',
+  company_name_hint: '你推薦的公司名字',
+  company_matched_hint: ' 已經在名單上了。 您你的提議將與現有的記錄合併。',
   website: '公司網站',
   website_hint: '例: https://lgbtqglassdoor.com',
   linkedin: 'Linkedin 連結',
@@ -44,7 +45,7 @@ module.exports = {
   benefits_text: '你的公司有同志僱員福利和支援嗎？',
   spaces_text: '工作環境',
   community_text: '你的公司文化是多元包容的嗎？ / 你的公司有LGBTQ的社群嗎？',
-  sponsirship_text: '這間公司有公開支持LGBTQ的社群或為他們發聲嗎？',
+  sponsorship_text: '這間公司有公開支持LGBTQ的社群或為他們發聲嗎？',
   final_thoughts_text: '其他分享',
   final_thoughts_text_2: '關於這間公司你還有其他事情想分享嗎？寫在這裡讓我們知道吧！這是匿名回答，我們不會公開你的身份。',
   final_thoughts_hint: '',
@@ -55,5 +56,6 @@ module.exports = {
   success_message_text_3: '我們歡迎你推薦多於一間的公司！',
   success_message_text_4: '',
   success_message_text_5: '- Oursky團隊',
-  view_my_entry: '檢視我的回答'
+  view_my_entry: '檢視我的回答',
+  clear_prompt: '您確定要清除所有輸入？'
 }

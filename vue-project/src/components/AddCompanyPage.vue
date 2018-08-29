@@ -1,6 +1,6 @@
 <template>
   <div>
-  <b-form @submit="submit" @reset="clearFormData" ref="addCompanyForm">
+  <b-form @submit="submit" @keydown.enter.prevent="" @reset="clearFormData" ref="addCompanyForm">
   <b-container class="add-container">
     <b-row>
       <b-col>
@@ -10,7 +10,6 @@
        <hr>
 
        <div class="form-content">
-
           <div v-show="step === 'disclaimer'">
           <h4>{{$lang.add.disclaimer}}</h4>
 
@@ -81,14 +80,21 @@
         <!-- Step 2 -->
         <div v-show="step === '2'">
           <h4>{{$lang.add.company_information}}</h4>
-
           <p>{{$lang.add.company_information_text_1}}</p>
-
           <p>{{$lang.add.company_information_text_2}}</p>
+
+          <!-- <b-row class="my-1">
+            <b-col sm="6"><label :for="newCompany.name" required>{{$lang.add.company_name}} *</label></b-col>
+            <b-col sm="6"><b-form-input :id="newCompany.name" v-model="newCompany.name" type="text" :placeholder="$lang.add.company_name_hint" :required="step === '2'"></b-form-input></b-col>
+          </b-row> -->
 
           <b-row class="my-1">
             <b-col sm="6"><label :for="newCompany.name" required>{{$lang.add.company_name}} *</label></b-col>
-            <b-col sm="6"><b-form-input :id="newCompany.name" v-model="newCompany.name" type="text" :placeholder="$lang.add.company_name_hint" :required="step === '2'"></b-form-input></b-col>
+            <b-col sm="6">
+            <v-autocomplete :items="companyAutoCompleteItems" v-model="companyAutoCompleteItem" :get-label="getLabel" :component-item='template' @update-items="updateItems"  @item-selected="itemSelected" @change="companyFieldBlur" @item-clicked="itemClicked" :min-len='1' :auto-select-one-item='false' :id="newUserInfo.Company" :input-attrs="{'type': 'input', 'class': 'form-control', ':placeholder': '$lang.add.company_name_hint' }" :placeholder="$lang.add.company_name_hint"></v-autocomplete>
+
+            <span class="company-matched-hint" v-if="this.isCompanyMatched"> 💡{{newCompany.name}} {{$lang.add.company_matched_hint}}</span>
+            </b-col>
           </b-row>
           <b-row class="my-1">
             <b-col sm="6"><label :for="newCompany.website" required>{{$lang.add.website}}</label></b-col>
@@ -193,12 +199,12 @@
         <div v-show="step === '3'">
           <h4>{{$lang.add.company_information}}</h4>
           <b-row class="my-1">
-          <b-col sm="12"><label :for="newCompany.thoughts">{{$lang.add.final_thoughts_text}}</label>
+          <b-col sm="12"><label :for="newThoughts">{{$lang.add.final_thoughts_text}}</label>
             <p>{{$lang.add.final_thoughts_text_2}}</p>
           </b-col>
             <b-col sm="12">
-              <b-form-textarea :id="newCompany.thoughts"
-                         v-model="newCompany.thoughts"
+              <b-form-textarea :id="newThoughts"
+                         v-model="newThoughts"
                          :placeholder="$lang.add.final_thoughts_hint"
                          :rows="7"
                          :max-rows="20">
@@ -238,17 +244,22 @@
 import FormOptions from '../models/form-options'
 import Company from '../models/company'
 import Contributor from '../models/contributor'
+import Autocomplete from 'v-autocomplete'
+import ItemTemplate from './ItemTemplate.vue'
 
 export default {
-  components: {},
+  components: {'v-autocomplete': Autocomplete},
   data () {
     return {
       step: 'disclaimer',
-      newCompany: new Company(),
-      newUserInfo: new Contributor()
+      defaultNewCompany: new Company(),
+      newUserInfo: new Contributor(),
+      companyAutoCompleteItem: null,
+      companyAutoCompleteItems: [],
+      template: ItemTemplate,
+      newThoughts: ''
     }
   },
-
   computed: {
     identifyOptions () {
       const translatedForm = new FormOptions(this.$lang)
@@ -298,10 +309,46 @@ export default {
     sponsorshipOptions () {
       const translatedForm = new FormOptions(this.$lang)
       return translatedForm.sponsorshipOptions
+    },
+
+    isCompanyMatched () {
+      return !!(this.companyAutoCompleteItem)
+    },
+
+    newCompany () {
+      return this.companyAutoCompleteItem ? this.companyAutoCompleteItem : this.defaultNewCompany
     }
   },
-  mounted: function () {},
+  mounted: function () {
+    Company.fetchAllCompanies().then(companies => {
+      this.companyAutoCompleteItems = companies
+    })
+  },
   methods: {
+    getLabel (item) {
+      if (item) {
+        return item.name
+      }
+      return ''
+    },
+    updateItems (text) {
+      console.log('text: ' + text)
+      console.log(Company.allCompanies)
+      this.companyAutoCompleteItems = Company.allCompanies.filter((item) => {
+        return (new RegExp(text.toLowerCase())).test(item.name.toLowerCase())
+      })
+    },
+    itemSelected (item) {
+      console.log('Selected item!', item)
+    },
+    itemClicked (item) {
+      console.log('You clicked an item!', item)
+    },
+    companyFieldBlur (text) {
+      console.log(text)
+      console.log(this.companyAutoCompleteItem)
+      this.defaultNewCompany.name = text
+    },
     step1: function () {
       this.step = '1'
       console.log(this.newCompany)
@@ -331,21 +378,28 @@ export default {
           this.step = 'success'
         }
         this.newUserInfo.save().then((user) => {
-          this.newCompany.referenceAuthor(user)
-          this.newCompany.live = true // default will show on the list
-          this.newCompany.save()
+          let toSaveCompany = this.newCompany
+          if (this.newCompany instanceof Company !== true) {
+            toSaveCompany = new Company(this.newCompany)
+          }
+
+          toSaveCompany.referenceAuthor(user)
+          toSaveCompany.thoughts = this.newThoughts
+          toSaveCompany.live = true // default will show on the list
+          toSaveCompany.save()
         }, (error) => {
           console.error(error)
         })
       }
     },
     restart: function () {
-      if (confirm('Are you sure to clear all input and restart?') === true) {
+      if (confirm(this.$lang.add.clear_prompt) === true) {
         this.step = 'disclaimer'
       }
     },
     clearFormData: function () {
-      this.newCompany = new Company()
+      this.defaultNewCompany = Company()
+      this.item = null
       this.newUserInfo = new Contributor()
     },
     validate: function () {

@@ -17,25 +17,21 @@ class Company {
     this.sponsorship = []
     this.thoughts = ''
     this.submittedBy = null
+
+    for (let key in options) {
+      if (this.hasOwnProperty(key)) {
+        this[key] = options[key]
+      }
+    }
   }
 
   static fetchAllCompanies () {
     console.log('fetching....')
     return new Promise((resolve, reject) => {
-      const SkygearCompany = skygear.Record.extend('company')
-      const query = new skygear.Query(SkygearCompany)
-      query.limit = 999
-      query.overallCount = true
-      query.equalTo('live', true)
-
-      const successCallback = (companies) => {
+      skygear.lambda('fetch_all_listings').then(companies => {
         console.log('The result is a live one')
-        this.allCompanies = Array.from(companies)
-        resolve(this.allCompanies)
-      }
-
-      skygear.publicDB.query(query).then(successCallback, (error) => {
-        reject(error)
+        Company.allCompanies = Array.from(companies)
+        resolve(Company.allCompanies)
       })
     })
   }

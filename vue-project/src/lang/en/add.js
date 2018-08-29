@@ -21,7 +21,7 @@ module.exports = {
   name: 'Name',
   firstname: 'First Name',
   lastname: 'Last Name',
-  company: 'Company',
+  company: 'My Company',
   role: 'Role',
   email: 'E-mail',
   how_do_you_identify: 'How do you Identify?',
@@ -30,7 +30,8 @@ module.exports = {
   company_information_text_1: 'Please add your company to this directory if you would recommend it as a safe and supportive environment for LGBTQ friends. Whether your company has 2 or 2000 people, we\'d love to learn about it.',
   company_information_text_2: 'Your company does not need to have formal policies and instead we encourage individuals to make recommendations based on their personal, positive experiences.',
   company_name: 'Company Name',
-  company_name_hint: 'Name of the Company',
+  company_name_hint: 'Name of the recommended Company',
+  company_matched_hint: ' is already on the list. You input will merge with the existing record.',
   website: 'Website',
   website_hint: 'e.g. https://lgbtqglassdoor.com',
   linkedin: 'Linkedin URL',
@@ -44,7 +45,7 @@ module.exports = {
   benefits_text: 'Does your company have support & benefits?',
   spaces_text: 'Does your company have inclusive spaces?',
   community_text: 'Does your company have an inclusive culture / LGBTQ community?',
-  sponsirship_text: 'Does the company have public initiatives?',
+  sponsorship_text: 'Does the company have public initiatives?',
   final_thoughts_text: 'Final thoughts / other positive LGBTQ company initiatives or culture',
   final_thoughts_text_2: 'Is there something we\'ve missed that you love? Share it here! Your comments will be anonymous on the company directory.',
   final_thoughts_hint: '',
@@ -55,5 +56,6 @@ module.exports = {
   success_message_text_3: 'We don\'t have a login yet, but you can recommend as many companies as you like!',
   success_message_text_4: 'Cheers!',
   success_message_text_5: '- Oursky Team',
-  view_my_entry: 'See my entry'
+  view_my_entry: 'See my entry',
+  clear_prompt: 'Are you sure to clear all input and restart?'
 }
