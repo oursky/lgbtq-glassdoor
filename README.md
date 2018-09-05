@@ -2,7 +2,12 @@
 
 ## https://LGBTQglassdoor.com
 
-LGBTQ Glassdoor aims to help LGBTQ individuals share and find supportive work environments. LGBTQ individuals & allies can add inclusive companies even if they may not yet have official policies.
+The LGBTQ Glassdoor is a side project developed by Oursky (https://oursky.com/), a software development agency with offices in Hong Kong and Taiwan. The LGBTQ Glassdoor aims to help LGBTQ individuals find inclusive workplaces in Hong Kong. The listings on the website are submitted by individuals, LGBTQ-identified and allies, who feel an organization (a company, NGO, or public agency) is LGBTQ-friendly.
+
+The LGBTQ Glassdoor is an opensource directory created with Oursky's opensource backend, Skygear (https://skygear.io/). Anyone who would like to create a similar directory in their city or country can clone the LGBTQ Glassdoor repo. If you do, let us know!
+
+You can also follow us on Facebook (https://facebook.com/lgbtqglassdoor) and Twitter (https://twitter.com/lgbtqglassdoor).
+
 
 ## Technology
 
@@ -40,7 +45,7 @@ The exported build will be at `/dist`, which can be deployed using [`skygear cli
 
 ## Table Schema
 * Contributor
-* company
+* Company
 
 ## CMS
 
