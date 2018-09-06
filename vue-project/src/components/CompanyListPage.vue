@@ -63,7 +63,7 @@
             <b-button class="add-filter-button" variant="link" id="sizePopOver">+</b-button>
             <hr>
             <div v-for="selectedFilter in companySizeFilters" v-bind:key="selectedFilter" class="selectedFilter" v-html="tagToText('companySize', selectedFilter)"></div>
-            <b-popover target="sizePopOver" title="Campany Size" triggers="click blur">
+            <b-popover target="sizePopOver" title="Company Size" triggers="click blur">
               <b-form-checkbox-group id="companySize" name="companySize" v-model="companySizeFilters">
                 <div v-for="companySize in sizeOptions" v-bind:key="companySize.value">
                   <b-form-checkbox :value="companySize.value">
