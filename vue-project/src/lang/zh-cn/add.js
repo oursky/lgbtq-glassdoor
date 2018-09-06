@@ -31,7 +31,7 @@ module.exports = {
   company_information_text_2: '你推薦的公司不一定要有多元性別友善的官方政策，更重要的是你與這間公司互動時的感受和經歷！',
   company_name: '公司名字',
   company_name_hint: '你推薦的公司名字',
-  company_matched_hint: ' 已經在名單上了。 您你的提議將與現有的記錄合併。',
+  company_matched_hint: ' 已經在名單上了。 你的提議將與現有的記錄合併。',
   website: '公司網站',
   website_hint: '例: https://lgbtqglassdoor.com',
   linkedin: 'Linkedin 連結',

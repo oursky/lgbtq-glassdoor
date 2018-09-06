@@ -31,7 +31,7 @@ module.exports = {
   company_information_text_2: 'Your company does not need to have formal policies and instead we encourage individuals to make recommendations based on their personal, positive experiences.',
   company_name: 'Company Name',
   company_name_hint: 'Name of the recommended Company',
-  company_matched_hint: ' is already on the list. You input will merge with the existing record.',
+  company_matched_hint: ' is already on the list. Your input will merge with the existing record.',
   website: 'Website',
   website_hint: 'e.g. https://lgbtqglassdoor.com',
   linkedin: 'Linkedin URL',
