@@ -376,20 +376,21 @@ export default {
       if (this.validate()) {
         if (confirm(this.$lang.add.confirm_submission_message) === true) {
           this.step = 'success'
-        }
-        this.newUserInfo.save().then((user) => {
-          let toSaveCompany = this.newCompany
-          if (this.newCompany instanceof Company !== true) {
-            toSaveCompany = new Company(this.newCompany)
-          }
 
-          toSaveCompany.referenceAuthor(user)
-          toSaveCompany.thoughts = this.newThoughts
-          toSaveCompany.live = true // default will show on the list
-          toSaveCompany.save()
-        }, (error) => {
-          console.error(error)
-        })
+          this.newUserInfo.save().then((user) => {
+            let toSaveCompany = this.newCompany
+            if (this.newCompany instanceof Company !== true) {
+              toSaveCompany = new Company(this.newCompany)
+            }
+
+            toSaveCompany.referenceAuthor(user)
+            toSaveCompany.thoughts = this.newThoughts
+            toSaveCompany.live = true // default will show on the list
+            toSaveCompany.save()
+          }, (error) => {
+            console.error(error)
+          })
+        }
       }
     },
     restart: function () {
