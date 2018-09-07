@@ -47,7 +47,7 @@
 
       <h4>💬 {{$lang.detail.comments}}</h4>
       <b-card-group deck v-if="company.thoughts.length > 0" class="thoughts-container">
-        <b-card class="company-card" v-bind:key="thought._created_at" v-for="thought in company.thoughts" v-if="thought.text">
+        <b-card class="company-card mb-3" v-bind:key="thought._created_at" v-for="thought in company.thoughts" v-if="thought.text">
           <p><pre>{{thought.text}}</pre></p>
           <p><small class="text-muted">{{$lang.detail.posted_on}} {{new Date(thought._created_at).toLocaleDateString()}}</small></p>
         </b-card>
