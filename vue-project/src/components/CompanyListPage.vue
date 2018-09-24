@@ -292,7 +292,7 @@ export default {
     filteredCompanies: function () {
       let result = this.matchedCompanies.filter(company => {
         let currentFilters = {
-          industry: this.industryFilters,
+          // industry: this.industryFilters, // Handle industry independently
           visibility: this.visibilityFilters,
           policies: this.policiesFilters,
           companySize: this.companySizeFilters,
@@ -320,6 +320,16 @@ export default {
         }
         return true
       })
+
+      // Match industry
+      result = result.filter(company => {
+        let industryFilters = this.industryFilters
+        if (industryFilters.length === 0 ) {
+          return true
+        }
+        return industryFilters.includes(company.industry)
+      })
+
       return result
     },
     matchedCompanies: {
