@@ -2,7 +2,7 @@
   <b-container class="about-container">
     <h1>▶️ Watch our video</h1>
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/lIhXzQyCniA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <p style="text-align: center"><iframe width="560" height="315" src="https://www.youtube.com/embed/sOOBM6kg9bg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 
     <h1>About us</h1>
 
@@ -29,6 +29,8 @@
     <p>In addition, we wanted LGBTQ individuals to find relevant information for their needs. For example, trans colleagues may want to find offices with gender-neutral washrooms while a same-sex couple may want to find a company with same-sex partner benefits.</p>
 
     <hr>
+
+    <p style="text-align: center"><iframe width="560" height="315" src="https://www.youtube.com/embed/ywsGjSsQYJA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 
     <h1>關於</h1>
 

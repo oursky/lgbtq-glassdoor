@@ -15,13 +15,10 @@
 
     <p>All submissions are made anonymously. You will be asked to fill out personal information in case we need to contact you to verify information. None of your personal information will be released publicly.</p>
 
-    <p>Below is a screenshot of the company listings.</p>
+    <h4>▶️ Watch how it works</h4>
 
-    <p><b-img src="../assets/how-it-works-1.png" fluid alt="screenshot of LGBTQglassdoor company listings" /></p>
-
-    <p>You can also click into companies to see if anyone has left additional comments.</p>
-
-    <p><b-img src="../assets/how-it-works-2.png" fluid alt="feedback and comment on a LGBTQglassdoor company" /></p>
+    <p style="text-align: center"><iframe width="560" height="315" src="https://www.youtube.com/embed/sUlGy-z82Mw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </p>
 
     <b>Who is this for?</b>
     <p>This directory is for LGBTQ (lesbian, gay, bi, trans, queer) individuals in Hong Kong to find inclusive workplaces that fit their personal needs.</p>
