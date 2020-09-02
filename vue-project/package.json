@@ -12,7 +12,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "bootstrap-vue": "^2.0.0-rc.10",
+    "bootstrap-vue": "^2.0.0-rc.12",
     "chart.js": "^2.7.2",
     "skygear": "^1.6.0",
     "v-autocomplete": "^1.8.2",
