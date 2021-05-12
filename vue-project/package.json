@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.10",
-    "chart.js": "^2.7.2",
+    "chart.js": "^2.9.4",
     "skygear": "^1.6.0",
     "v-autocomplete": "^1.8.2",
     "vue": "^2.5.2",
